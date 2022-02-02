@@ -1,6 +1,10 @@
 import React from 'react';
+import { useState } from "react";
+import {useNavigate} from from "react-router-dom";
+import {loginUser} from from "../../services/apiConfig";
 
 export default function Login() {
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -11,7 +15,9 @@ export default function Login() {
 const handleSubmit = async (e)=>{
   e.preventDefault();
   try{
-    
+    const login = await loginUser(user)
+    //** ??????????????????????? */
+    navigate("/")
   }catch(error){
     setUser({
       isError: true,
