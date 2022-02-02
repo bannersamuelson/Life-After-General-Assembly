@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from "react";
-import {useNavigate} from from "react-router-dom";
-import {loginUser} from from "../../services/apiConfig";
+import {useNavigate} from "react-router-dom";
+import {loginUser} from "../../services/apiconfig";
+import classes from "./Login.module.css"
 
 export default function Login() {
   const navigate = useNavigate()
@@ -16,7 +17,6 @@ const handleSubmit = async (e)=>{
   e.preventDefault();
   try{
     const login = await loginUser(user)
-    //** ??????????????????????? */
     navigate("/")
   }catch(error){
     setUser({
@@ -31,23 +31,21 @@ const handleSubmit = async (e)=>{
 const handleInput = (e)=>{
   const {id, value} = e.target;
   setUser((prevState)=>({
-    ..prevState,
+    ...prevState,
     [id]: value,
   }))
 };
 
 const handleError = ()=>{
-    if (form.isError) {
+    if (user.isError) {
       return (
-        <h3 className={toggleForm}>
-          {form.errorMsg}
-        </h3>
+        <h3>{user.errorMsg}</h3>
       );
     }
 }
 
   return (
-    <Layout>
+    // <Layout>
       <div className={classes.container}>
         <form className={classes.loginForm} 
         onSubmit={handleSubmit}>
@@ -75,6 +73,6 @@ const handleError = ()=>{
           <button className={classes.submit} disabled={handleError}>Submit</button>
         </form>
       </div>
-    </Layout>
+    // </Layout>
   );
 }
