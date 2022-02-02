@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Test from "./test/test.js"
 function App() {
   return (
     <div className="App">
-      Project 3
+      <Test></Test>
     </div>
   );
 }
