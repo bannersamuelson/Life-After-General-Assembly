@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-/* import { signUpHandler } from "../../services/apiConfig"; */
+import { createUser } from "../../services/apiConfig"; 
 /* import Layout from "../layout/Layout"; */
 import classes from "./SignUp.module.css";
 
@@ -20,7 +20,7 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signUpHandler(newUser);
+    await createUser(newUser);
     console.log(newUser);
     navigation("/login");
   };
