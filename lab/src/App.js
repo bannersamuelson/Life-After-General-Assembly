@@ -6,8 +6,9 @@ import Login from "./screen/Login/Login.jsx"
 function App() {
   return (
     <div className="App">
-      <Test></Test>
+
       <Routes>
+        <Route path="/" element={<Test/>}/>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
