@@ -1,5 +1,5 @@
 import './App.css';
-import Test from "./test/test.js"
+import Test from "./test/Test.js"
 function App() {
   return (
     <div className="App">
