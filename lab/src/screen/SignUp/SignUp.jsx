@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../services/apiconfig"; 
-/* import Layout from "../layout/Layout"; */
+import Layout from "../../components/Layout/Layout"; 
 import classes from "./SignUp.module.css";
 
 export default function SignUp() {
@@ -54,7 +54,7 @@ export default function SignUp() {
   };
 
   return (
-    // <Layout>
+    <Layout>
       <div className={classes.container}>
         <form className={classes.signupForm} onSubmit={handleSubmit}>
           <h2 className={classes.title}>Sign up</h2>
@@ -142,6 +142,6 @@ export default function SignUp() {
           </button>
         </form>
       </div>
-    // </Layout>
+    </Layout>
   );
 }
