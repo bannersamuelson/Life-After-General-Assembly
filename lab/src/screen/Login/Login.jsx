@@ -46,16 +46,16 @@ const handleError = (e)=>{
 }
 
   return (
-    <form class="w-full max-w-sm"  onSubmit={handleSubmit}>
-  <h2 className="flex items-center">Login to your account</h2>
-  <div class="flex items-center border-b border-teal-500 py-2">
-    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"     type="text"
+    <form className="w-full max-w-sm"  onSubmit={handleSubmit}>
+  <h2 className="cd r">Login to your account</h2>
+  <div className="flex items-center border-b border-teal-500 py-2">
+    <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"     type="text"
             placeholder="type your email"
             id="email" 
             value={user.email}
             onChange={handleInput}/>
 
-              <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"     type="text"
+              <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"     type="text"
             placeholder="password"
             id="password" 
             value={user.password}
