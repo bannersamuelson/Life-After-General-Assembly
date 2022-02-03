@@ -26,6 +26,7 @@ export default function Test(props) {
     {props.user && props.user.map((el,i) => {
       return <h1 key={i}>{el.userName}</h1>
     })}
+
     {courses && courses.map((course, i) => {
       return <div key={i}>
         <h1>Rating:{course.rate}</h1>
