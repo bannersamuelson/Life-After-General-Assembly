@@ -17,6 +17,7 @@ const handleSubmit = async (e)=>{
   e.preventDefault();
   try{
     const login = await loginUser(user)
+    console.log(login);
     navigate("/")
   }catch(error){
     setUser({
@@ -36,20 +37,20 @@ const handleInput = (e)=>{
   }))
 };
 
-const handleError = (e)=>{
-    if (user.isError) {
-      return (
-        <h3>{user.errorMsg}</h3>
-      );
-    }
-}
+// const handleError = (e)=>{
+//     if (user.isError) {
+//       return (
+//         <h3>{user.errorMsg}</h3>
+//       );
+//     }
+// }
 
   return (
         <form className="w-full max-w-lg"
         onSubmit={handleSubmit}>
           <h2 className="flex items-center">Login to your account</h2>
       <div className="flex items-center border-b border-teal-500 py-2">
-          <label >E-mail</label>
+          <label >Email</label>
           <br/>
           <input
             type="text"
@@ -66,17 +67,13 @@ const handleError = (e)=>{
             id="password" 
             value={user.password}
             onChange={handleInput}/>
-          <br />
+          {/* <br />
           {handleError}
-          <br/>
-<<<<<<< HEAD
-          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" disabled={handleError}>Submit</button>
-=======
-        <button className={classes.submit} disabled={() =>  user.isError ? true : false  }>Submit</button>
-        </form>
->>>>>>> f0ecdf527c5892f35fa3f91ac5e09cba3fb6feb6
+          <br/> */}
+          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">Submit</button>
       </div>
         </form>
+      
     
   );
 }
