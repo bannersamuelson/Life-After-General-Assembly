@@ -40,8 +40,10 @@ export default function AddCourse() {
   // }, [newUser.password, newUser.confirmPassword]);
   
 
-  return (<div >
-  <form onSubmit={handleSubmit}>
+  return (
+  <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs">
+  <form onSubmit={handleSubmit}
+  className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <h2 >Add a Course</h2>
     {/* <h3 >{validationMessage}</h3> */}
     <label >User</label>
