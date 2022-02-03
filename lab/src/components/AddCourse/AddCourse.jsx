@@ -37,7 +37,7 @@ export default function AddCourse() {
   //   console.log(res);
   //   checkIfValid();
   // }, [newUser.password, newUser.confirmPassword]);
-
+  
 
   return (<div >
   <form onSubmit={handleSubmit}>
