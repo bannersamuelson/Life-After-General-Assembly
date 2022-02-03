@@ -101,3 +101,27 @@ export const addCourse = (data) =>
           console.log(error);
         });
     
+export const updateUser = (userName,data) =>
+  axios({
+    method: "put",
+    url: `${base}update/${userName}`,
+    data:data,
+  }).then((response)=> {
+    return response.data;
+  }).catch((error) => {
+    console.log(error);
+  });
+
+  export const getAllReviews = ()=>
+  axios({
+    method:'get',
+    url: `${base}/reviews`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
+  }).then(function (response) {
+    return response.data;
+  }).catch(function (error) {
+    console.log(error);
+  });
