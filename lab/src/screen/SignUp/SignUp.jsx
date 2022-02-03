@@ -57,51 +57,50 @@ export default function SignUp(props) {
 // console.log(props);
   return (
       <div>
-        <form onSubmit={handleSubmit}>
-          <h2>Sign up</h2>
-          <h3>{validationMessage}</h3>
-          <label>User name</label>
+        <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+          <h2 className="flex items-center">Sign up</h2>
+          <label >User name</label>
           <br />
           <input
-          
             type="text"
             placeholder="create user name"
             id="userName"
             value={newUser.userName}
             onChange={handleInput}
+            className="flex items-center border-b border-teal-500 py-2"
           />
           <br />
           <label>Upload avatar</label>
           <br />
           <input
-           
             type="text"
             placeholder="avatar link"
             id="avatar"
             value={newUser.avatar}
             onChange={handleInput}
+            className="flex items-center border-b border-teal-500 py-2"
           />
           <br />
           <label>First Name</label>
           <br />
           <input
-            
             type="text"
             placeholder="first name"
             id="firstName"
             value={newUser.firstName}
             onChange={handleInput}
+            className="flex items-center border-b border-teal-500 py-2"
           />
           <br />
           <label>Last Name</label>
           <br />
           <input
-          
             type="text"
             placeholder="last name"
             id="lastName"
             value={newUser.lastName}
             onChange={handleInput}
+            className="flex items-center border-b border-teal-500 py-2"
           />
           <br />
           <label>Email</label>
@@ -112,6 +111,7 @@ export default function SignUp(props) {
             id="email"
             value={newUser.email}
             onChange={handleInput}
+            className="flex items-center border-b border-teal-500 py-2"
           />
           <br />
           <label>Password</label>
@@ -122,6 +122,7 @@ export default function SignUp(props) {
             id="password"
             value={newUser.password}
             onChange={handleInput}
+            className="flex items-center border-b border-teal-500 py-2"
           />
           <br />
           <label>Confirm password</label>
@@ -132,10 +133,12 @@ export default function SignUp(props) {
             id="confirmPassword"
             value={newUser.confirmPassword}
             onChange={handleInput}
+            className="flex items-center border-b border-teal-500 py-2"
           />
           <br />
+          <h3>{validationMessage}</h3>
           <br />
-          <button disabled={!valid}>
+          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" disabled={!valid}>
             SIGN UP
           </button>
         </form>
