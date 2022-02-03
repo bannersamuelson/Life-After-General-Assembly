@@ -73,7 +73,7 @@ export const fetchAllCourses = () =>
       .catch((error) => {
         console.log(error);
       });
-
+//What was I doing
 // export const signUp = (props) =>
 //       axios({
 //          method: "post",
