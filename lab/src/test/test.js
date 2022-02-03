@@ -5,6 +5,7 @@ import {getAllUsers,fetchAllCourses} from "../services/apiconfig"
 
 export default function Test(props) {
   console.log(props);
+  const { user, setUser } = props;
   const [courses, setCourse] = useState([]);
   
   useEffect(() => {
@@ -22,8 +23,8 @@ export default function Test(props) {
  }, []);
  
   return <div>
-    {!props.user && <h1>Loading</h1>}
-    {props.user && props.user.map((el,i) => {
+    {!user && <h1>Loading</h1>}
+    {user && user.map((el,i) => {
       return <h1 key={i}>{el.userName}</h1>
     })}
 

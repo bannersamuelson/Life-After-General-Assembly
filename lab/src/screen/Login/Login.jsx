@@ -36,7 +36,7 @@ const handleInput = (e)=>{
   }))
 };
 
-const handleError = ()=>{
+const handleError = (e)=>{
     if (user.isError) {
       return (
         <h3>{user.errorMsg}</h3>
@@ -69,7 +69,12 @@ const handleError = ()=>{
           <br />
           {handleError}
           <br/>
+<<<<<<< HEAD
           <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" disabled={handleError}>Submit</button>
+=======
+        <button className={classes.submit} disabled={() =>  user.isError ? true : false  }>Submit</button>
+        </form>
+>>>>>>> f0ecdf527c5892f35fa3f91ac5e09cba3fb6feb6
       </div>
         </form>
     
