@@ -17,7 +17,9 @@ const handleSubmit = async (e)=>{
   e.preventDefault();
   try{
     const login = await loginUser(user)
-    console.log(login)
+    console.log(login);
+    localStorage.setItem("token", login.data.token);
+    console.log(localStorage.getItem("token"));
     navigate("/")
   }catch(error){
     setUser({
@@ -37,15 +39,16 @@ const handleInput = (e)=>{
   }))
 };
 
-const handleError = (e)=>{
-    if (user.isError) {
-      return (
-        <h3>{user.errorMsg}</h3>
-      );
-    }
-}
+// const handleError = (e)=>{
+//     if (user.isError) {
+//       return (
+//         <h3>{user.errorMsg}</h3>
+//       );
+//     }
+// }
 
   return (
+<<<<<<< HEAD
     <form className="w-full max-w-sm"  onSubmit={handleSubmit}>
   <h2 className="cd r">Login to your account</h2>
   <div className="flex items-center border-b border-teal-500 py-2">
@@ -108,5 +111,40 @@ const handleError = (e)=>{
       // </div>
       //   </form>
 
+=======
+    <div className="w-full mr-auto ml-auto mt-auto mb-auto w-full max-w-lg bg-white shadow-md rounded pt-6 pb-8 mb-4">
+        <form className="w-full max-w-lg"
+        onSubmit={handleSubmit}>
+          <h2 className="flex items-center">Login to your account</h2>
+      <div className="flex items-center border-b border-teal-500 py-2">
+          <br/>
+          <input
+          className=".placeholder-black"
+            type="text"
+            placeholder="Email"
+            id="email" 
+            value={user.email}
+            onChange={handleInput}
+            />
+          <br />
+          <br/>
+          <input
+            type="text"
+            placeholder="Password"
+            id="password" 
+            value={user.password}
+            onChange={handleInput}/>
+            </div>
+          {/* <br />
+          {handleError}
+          <br/> */}
+          <br/>
+          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">Submit</button>
+        
+        </form>
+        </div>
+      
+    
+>>>>>>> 1c005ed76e9089c44da12881a5cf80e1b651b887
   );
 }
