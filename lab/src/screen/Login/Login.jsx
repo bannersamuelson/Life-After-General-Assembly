@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import {loginUser} from "../../services/apiconfig";
-import classes from "./Login.module.css"
+// import Layout from "../../components/Layout/Layout"
 
 export default function Login() {
   const navigate = useNavigate()
@@ -36,7 +36,7 @@ const handleInput = (e)=>{
   }))
 };
 
-const handleError = ()=>{
+const handleError = (e)=>{
     if (user.isError) {
       return (
         <h3>{user.errorMsg}</h3>
@@ -45,23 +45,22 @@ const handleError = ()=>{
 }
 
   return (
-    // <Layout>
-      <div className={classes.container}>
-        <form className={classes.loginForm} 
+        <form className="w-full max-w-lg"
         onSubmit={handleSubmit}>
-          <h2 className={classes.title}>Login to your account</h2>
-          <label className={classes.label}>E-mail</label>
+          <h2 className="flex items-center">Login to your account</h2>
+      <div className="flex items-center border-b border-teal-500 py-2">
+          <label >E-mail</label>
           <br/>
-          <input className={classes.loginInput}
+          <input
             type="text"
             placeholder="type your email"
             id="email" 
             value={user.email}
             onChange={handleInput}/>
           <br />
-          <label className={classes.label}>Password</label>
+          <label>Password</label>
           <br/>
-          <input className={classes.loginInput}
+          <input
             type="text"
             placeholder="type your password"
             id="password" 
@@ -70,9 +69,14 @@ const handleError = ()=>{
           <br />
           {handleError}
           <br/>
-          <button className={classes.submit} disabled={handleError}>Submit</button>
+<<<<<<< HEAD
+          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" disabled={handleError}>Submit</button>
+=======
+        <button className={classes.submit} disabled={() =>  user.isError ? true : false  }>Submit</button>
         </form>
+>>>>>>> f0ecdf527c5892f35fa3f91ac5e09cba3fb6feb6
       </div>
-    // </Layout>
+        </form>
+    
   );
 }
