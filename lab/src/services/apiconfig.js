@@ -5,7 +5,10 @@ export const getAllUsers = ()=>
   axios({
     method:'get',
     url: `${base}/users`,
-    headers: {"Access-Control-Allow-Origin": "*"},
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
   }).then(function (response) {
     return response.data;
   }).catch(function (error) {
@@ -25,6 +28,10 @@ export const getAllUsers = ()=>
   axios({
     method: "post",
     url: `${base}/signup`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
     data: props,
   })
     .then((response) => {
@@ -48,11 +55,14 @@ export const loginUser = (props) =>
       console.log(error);
     });
 
-export const getCourses = (id) =>
+export const getCourse = (id) =>
     axios({
       method: "get",
       url: `${base}/course/${id}`,
-      headers: {"Access-Control-Allow-Origin": "*"},
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: localStorage.getItem("token"),
+      },
     })
       .then((response) => {
         return response;
@@ -65,7 +75,10 @@ export const fetchAllCourses = () =>
    axios({
       method: "get",
      url: `${base}/courses`,
-     headers: { "Access-Control-Allow-Origin": "*" },
+     headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
     })
       .then((response) => {
         return response.data;
@@ -101,3 +114,27 @@ export const addCourse = (data) =>
           console.log(error);
         });
     
+export const updateUser = (userName,data) =>
+  axios({
+    method: "put",
+    url: `${base}update/${userName}`,
+    data:data,
+  }).then((response)=> {
+    return response.data;
+  }).catch((error) => {
+    console.log(error);
+  });
+
+  export const getAllReviews = ()=>
+  axios({
+    method:'get',
+    url: `${base}/reviews`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
+  }).then(function (response) {
+    return response.data;
+  }).catch(function (error) {
+    console.log(error);
+  });

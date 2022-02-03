@@ -40,51 +40,57 @@ export default function AddCourse() {
   // }, [newUser.password, newUser.confirmPassword]);
   
 
-  return (<div >
-  <form onSubmit={handleSubmit}>
+  return (
+  <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs">
+  <form onSubmit={handleSubmit}
+  className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <h2 >Add a Course</h2>
     {/* <h3 >{validationMessage}</h3> */}
     <label >User</label>
     <br />
     <input
       type="text"
-      placeholder="create user name"
+      placeholder="your user name"
       id="user"
       value={newCourse.user}
       onChange={handleInput}
+      className="flex items-center border-b border-teal-500 py-2"
     />
     <br />
     <label >Upload Title</label>
     <br />
     <input
       type="text"
-      placeholder="title"
+      placeholder="course title"
       id="title"
       value={newCourse.title}
       onChange={handleInput}
+      className="flex items-center border-b border-teal-500 py-2"
     />
     <br />
     <label >Image link</label>
     <br />
     <input
       type="text"
-      placeholder="image"
+      placeholder="image link"
       id="image"
       value={newCourse.image}
       onChange={handleInput}
+      className="flex items-center border-b border-teal-500 py-2"
     />
     <br />
-    <label>Content</label>
+    <label>Description</label>
     <br />
     <input
       type="text"
-      placeholder="content"
+      placeholder="course description"
       id="content"
       value={newCourse.content}
       onChange={handleInput}
+      className="flex items-center border-b border-teal-500 py-2"
     />
     <br />
-    <label>link</label>
+    <label>Link to source</label>
     <br />
     <input
       type="text"
@@ -92,6 +98,7 @@ export default function AddCourse() {
       id="link"
       value={newCourse.link}
       onChange={handleInput}
+      className="flex items-center border-b border-teal-500 py-2"
     />
     <br />
     <label>Review</label>
@@ -102,6 +109,7 @@ export default function AddCourse() {
       id="review"
       value={newCourse.review}
       onChange={handleInput}
+      className="flex items-center border-b border-teal-500 py-2"
     />
     <br />
     <label>rate</label>
@@ -112,10 +120,11 @@ export default function AddCourse() {
       id="rate"
       value={newCourse.rate}
       onChange={handleInput}
+      className="flex items-center border-b border-teal-500 py-2"
     />
     <br />
     <br />
-    <button>
+    <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
       Add Course
     </button>
   </form>
