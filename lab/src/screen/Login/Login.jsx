@@ -18,6 +18,8 @@ const handleSubmit = async (e)=>{
   try{
     const login = await loginUser(user)
     console.log(login);
+    localStorage.setItem("token", login.data.token);
+    console.log(localStorage.getItem("token"));
     navigate("/")
   }catch(error){
     setUser({
