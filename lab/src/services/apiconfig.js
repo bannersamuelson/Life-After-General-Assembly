@@ -4,6 +4,7 @@ export const getAllUsers = ()=>
   axios({
     method:'get',
     url: `${base}/users`,
+    headers: {"Access-Control-Allow-Origin": "*"},
   }).then(function (response) {
     return response.data;
   }).catch(function (error) {
@@ -36,6 +37,7 @@ export const loginUser = (props) =>
   axios({
     method: "post",
     url: `${base}/login`,
+    headers: {"Access-Control-Allow-Origin": "*"},
     data: props,
   })
     .then((response) => {
@@ -49,6 +51,7 @@ export const getCourses = (id) =>
     axios({
       method: "get",
       url: `${base}/course/${id}`,
+      headers: {"Access-Control-Allow-Origin": "*"},
     })
       .then((response) => {
         return response;
@@ -60,7 +63,8 @@ export const getCourses = (id) =>
 export const fetchAllCourses = () =>
    axios({
       method: "get",
-      url: `${base}/courses`,
+     url: `${base}/courses`,
+     headers: { "Access-Control-Allow-Origin": "*" },
     })
       .then((response) => {
         return response.data;
@@ -68,12 +72,25 @@ export const fetchAllCourses = () =>
       .catch((error) => {
         console.log(error);
       });
-      
-      
+
+export const signUp = (props) =>
+      axios({
+         method: "post",
+        url: `${base}/signup`,
+        headers: {"Access-Control-Allow-Origin": "*"},
+         data: props,
+       })
+         .then((response) => {
+           return response.data;
+         })
+         .catch((error) => {
+           console.log(error);
+         });      
 export const addCourse = (props) =>
       axios({
         method: "post",
         url: `${base}/user/${props.userName}/${props.id}/course`,
+        headers: {"Access-Control-Allow-Origin": "*"},
         data: props,
       })
         .then((response) => {

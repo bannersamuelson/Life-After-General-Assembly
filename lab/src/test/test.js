@@ -1,30 +1,34 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import {getAllUsers,fetchAllCourses} from "../services/apiconfig"
-export default function Test() {
-  const [users, setUsers] = useState([]);
-  const [course, setCourse] = useState([]);
+
+
+export default function Test(props) {
+  console.log(props);
+  const { user, setUser } = props;
+  const [courses, setCourse] = useState([]);
   
- useEffect(() => {
-   const grabUsers = async () => {
+  useEffect(() => {
+   const GrabUsers = async () => {
      let res = await getAllUsers();
-     setUsers(res.data);
+     props.setUser(res.data);
     //  let id = "61fadf73cfd40ba8f9ef8792";
    }
-   const grabCourse = async () => {
+   GrabUsers();
+   const GrabCourse = async () => {
      let res =  await fetchAllCourses();
      setCourse(res.data);
    }
-   grabUsers();
-   grabCourse();
-   console.log(course);
+   GrabCourse();
  }, []);
  
   return <div>
-    {users && users.map((el,i) => {
+    {!user && <h1>Loading</h1>}
+    {user && user.map((el,i) => {
       return <h1 key={i}>{el.userName}</h1>
     })}
-    {course && course.map((course, i) => {
+
+    {courses && courses.map((course, i) => {
       return <div key={i}>
         <h1>Rating:{course.rate}</h1>
         <h1>Review:{course.review}</h1>
