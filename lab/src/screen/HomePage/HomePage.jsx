@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function HomePage(props) {
 
   return (
-    <body className="bg-gradient-to-r from-blue-800 to-blue-900 text-gray-50">
+    <div className="bg-gradient-to-r from-blue-800 to-blue-900 text-gray-50">
       <div id="app">
         <div className="flex items-center h-16 px-6 border-b border-gray-700">
           <div className="flex items-center ml-auto">Banner</div>
@@ -29,7 +29,7 @@ export default function HomePage(props) {
 
 
       </div>
-    </body>
+    </div>
 
 
 
