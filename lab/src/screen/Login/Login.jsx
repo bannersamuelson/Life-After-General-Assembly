@@ -70,7 +70,7 @@ const handleError = (e)=>{
           <br />
           {handleError}
           <br/>
-        <button className={classes.submit} disabled={() =>  user.isError()? true:false }>Submit</button>
+        <button className={classes.submit} disabled={() =>  user.isError ? true : false  }>Submit</button>
         </form>
       </div>
     
