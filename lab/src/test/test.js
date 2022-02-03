@@ -38,12 +38,12 @@ export default function Test(props) {
     })}
     {/* {!courses && <h1>Loading Courses</h1>} */}
     {courses && courses.map((course, i) => {
-      return <div key={i} className="w-full md:w-1/2 p-4">
-        <h1>Front End: Course</h1>
+      return <div key={i} className="w-full  p-4">
+        <h1>Front-End: Course</h1>
         <h1>Title:{course.title}</h1>
-        <h1>Rating:{course.rate}</h1>
+        <h1>Rating:{course.rate}/10</h1>
         <h1>Review:{course.review}</h1>
-        <h1>Author:{course.user===undefined? "Anonymous":course.user}</h1>
+        <h1 className="text-gray-500 font-nunito">Author:{course.user===undefined? "Anonymous":course.user}</h1>
       </div>
     })}
 
