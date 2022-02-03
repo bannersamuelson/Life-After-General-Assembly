@@ -56,8 +56,8 @@ export default function SignUp(props) {
   };
 // console.log(props);
   return (
-      <div>
-        <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+      <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs">
+        <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
           <h2 className="flex items-center">Sign up</h2>
           <label >User name</label>
           <br />
