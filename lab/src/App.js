@@ -8,6 +8,7 @@ import AddCourse from './components/AddCourse/AddCourse';
 import HomePage from './screen/HomePage/HomePage.jsx';
 function App() {
   const [user, setUser] = useState();
+  console.log(user);
   // const [course, setCourse] = useState();
   // const [review, setReview] = useState();
   return (
@@ -20,7 +21,7 @@ function App() {
           {/* <Test user={user} setUser={setUser} /> */}
          
         </Layout>} />
-        <Route path="/front" element={<Layout><h1>FrontEnd</h1></Layout>} />
+        <Route path="/front" element={<Layout><h1>FrontEnd</h1><Test user={user} setUser={setUser}></Test></Layout>} />
         <Route path="/back" element={<Layout><h1>BackEnd</h1></Layout>}/>
         <Route path="/database" element={<Layout><h1>BackEnd</h1></Layout>}/>
         <Route path="/devops" element={<Layout><h1>BackEnd</h1></Layout>}/>

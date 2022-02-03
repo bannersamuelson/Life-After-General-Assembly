@@ -12,20 +12,24 @@ export default function Test(props) {
   useEffect(() => {
    const GrabUsers = async () => {
      let res = await getAllUsers();
-     props.setUser(res.data);
+     setUser(res.data);
     //  let id = "61fadf73cfd40ba8f9ef8792";
    }
    const GrabCourse = async () => {
      let res =  await fetchAllCourses();
      setCourse(res.data);
    }
-    GrabCourse();
-    GrabUsers();
+    
     const GrabReviews = async () => {
       let res =  await getAllReviews();
-      setCourse(res.data);
+      setReviews(res.data);
     }
+    GrabCourse();
+    GrabUsers();
     GrabReviews();
+    console.log(user);
+    console.log(courses);
+    console.log(reviews);
   }, []);
   
 
