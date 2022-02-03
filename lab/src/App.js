@@ -1,4 +1,3 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Test from "./test/test.js";
 import SignUp from "./screen/SignUp/SignUp.jsx"
