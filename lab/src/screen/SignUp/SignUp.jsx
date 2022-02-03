@@ -35,8 +35,8 @@ export default function SignUp(props) {
 
   useEffect(() => {
     console.log("validator");
-    const res = signUp(newUser);
-    console.log(res);
+    // const res = signUp(newUser);
+    // console.log(res);
     checkIfValid();
   }, [newUser.password, newUser.confirmPassword]);
 

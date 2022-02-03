@@ -12,13 +12,15 @@ export default function AddCourse() {
     review: "",
     rate: 0,
   });
-  // const [validationMessage, setValidationMessage] = useState("");
-  // const [valid, setValid] = useState(false);
+  
+  
   const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await AddCourse(newUser.user,"61fadf32cfd40ba8f9ef878f",newUser);
+    console.log(newUser);
+    let res=await AddCourse(newUser.user,"61fadf32cfd40ba8f9ef878f",newUser);
+    console.log(res);
     console.log(newUser);
     navigation("/login");
   };
