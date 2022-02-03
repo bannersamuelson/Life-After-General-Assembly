@@ -18,7 +18,7 @@ export default function AddCourse() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createUser(newUser);
+    await AddCourse(newUser.user,"61fadf32cfd40ba8f9ef878f",newUser);
     console.log(newUser);
     navigation("/login");
   };
@@ -115,7 +115,7 @@ export default function AddCourse() {
     <br />
     <br />
     <button>
-      SIGN UP
+      Add Course
     </button>
   </form>
 </div>

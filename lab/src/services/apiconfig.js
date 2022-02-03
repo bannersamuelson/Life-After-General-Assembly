@@ -86,12 +86,12 @@ export const signUp = (props) =>
          .catch((error) => {
            console.log(error);
          });      
-export const addCourse = (props) =>
+export const addCourse = (user,id,data) =>
       axios({
         method: "post",
-        url: `${base}/user/${props.userName}/${props.id}/course`,
+        url: `${base}/user/${user}/${id}/course`,
         headers: {"Access-Control-Allow-Origin": "*"},
-        data: props,
+        data: data,
       })
         .then((response) => {
           return response.data;
