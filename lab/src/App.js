@@ -15,12 +15,16 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Layout user={user} setUser={setUser}>
-          <HomePage>
-          <Test user={user} setUser={setUser} />
-          </HomePage>
+          <HomePage />
+
+          {/* <Test user={user} setUser={setUser} /> */}
+         
         </Layout>} />
         <Route path="/front" element={<Layout><h1>FrontEnd</h1></Layout>} />
         <Route path="/back" element={<Layout><h1>BackEnd</h1></Layout>}/>
+        <Route path="/database" element={<Layout><h1>BackEnd</h1></Layout>}/>
+        <Route path="/devops" element={<Layout><h1>BackEnd</h1></Layout>}/>
+        <Route path="/mobile" element={<Layout><h1>BackEnd</h1></Layout>}/>
         <Route path="/signup" element={<Layout user={user} setUser={setUser}><SignUp user={user} setUser={setUser}/></Layout>} />
         <Route path="/login" element={<Layout user={user} setUser={setUser}><Login user={user} setUser={setUser} /></Layout>} />
         <Route path="/addcourse" element={<Layout user={user} setUser={setUser}><AddCourse user={user} setUser={setUser}/></Layout>} />

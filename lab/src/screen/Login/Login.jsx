@@ -48,68 +48,31 @@ const handleInput = (e)=>{
 // }
 
   return (
-    <form className="w-full max-w-sm"  onSubmit={handleSubmit}>
-  <h2 className="cd r">Login to your account</h2>
-  <div className="flex items-center border-b border-teal-500 py-2">
-    <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"     type="text"
-            placeholder="type your email"
-            id="email" 
-            value={user.email}
-            onChange={handleInput}/>
+//     <form className="w-full max-w-sm"  onSubmit={handleSubmit}>
+//       <h2 className="cd r">Login to your account</h2>
+//       <div className="flex items-center border-b border-teal-500 py-2">
+//          <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+//             type="text"
+//             placeholder="type your email"
+//             id="email" 
+//             value={user.email}
+//             onChange={handleInput}
+//             />
+//             <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"     type="text"
+//             placeholder="password"
+//             id="password" 
+//             value={user.password}
+//             onChange={handleInput}
+//             />
+//              <br />
+//              {handleError}
+//              <br/>
 
-              <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"     type="text"
-            placeholder="password"
-            id="password" 
-            value={user.password}
-            onChange={handleInput}/>
-             <br />
-             {handleError}
-             <br/>
-
-
-
+//       <button  className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" 
+//       disabled={() =>  user.isError ? true : false  }>Submit</button>
    
-      <button  className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" 
-      disabled={() =>  user.isError ? true : false  }>Submit</button>
-   
-  </div>
-</form>
-
-
-      //   <form className="w-full max-w-lg"
-      //   onSubmit={handleSubmit}>
-      //     <h2 className="flex items-center">Login to your account</h2>
-      // <div className="flex items-center border-b border-teal-500 py-2">
-      //     <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >E-mail</label>
-      //     <br/>
-      //     <input
-      //     className="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name"
-      //       type="text"
-      //       placeholder="type your email"
-      //       id="email" 
-      //       value={user.email}
-      //       onChange={handleInput}/>
-      //     <br />
-      //     <label>Password</label>
-      //     <br/>
-      //     <input
-      //     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-      //       type="text"
-      //       placeholder="type your password"
-      //       id="password" 
-      //       value={user.password}
-      //       onChange={handleInput}/>
-      //     <br />
-      //     {handleError}
-      //     <br/>
-
-      //     <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" disabled={handleError}>Submit</button>
-
-      //   <button disabled={() =>  user.isError ? true : false  }>Submit</button>
-   
-      // </div>
-      //   </form>
-
+//   </div>
+// </form>
     <div className="w-full mr-auto ml-auto mt-auto mb-auto w-full max-w-lg bg-white shadow-md rounded pt-6 pb-8 mb-4">
         <form className="w-full max-w-lg"
         onSubmit={handleSubmit}>

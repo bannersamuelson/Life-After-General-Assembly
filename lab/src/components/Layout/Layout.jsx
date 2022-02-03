@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default function Layout(props) {
   const handleLogout = (e) => {
     e.preventDefault();
@@ -8,6 +9,7 @@ export default function Layout(props) {
     console.log("removed");
   }
   return <div>
+
     <nav >
       <a href="/" style={{textDecoration:"none"}}> Home </a>
       <a href="/signup" style={{textDecoration:"none"}}> Signup </a>
