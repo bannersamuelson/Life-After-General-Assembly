@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser, signUp } from "../../services/apiconfig"; 
 // import Layout from "../../components/Layout/Layout"; 
-import classes from "./SignUp.module.css";
+
 
 export default function SignUp(props) {
   const [newUser, setNewUser] = useState({
@@ -56,14 +56,14 @@ export default function SignUp(props) {
   };
 // console.log(props);
   return (
-      <div className={classes.container}>
-        <form className={classes.signupForm} onSubmit={handleSubmit}>
-          <h2 className={classes.title}>Sign up</h2>
-          <h3 className={classes.message}>{validationMessage}</h3>
-          <label className={classes.label}>User name</label>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <h2>Sign up</h2>
+          <h3>{validationMessage}</h3>
+          <label>User name</label>
           <br />
           <input
-            className={classes.signupInput}
+          
             type="text"
             placeholder="create user name"
             id="userName"
@@ -71,10 +71,10 @@ export default function SignUp(props) {
             onChange={handleInput}
           />
           <br />
-          <label className={classes.label}>Upload avatar</label>
+          <label>Upload avatar</label>
           <br />
           <input
-            className={classes.signupInput}
+           
             type="text"
             placeholder="avatar link"
             id="avatar"
@@ -82,10 +82,10 @@ export default function SignUp(props) {
             onChange={handleInput}
           />
           <br />
-          <label className={classes.label}>First Name</label>
+          <label>First Name</label>
           <br />
           <input
-            className={classes.signupInput}
+            
             type="text"
             placeholder="first name"
             id="firstName"
@@ -93,10 +93,10 @@ export default function SignUp(props) {
             onChange={handleInput}
           />
           <br />
-          <label className={classes.label}>Last Name</label>
+          <label>Last Name</label>
           <br />
           <input
-            className={classes.signupInput}
+          
             type="text"
             placeholder="last name"
             id="lastName"
@@ -104,10 +104,9 @@ export default function SignUp(props) {
             onChange={handleInput}
           />
           <br />
-          <label className={classes.label}>Email</label>
+          <label>Email</label>
           <br />
           <input
-            className={classes.signupInput}
             type="text"
             placeholder="email"
             id="email"
@@ -115,10 +114,9 @@ export default function SignUp(props) {
             onChange={handleInput}
           />
           <br />
-          <label className={classes.label}>Password</label>
+          <label>Password</label>
           <br />
           <input
-            className={classes.signupInput}
             type="text"
             placeholder="create password"
             id="password"
@@ -126,10 +124,9 @@ export default function SignUp(props) {
             onChange={handleInput}
           />
           <br />
-          <label className={classes.label}>Confirm password</label>
+          <label>Confirm password</label>
           <br />
           <input
-            className={classes.signupInput}
             type="text"
             placeholder="confirm password"
             id="confirmPassword"
@@ -138,7 +135,7 @@ export default function SignUp(props) {
           />
           <br />
           <br />
-          <button className={classes.submit} disabled={!valid}>
+          <button disabled={!valid}>
             SIGN UP
           </button>
         </form>
