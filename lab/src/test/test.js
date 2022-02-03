@@ -3,14 +3,14 @@ import { useState,useEffect } from 'react';
 import {getAllUsers,fetchAllCourses} from "../services/apiconfig"
 
 
-export default function Test() {
-  const [users, setUsers] = useState([]);
+export default function Test(props) {
+  console.log(props);
   const [courses, setCourse] = useState([]);
   
   useEffect(() => {
    const GrabUsers = async () => {
      let res = await getAllUsers();
-     setUsers(res.data);
+     props.setUser(res.data);
     //  let id = "61fadf73cfd40ba8f9ef8792";
    }
    GrabUsers();
@@ -22,7 +22,8 @@ export default function Test() {
  }, []);
  
   return <div>
-    {users && users.map((el,i) => {
+    {!props.user && <h1>Loading</h1>}
+    {props.user && props.user.map((el,i) => {
       return <h1 key={i}>{el.userName}</h1>
     })}
     {courses && courses.map((course, i) => {

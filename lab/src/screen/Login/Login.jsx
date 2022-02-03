@@ -3,7 +3,7 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import {loginUser} from "../../services/apiconfig";
 import classes from "./Login.module.css"
-import Layout from "../../components/Layout/Layout"
+// import Layout from "../../components/Layout/Layout"
 
 export default function Login() {
   const navigate = useNavigate()
@@ -46,7 +46,6 @@ const handleError = ()=>{
 }
 
   return (
-    <Layout>
       <div className={classes.container}>
         <form className={classes.loginForm} 
         onSubmit={handleSubmit}>
@@ -74,6 +73,6 @@ const handleError = ()=>{
           <button className={classes.submit} disabled={handleError}>Submit</button>
         </form>
       </div>
-    </Layout>
+    
   );
 }
