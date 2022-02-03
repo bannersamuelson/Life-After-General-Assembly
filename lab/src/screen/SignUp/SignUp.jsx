@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUser } from "../../services/apiconfig"; 
-import Layout from "../../components/Layout/Layout"; 
+import { createUser, signUp } from "../../services/apiconfig"; 
+// import Layout from "../../components/Layout/Layout"; 
 import classes from "./SignUp.module.css";
 
-export default function SignUp() {
+export default function SignUp(props) {
   const [newUser, setNewUser] = useState({
     userName: "",
     avatar: "",
@@ -35,6 +35,8 @@ export default function SignUp() {
 
   useEffect(() => {
     console.log("validator");
+    const res = signUp(newUser);
+    console.log(res);
     checkIfValid();
   }, [newUser.password, newUser.confirmPassword]);
 
@@ -52,9 +54,8 @@ export default function SignUp() {
       setValid(true);
     }
   };
-
+// console.log(props);
   return (
-    <Layout>
       <div className={classes.container}>
         <form className={classes.signupForm} onSubmit={handleSubmit}>
           <h2 className={classes.title}>Sign up</h2>
@@ -138,10 +139,9 @@ export default function SignUp() {
           <br />
           <br />
           <button className={classes.submit} disabled={!valid}>
-            SIGH UP
+            SIGN UP
           </button>
         </form>
       </div>
-    </Layout>
   );
 }

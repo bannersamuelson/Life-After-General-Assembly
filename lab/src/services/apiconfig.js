@@ -68,8 +68,19 @@ export const fetchAllCourses = () =>
       .catch((error) => {
         console.log(error);
       });
-      
-      
+
+export const signUp = (props) =>
+      axios({
+         method: "post",
+        url: `${base}/signup`,
+         data: props,
+       })
+         .then((response) => {
+           return response.data;
+         })
+         .catch((error) => {
+           console.log(error);
+         });      
 export const addCourse = (props) =>
       axios({
         method: "post",
