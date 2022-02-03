@@ -1,9 +1,9 @@
 import React, {  useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUser } from "../../services/apiconfig"; 
+import { addCourse } from "../../services/apiconfig"; 
 
 export default function AddCourse() {
-  const [newUser, setNewUser] = useState({
+  const [newCourse, setNewCourse] = useState({
     user: "",
     title: "",
     image: "",
@@ -18,16 +18,15 @@ export default function AddCourse() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newUser);
-    let res=await AddCourse(newUser.user,"61fadf32cfd40ba8f9ef878f",newUser);
+    console.log(newCourse);
+    let res=await addCourse(newCourse);
     console.log(res);
-    console.log(newUser);
-    navigation("/login");
+    navigation("/");
   };
 
   const handleInput = (e) => {
     const { id, value } = e.target;
-    setNewUser((prevState) => ({
+    setNewCourse((prevState) => ({
       ...prevState,
       [id]: value,
     }));
@@ -51,7 +50,7 @@ export default function AddCourse() {
       type="text"
       placeholder="create user name"
       id="user"
-      value={newUser.user}
+      value={newCourse.user}
       onChange={handleInput}
     />
     <br />
@@ -61,7 +60,7 @@ export default function AddCourse() {
       type="text"
       placeholder="title"
       id="title"
-      value={newUser.title}
+      value={newCourse.title}
       onChange={handleInput}
     />
     <br />
@@ -71,7 +70,7 @@ export default function AddCourse() {
       type="text"
       placeholder="image"
       id="image"
-      value={newUser.image}
+      value={newCourse.image}
       onChange={handleInput}
     />
     <br />
@@ -81,7 +80,7 @@ export default function AddCourse() {
       type="text"
       placeholder="content"
       id="content"
-      value={newUser.content}
+      value={newCourse.content}
       onChange={handleInput}
     />
     <br />
@@ -91,7 +90,7 @@ export default function AddCourse() {
       type="text"
       placeholder="link"
       id="link"
-      value={newUser.link}
+      value={newCourse.link}
       onChange={handleInput}
     />
     <br />
@@ -101,7 +100,7 @@ export default function AddCourse() {
       type="text"
       placeholder="review"
       id="review"
-      value={newUser.review}
+      value={newCourse.review}
       onChange={handleInput}
     />
     <br />
@@ -111,7 +110,7 @@ export default function AddCourse() {
       type="number"
       placeholder="rate"
       id="rate"
-      value={newUser.rate}
+      value={newCourse.rate}
       onChange={handleInput}
     />
     <br />

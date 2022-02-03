@@ -87,10 +87,10 @@ export const fetchAllCourses = () =>
 //          .catch((error) => {
 //            console.log(error);
 //          });      
-export const addCourse = (user,id,data) =>
+export const addCourse = (data) =>
       axios({
         method: "post",
-        url: `${base}/user/${user}/${id}/course`,
+        url: `${base}/addcourse`,
         headers: {"Access-Control-Allow-Origin": "*"},
         data: data,
       })
