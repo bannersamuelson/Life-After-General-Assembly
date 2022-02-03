@@ -4,6 +4,7 @@ export default function Layout(props) {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
+    window.location.reload(false);
     console.log("removed");
   }
   return <div>

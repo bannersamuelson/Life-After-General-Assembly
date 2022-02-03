@@ -15,25 +15,28 @@ export default function Test(props) {
      props.setUser(res.data);
     //  let id = "61fadf73cfd40ba8f9ef8792";
    }
-   GrabUsers();
    const GrabCourse = async () => {
      let res =  await fetchAllCourses();
      setCourse(res.data);
    }
     GrabCourse();
+    GrabUsers();
     const GrabReviews = async () => {
       let res =  await getAllReviews();
       setCourse(res.data);
     }
     GrabReviews();
- }, []);
+  }, []);
+  
+
+  
  
   return <div>
-    {!user && <h1>Loading</h1>}
+    {/* {!user && <h1>Loading Users</h1>} */}
     {user && user.map((el,i) => {
       return <h1 key={i}>User:{el.userName}</h1>
     })}
-
+    {/* {!courses && <h1>Loading Courses</h1>} */}
     {courses && courses.map((course, i) => {
       return <div key={i}>
         <h1>Course</h1>
@@ -43,6 +46,7 @@ export default function Test(props) {
         <h1>Author:{course.user}</h1>
       </div>
     })}
+
     {reviews && reviews.map((review, i) => {
       return <div key={i}>
         <h1>Review</h1>
