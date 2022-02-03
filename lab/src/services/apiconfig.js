@@ -1,5 +1,6 @@
 import axios from "axios"
-const base="https://secret-mesa-13283.herokuapp.com/api"
+const devProxy="https://secure-citadel-62036.herokuapp.com/"
+const base=`${devProxy}https://secret-mesa-13283.herokuapp.com/api`
 export const getAllUsers = ()=>
   axios({
     method:'get',
@@ -23,7 +24,7 @@ export const getAllUsers = ()=>
   export const createUser = (props) =>
   axios({
     method: "post",
-    url: `${base}/users/signup`,
+    url: `${base}/signup`,
     data: props,
   })
     .then((response) => {
@@ -72,26 +73,26 @@ export const fetchAllCourses = () =>
       .catch((error) => {
         console.log(error);
       });
-
-export const signUp = (props) =>
-      axios({
-         method: "post",
-        url: `${base}/signup`,
-        headers: {"Access-Control-Allow-Origin": "*"},
-         data: props,
-       })
-         .then((response) => {
-           return response.data;
-         })
-         .catch((error) => {
-           console.log(error);
-         });      
-export const addCourse = (props) =>
+//What was I doing
+// export const signUp = (props) =>
+//       axios({
+//          method: "post",
+//         url: `${base}/signup`,
+//         headers: {"Access-Control-Allow-Origin": "*"},
+//          data: props,
+//        })
+//          .then((response) => {
+//            return response.data;
+//          })
+//          .catch((error) => {
+//            console.log(error);
+//          });      
+export const addCourse = (data) =>
       axios({
         method: "post",
-        url: `${base}/user/${props.userName}/${props.id}/course`,
+        url: `${base}/addcourse`,
         headers: {"Access-Control-Allow-Origin": "*"},
-        data: props,
+        data: data,
       })
         .then((response) => {
           return response.data;

@@ -17,6 +17,7 @@ const handleSubmit = async (e)=>{
   e.preventDefault();
   try{
     const login = await loginUser(user)
+    console.log(login);
     navigate("/")
   }catch(error){
     setUser({
@@ -36,13 +37,13 @@ const handleInput = (e)=>{
   }))
 };
 
-const handleError = (e)=>{
-    if (user.isError) {
-      return (
-        <h3>{user.errorMsg}</h3>
-      );
-    }
-}
+// const handleError = (e)=>{
+//     if (user.isError) {
+//       return (
+//         <h3>{user.errorMsg}</h3>
+//       );
+//     }
+// }
 
   return (
         <form className="w-full max-w-lg"
@@ -66,11 +67,11 @@ const handleError = (e)=>{
             id="password" 
             value={user.password}
             onChange={handleInput}/>
-          <br />
+          {/* <br />
           {handleError}
-          <br/>
-          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" disabled={handleError}>Submit</button>
-          </div>
+          <br/> */}
+          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">Submit</button>
+      </div>
         </form>
       
     

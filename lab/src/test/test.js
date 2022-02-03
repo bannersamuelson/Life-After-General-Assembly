@@ -25,11 +25,12 @@ export default function Test(props) {
   return <div>
     {!user && <h1>Loading</h1>}
     {user && user.map((el,i) => {
-      return <h1 key={i}>{el.userName}</h1>
+      return <h1 key={i}>User:{el.userName}</h1>
     })}
 
     {courses && courses.map((course, i) => {
       return <div key={i}>
+        <h1>Course</h1>
         <h1>Rating:{course.rate}</h1>
         <h1>Review:{course.review}</h1>
         <h1>Title:{course.title}</h1>
