@@ -5,9 +5,9 @@ import img from '../../images/database.jpg'
 export default function HomePage(props) {
 
   return (
-    <div className="flex-initial items-center bg-gradient-to-r from-blue-800 to-blue-900 text-gray-50">
+    <div className="bg-gradient-to-r from-blue-800 to-blue-900 text-gray-50">
       <div id="app">
-        <div className=" h-16 px-6 border-b border-gray-700">
+        <div className="flex items-center h-16 px-6 border-b border-gray-700">
           <div className="flex items-center ml-auto">Banner</div>
         </div>
 
