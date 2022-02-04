@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { NavLink } from 'react-router-dom'
 import "./Nav.css"
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import { NavLink, } from 'react-router-dom'
 import img from '../../images/database.jpg'
 >>>>>>> d8706660e9b06e0e2bcef1075bc9a7c97c59bf07
+=======
+import { NavLink, } from 'react-router-dom'
+import img from '../../images/database.jpg'
+
+>>>>>>> 8f73445fe879896e1657af07d0ace092784d0c18
 
 const handleLogout = (e) => {
   e.preventDefault();
