@@ -56,9 +56,9 @@ export default function SignUp(props) {
   };
 // console.log(props);
   return (
-      <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
-        <h2 className="text-center font-bold ">Sign up</h2>
-        <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
+      <form className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      <h2 className="text-center font-bold ">Sign up</h2>
           <br/>
           <label >User name</label>
           <br />

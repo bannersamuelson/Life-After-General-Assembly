@@ -52,7 +52,7 @@ const handleInput = (e)=>{
 
   return (
     <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
-      <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      <form className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}>
         <h2 className="text-center font-bold">Login to your account</h2>
           <div className="flex items-center border-b border-blue-900 py-2">
