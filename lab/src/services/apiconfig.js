@@ -104,7 +104,10 @@ export const addCourse = (data) =>
       axios({
         method: "post",
         url: `${base}/addcourse`,
-        headers: {"Access-Control-Allow-Origin": "*"},
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Authorization: localStorage.getItem("token"),
+        },
         data: data,
       })
         .then((response) => {
