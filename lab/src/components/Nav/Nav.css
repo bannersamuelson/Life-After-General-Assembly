@@ -1,0 +1,30 @@
+.nav{
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightseagreen;
+  color: whitesmoke;
+}
+
+.logo{
+  font-size: xx-large;
+  margin-left: 50px;
+}
+
+.links{
+  float: right;
+  padding: 10px;
+  display: flex;
+  margin-right: 50px; 
+}
+
+.link{
+  margin: 50px;
+}
+.link:hover {
+  color: black;
+  background-color: white;
+  color: black;
+  transition: all .1s ease-in;
+}
