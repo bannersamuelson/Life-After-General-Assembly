@@ -19,7 +19,7 @@ const handleSubmit = async (e)=>{
     const login = await loginUser(user)
     console.log(login);
     localStorage.setItem("token", login.data.token);
-    console.log(localStorage.getItem("token"));
+    console.log(localStorage.getItem("token")); 
     navigate("/")
   }catch(error){
     setUser({
@@ -48,38 +48,36 @@ const handleInput = (e)=>{
 // }
 
   return (
-    <div className="w-full mr-auto ml-auto mt-auto mb-auto w-full max-w-lg bg-white shadow-md rounded pt-6 pb-8 mb-4">
-        <form className="w-full max-w-lg"
+    <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xl text-xl" style={{fontFamily:"Nunito"}}>
+      <h2 className="text-center font-bold">Login to your account</h2>
+      <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}>
-          <h2 className="flex items-center">Login to your account</h2>
-      <div className="flex items-center border-b border-teal-500 py-2">
-          <br/>
-          <input
-          className=".placeholder-black"
-            type="text"
-            placeholder="Email"
-            id="email" 
-            value={user.email}
-            onChange={handleInput}
-            />
-          <br />
-          <br/>
-          <input
-            type="text"
-            placeholder="Password"
-            id="password" 
-            value={user.password}
-            onChange={handleInput}/>
-            </div>
+          <div className="flex items-center border-b border-teal-500 py-2">
+            <br/>
+            <input
+              className="placeholder-black text-teal-700"
+              type="text"
+              placeholder="Email"
+              id="email" 
+              value={user.email}
+              onChange={handleInput}
+              />
+            <br />
+            <br/>
+            <input
+              className="placeholder-black text-teal-700"
+              type="text"
+              placeholder="Password"
+              id="password" 
+              value={user.password}
+              onChange={handleInput}/>
+          </div>
           {/* <br />
           {handleError}
           <br/> */}
           <br/>
-          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">Submit</button>
-        
-        </form>
-        </div>
-      
-    
+          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 border-4 text-white py-1 px-2 rounded text-xl">Submit</button>
+      </form>
+    </div>
   );
 }
