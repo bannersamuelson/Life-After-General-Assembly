@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import "./Nav.css"
 
 const handleLogout = (e) => {
   e.preventDefault();
@@ -11,8 +12,6 @@ const authenticatedOptions = (
   <>
         <NavLink className="link" to="/addcourse">Add Courses</NavLink>
         <NavLink className="link" to="/" onClick={(e) => { handleLogout(e) }}>Logout</NavLink>
-        <NavLink className="link" to="/front">Front End</NavLink>
-        <NavLink className="link" to="/back">Back End</NavLink>
     </>
 )
 const unauthenticatedOptions = (
@@ -27,10 +26,12 @@ const alwaysOptions = (
     <NavLink className="link" to="/back">Back End</NavLink>
     </>
 )
+
+
 const Nav = ({user}) => {
 
         return (
-            <nav>
+            <nav className='navbar'>
                 <div className="nav">
                     <NavLink className="logo" to="/">L.A.G.A</NavLink>
                     <div className="links">
