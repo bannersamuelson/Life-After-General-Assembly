@@ -34,9 +34,9 @@ const Nav = (props) => {
                 <div className="nav">
                     <NavLink className="logo" to="/">L.A.G.A</NavLink>
                     <div className="links">
-                {props.user && <div className="link welcome">Welcome, {props.loginUser}</div>}
+                {props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}
                         {alwaysOptions}
-                        {props.user ? authenticatedOptions : unauthenticatedOptions}
+                        {props.user && props.loginUser ? authenticatedOptions : unauthenticatedOptions}
                     </div>
                 </div>
             </nav>
