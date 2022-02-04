@@ -20,7 +20,7 @@ const handleSubmit = async (e)=>{
     const login = await loginUser(user)
     console.log(login);
     props.setLoginUser(login.data.user.firstName);
-    console.log(props.loginUser);
+    console.log(props);
     localStorage.setItem("token", login.data.token);
     console.log(localStorage.getItem("token")); 
     navigate("/")
