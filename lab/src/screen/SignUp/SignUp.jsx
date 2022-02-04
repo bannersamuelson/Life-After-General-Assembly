@@ -62,7 +62,7 @@ export default function SignUp(props) {
     <div className="bg-slate-100 text-slate-600 py-20 h-screen">
       <form
         onSubmit={handleSubmit}
-        className="px-20 py-10 mx-96 bg-slate-200 border-slate300 border rounded-xl">
+        className="px-10 py-12 mx-5 sm:px-10 sm:py-10 sm:mx-5 bg-slate-200 border-slate300 border rounded-xl md:px-10 md:py-5 md:mx-44 lg:px-20 lg:py-10 lg:mx-66 xl:px-20 xl:py-10 xl:mx-96 ">
         <h2 className="text-center font-bold pb-2">Sign up</h2>
         <div class="relative z-0 mb-6 w-full group">
           <input
