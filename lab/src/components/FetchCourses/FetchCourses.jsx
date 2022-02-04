@@ -29,7 +29,6 @@ export default function FetchCourses() {
   useEffect(() => {
     const Details = async () => {
       id = id.id.split(":")
-      console.log(id[1]);
       let res = await getCourse(id[1]);
       setDetails(res.data);
       console.log(res.data);
@@ -43,7 +42,6 @@ export default function FetchCourses() {
   }, []);
   
   return <div>
-    <h1>Id:{id.id.split(":")}</h1>
     {details && details?.data.map((course, i) => {
       return <div key={i} className="w-full  p-4">
       <h1>Front-End: Course</h1>
