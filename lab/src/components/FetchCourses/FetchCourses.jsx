@@ -88,7 +88,7 @@ export default function FetchCourses() {
       return <div key={i}>
         <h1 style={{color:"red"}}>Review</h1>
         <h1>Rating:{review.rate}</h1>
-        <h1>Course:{details.data[0].title}</h1>
+        <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
       </div>
     })}
