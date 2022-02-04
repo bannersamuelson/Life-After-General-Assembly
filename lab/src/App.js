@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <HomePage user={user} setUser={setUser} />
-          <Test user={user} setUser={setUser} home={true} />
+          {/* <Test user={user} setUser={setUser} home={true} /> */}
         </Layout>} />
         <Route path="/:id" element={
           <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
