@@ -145,11 +145,8 @@ export const updateUser = (userName,data) =>
         url: `${base}/addreview/${data,id}`,
         headers: { "Access-Control-Allow-Origin": "*" },
         data:data,
-      })
-        .then((response) => {
+      }).then((response) => {
           return response.data;
-        })
-        .catch((error) => {
+        }).catch((error) => {
           console.log(error);
-        });  
-
+        });
