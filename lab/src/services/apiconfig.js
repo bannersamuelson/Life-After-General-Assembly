@@ -138,3 +138,17 @@ export const updateUser = (userName,data) =>
   }).catch(function (error) {
     console.log(error);
   });
+
+  export const addReview = (data,id) =>
+      axios({
+        method: "post",
+        url: `${base}/addreview/${data,id}`,
+        headers: { "Access-Control-Allow-Origin": "*" },
+        data:data,
+      })
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
