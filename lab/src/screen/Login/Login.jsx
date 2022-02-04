@@ -51,8 +51,8 @@ const handleInput = (e)=>{
 // }
 
   return (
-    <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
-      <form className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    <div className="w-full flex items-center text-base bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
+      <form className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-3 pt-3 pb-3 mb-2"
         onSubmit={handleSubmit}>
         <h2 className="text-center font-bold">Login to your account</h2>
           <div className="flex items-center border-b border-blue-900 py-2">
@@ -79,7 +79,7 @@ const handleInput = (e)=>{
           {handleError}
           <br/> */}
           <br/>
-          <button className="flex-shrink-0 bg-blue-800 hover:bg-blue-800 border-blue-700 hover:border-blue-800 border-4 text-white py-1 px-2 rounded text-xl">Submit</button>
+          <button className="flex-shrink-0 bg-blue-800 hover:bg-blue-800 border-blue-700 hover:border-blue-800 border-4 text-white py-1 px-2 rounded text-base">Submit</button>
       </form>
     </div>
   );

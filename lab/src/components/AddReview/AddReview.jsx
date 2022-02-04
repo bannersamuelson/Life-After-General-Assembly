@@ -33,7 +33,7 @@ return (
   <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
     <h2 className="text-center font-bold ">Add a Review about Course</h2>
     <form onSubmit={handleSubmit}
-  className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
+  className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded text-sm px-3 pb-3 w-6/12"> 
       <label >Course</label>
       <br />
       <input

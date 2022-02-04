@@ -56,8 +56,8 @@ export default function SignUp(props) {
   };
 // console.log(props);
   return (
-      <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
-      <form className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-6/12" onSubmit={handleSubmit}>
+      <div className="w-full flex items-center text-base bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
+      <form className=" relative mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded text-sm px-3 pb-3 w-6/12" onSubmit={handleSubmit}>
       <h2 className="text-center font-bold ">Sign up</h2>
           <br/>
           <label >User name</label>
@@ -139,7 +139,7 @@ export default function SignUp(props) {
           <br />
           <h3>{validationMessage}</h3>
           <br />
-          <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded text-xl" disabled={!valid}>
+          <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded text-base" disabled={!valid}>
             SIGN UP
           </button>
         </form>
