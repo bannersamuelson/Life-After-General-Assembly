@@ -157,7 +157,7 @@ export default function Test(props) {
       // }
     })}
 
-    {reviews && reviews.map((review, i) => {
+    {!props.home && reviews && reviews.map((review, i) => {
       return <div key={i}>
         <h1 style={{color:"red"}}>Review</h1>
         <h1>Rating:{review.rate}</h1>
