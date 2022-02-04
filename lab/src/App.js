@@ -25,10 +25,10 @@ function App() {
         <Route path="/:id" element={
           <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
             <FetchCourses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></FetchCourses>
-          {/* <Test user={user} setUser={setUser} home={true} /> */}
-        </Layout>} />
+            {/* <Test user={user} setUser={setUser} home={true} /> */}
+          </Layout>} />
         <Route path="/front" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <h1>FrontEnd</h1>
+
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}>
           </Test>
         </Layout>} />
