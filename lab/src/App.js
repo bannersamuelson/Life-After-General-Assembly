@@ -10,7 +10,7 @@ import HomePage from './screen/HomePage/HomePage.jsx';
 import FetchCourses from './components/FetchCourses/FetchCourses.jsx';
 function App() {
   const [user, setUser] = useState();
-  const [loginUser, setLoginUser] = useState();
+  const [loginUser, setLoginUser] = useState([]);
   // console.log(user);
   // console.log(loginUser);
   // const [course, setCourse] = useState();
@@ -24,7 +24,8 @@ function App() {
         </Layout>} />
         <Route path="/:id" element={
           <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-        <FetchCourses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></FetchCourses>
+            <FetchCourses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></FetchCourses>
+          {/* <Test user={user} setUser={setUser} home={true} /> */}
         </Layout>} />
         <Route path="/front" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <h1>FrontEnd</h1>

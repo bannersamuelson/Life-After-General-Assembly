@@ -123,6 +123,14 @@ export default function Test(props) {
           <h1>Type:{course.types}</h1>
           <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
           <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Review</button>
+          {reviews && reviews.map((review, i) => {
+           return <div key={i}>
+                <h1 style={{color:"red"}}>Review</h1>
+                <h1>Rating:{review.rate}</h1>
+                {/* <h1>Course:{review.course}</h1> */}
+                <h1>Review:{review.review}</h1>
+              </div>
+    })}
           {/* {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
             <h2 className="flex items-center">New Review</h2>
             <label>Review</label>
@@ -157,13 +165,13 @@ export default function Test(props) {
       // }
     })}
 
-    {!props.home && reviews && reviews.map((review, i) => {
+    {/* {!props.home && reviews && reviews.map((review, i) => {
       return <div key={i}>
         <h1 style={{color:"red"}}>Review</h1>
         <h1>Rating:{review.rate}</h1>
         <h1>Course:{review.course}</h1>
         <h1>Review:{review.review}</h1>
       </div>
-    })}
+    })} */}
   </div>;
 }
