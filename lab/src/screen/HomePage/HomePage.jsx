@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import img from '../../images/database.jpg'
 
 export default function HomePage(props) {
 
@@ -16,20 +17,26 @@ export default function HomePage(props) {
               <span className="w-full font-bold text-center text-gray-300 md:text-left">FULL STACK</span>
               <h1 className="w-full mt-4 text-5xl font-black text-center lg:text-6xl md:text-left">LIFE AFTER GA</h1>
               <p className="w-full mt-6 text-center text-gray-300 md:text-left">This website is dedicated to bettering the life of coders by providing course materials and realtime reviews for the everyday applications.</p>
-              <div className="flex flex-col items-center justify-center w-full mt-8 md:flex-row md:justify-start"></div>
-              <Link to="/front" className="flex items-center h-12 px-6 text-sm bg-blue-600 rounded-lg text-blue-50 hover:bg-blue-700">Go to courses!</Link>
-              <Link to="/signup" className="mt-4 text-sm text-gray-400 underline md:mt-0 md:ml-4 hover:text-gray-200">join the club</Link>
-              <img className="flex-grow w-full" src="https://insights.dice.com/wp-content/uploads/2019/07/Software-Developer-Software-Engineer-Dice.png" alt="computerguy" />
+              <div className="flex flex-col items-center justify-center w-full mt-8 md:flex-row md:justify-start">
 
-
+                <Link to="/front" className="flex items-center h-12 px-6 text-sm  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold">Go to courses!</Link>
+                <Link to="/signup" className="mt-4 text-sm text-gray-400 underline md:mt-0 md:ml-4 hover:text-gray-200">join the club!</Link>
+              </div>
+            </div>
+            <div className="flex-grow w-full md:w-0">
+              <img className="mt-10 md:mt-0" src={img} alt="databasestack" />
             </div>
           </div>
+
+
+
         </div>
-
-
-
       </div>
+
+
+
     </div>
+
 
 
 
@@ -84,3 +91,4 @@ export default function HomePage(props) {
 </div> */}
 
 
+// https://insights.dice.com/wp-content/uploads/2019/07/Software-Developer-Software-Engineer-Dice.png
