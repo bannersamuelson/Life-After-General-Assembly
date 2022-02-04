@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-import {getAllUsers,fetchAllCourses,getAllReviews,addReview} from "../services/apiconfig"
+import {getAllUsers,fetchAllCourses,getAllReviews,createReview} from "../services/apiconfig"
 
 
 export default function Test(props) {
@@ -18,7 +18,7 @@ export default function Test(props) {
   const handleSubmit = async (e,id) => {
     e.preventDefault();
     newReview.course = id;
-    await addReview(newReview,id);
+    await createReview(newReview,id);
     console.log(newReview);
   };
 
