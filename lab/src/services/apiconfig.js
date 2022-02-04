@@ -139,6 +139,7 @@ export const updateUser = (userName,data) =>
     console.log(error);
   });
 
+
   export const addReview = (data,id) =>
       axios({
         method: "post",
@@ -152,3 +153,4 @@ export const updateUser = (userName,data) =>
         .catch((error) => {
           console.log(error);
         });
+

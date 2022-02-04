@@ -56,9 +56,10 @@ export default function SignUp(props) {
   };
 // console.log(props);
   return (
-      <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs">
+      <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
+        <h2 className="text-center font-bold ">Sign up</h2>
         <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-          <h2 className="flex items-center">Sign up</h2>
+          <br/>
           <label >User name</label>
           <br />
           <input
@@ -67,7 +68,7 @@ export default function SignUp(props) {
             id="userName"
             value={newUser.userName}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            className="flex items-center border-b border-teal-500 py-2 text-teal-700"
           />
           <br />
           <label>Upload avatar</label>
@@ -78,7 +79,7 @@ export default function SignUp(props) {
             id="avatar"
             value={newUser.avatar}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            className="flex items-center border-b border-teal-500 py-2 text-teal-700"
           />
           <br />
           <label>First Name</label>
@@ -89,7 +90,7 @@ export default function SignUp(props) {
             id="firstName"
             value={newUser.firstName}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            className="flex items-center border-b border-teal-500 py-2 text-teal-700"
           />
           <br />
           <label>Last Name</label>
@@ -100,7 +101,7 @@ export default function SignUp(props) {
             id="lastName"
             value={newUser.lastName}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            className="flex items-center border-b border-teal-500 py-2 text-teal-700"
           />
           <br />
           <label>Email</label>
@@ -111,7 +112,7 @@ export default function SignUp(props) {
             id="email"
             value={newUser.email}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            className="flex items-center border-b border-teal-500 py-2 text-teal-700"
           />
           <br />
           <label>Password</label>
@@ -122,7 +123,7 @@ export default function SignUp(props) {
             id="password"
             value={newUser.password}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            className="flex items-center border-b border-teal-500 py-2 text-teal-700"
           />
           <br />
           <label>Confirm password</label>
@@ -133,12 +134,12 @@ export default function SignUp(props) {
             id="confirmPassword"
             value={newUser.confirmPassword}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            className="flex items-center border-b border-teal-500 py-2 text-teal-700"
           />
           <br />
           <h3>{validationMessage}</h3>
           <br />
-          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" disabled={!valid}>
+          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded text-xl" disabled={!valid}>
             SIGN UP
           </button>
         </form>
