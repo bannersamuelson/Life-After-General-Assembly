@@ -1,12 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCourse,createReview,getAllReviews } from '../../services/apiconfig';
-export default function FetchCourses() {
+export default function FetchCourses(props) {
   let id = useParams();
+  console.log(props.loginUser);
   const [details, setDetails] = useState();
   const [reviews, setReviews] = useState([]);
   const [toggle,setToggle ] = useState(false);
   const [newReview, setNewReview] = useState({
+    author:`${props.loginUser}`,
     course:"",
     review:"",
     rate:0,
@@ -29,7 +31,6 @@ export default function FetchCourses() {
   useEffect(() => {
     const Details = async () => {
       id = id.id.split(":")
-      console.log(id[1]);
       let res = await getCourse(id[1]);
       setDetails(res.data);
       console.log(res.data);
@@ -38,13 +39,13 @@ export default function FetchCourses() {
     const GrabReviews = async () => {
       let res =  await getAllReviews();
       setReviews(res.data);
+      console.log(res.data);
     }
     GrabReviews();
   }, []);
   
   return <div>
-    <h1>Id:{id.id.split(":")}</h1>
-    {details && details.data.map((course, i) => {
+    {details && details?.data.map((course, i) => {
       return <div key={i} className="w-full  p-4">
       <h1>Front-End: Course</h1>
       <h1>Title:{course.title}</h1>
@@ -86,9 +87,10 @@ export default function FetchCourses() {
     )}
     {reviews && reviews.map((review, i) => {
       return <div key={i}>
-        <h1 style={{color:"red"}}>Review</h1>
+        <h1 style={{ color: "red" }}>Review</h1>
+        <h1>Author:{review.author}</h1>
         <h1>Rating:{review.rate}</h1>
-        <h1>Course:{details.data[0].title}</h1>
+        <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
       </div>
     })}
