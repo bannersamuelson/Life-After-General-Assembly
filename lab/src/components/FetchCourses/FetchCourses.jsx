@@ -32,7 +32,7 @@ export default function FetchCourses() {
       console.log(id[1]);
       let res = await getCourse(id[1]);
       setDetails(res.data);
-      // console.log(res);
+      console.log(res.data);
     }
     Details();
     const GrabReviews = async () => {
@@ -86,9 +86,9 @@ export default function FetchCourses() {
     )}
     {reviews && reviews.map((review, i) => {
       return <div key={i}>
-        <h1>Review</h1>
+        <h1 style={{color:"red"}}>Review</h1>
         <h1>Rating:{review.rate}</h1>
-        <h1>Course:{review.course}</h1>
+        <h1>Course:{details.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
       </div>
     })}
