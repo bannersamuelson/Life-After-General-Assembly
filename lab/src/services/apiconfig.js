@@ -151,4 +151,5 @@ export const updateUser = (userName,data) =>
         })
         .catch((error) => {
           console.log(error);
-        });
+        });  
+
