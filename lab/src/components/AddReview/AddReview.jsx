@@ -67,7 +67,7 @@ return (
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
       <br />
-      <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 border-4 text-white py-1 px-2 rounded text-xl">
+      <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded text-xl">
       Add Course
       </button>
     </form>
