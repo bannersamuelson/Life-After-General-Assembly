@@ -58,11 +58,11 @@ export default function Test(props) {
  
   return <div>
     {/* {!user && <h1>Loading Users</h1>} */}
-    {user && user.map((el,i) => {
+    {!props.home && user && user.map((el,i) => {
       return <h1 key={i}>User:{el.userName}</h1>
     })}
     {/* {!courses && <h1>Loading Courses</h1>} */}
-    {courses && courses.map((course, i) => {
+    {!props.home && courses && courses.map((course, i) => {
       return <div key={i} className="w-full  p-4">
         <h1>Front-End: Course</h1>
         <h1>Title:{course.title}</h1>
