@@ -7,10 +7,6 @@ export default function HomePage(props) {
   return (
     <div className="bg-gradient-to-r from-blue-800 to-blue-900 text-gray-50">
       <div id="app">
-        <div className="flex items-center h-16 px-6 border-b border-gray-700">
-          <div className="flex items-center ml-auto">Banner</div>
-        </div>
-
         <div className="w-full border-b border-gray-700">
           <div className="flex flex-wrap items-center max-w-screen-xl px-10 py-20 mx-auto md:flex-nowrap">
             <div className="flex flex-col items-start justify-center flex-grow w-full pr-0 md:w-0 md:pr-10">
@@ -36,59 +32,7 @@ export default function HomePage(props) {
 
 
     </div>
-
-
-
-
   )
 }
-
-{/* <div className="grid grid-cols-4 gap-4 p-4">
-
-    <Link to="/front" className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> FRONTEND /></h5>
-    <p className="font-normal text-gray-700 dark:text-gray-400">Click here to learn more about the cutting-edge technologies that are implemented in today's front-end user experiencce.</p>
-   <br />
-   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#javaScript</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Angular</span>
-</Link>
-  
-    <Link to="/back" className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> BACKEND /></h5>
-    <p className="font-normal text-gray-700 dark:text-gray-400">Click here to learn more about the cutting-edge technologies that are implemented in today's front-end user experiencce.</p>
-   <br />
-   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#javaScript</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Angular</span>
-
-</Link>
-    <Link to="/database" className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> BACKEND /></h5>
-    <p className="font-normal text-gray-700 dark:text-gray-400">Click here to learn more about the cutting-edge technologies that are implemented in today's front-end user experiencce.</p>
-   <br />
-   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#javaScript</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Angular</span>
-  </Link>
-    <Link to="/devops" className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> BACKEND /></h5>
-    <p className="font-normal text-gray-700 dark:text-gray-400">Click here to learn more about the cutting-edge technologies that are implemented in today's front-end user experiencce.</p>
-   <br />
-   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#javaScript</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Angular</span>
-  </Link>
-    <Link to="/mobile" className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> BACKEND /></h5>
-    <p className="font-normal text-gray-700 dark:text-gray-400">Click here to learn more about the cutting-edge technologies that are implemented in today's front-end user experiencce.</p>
-   <br />
-   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#javaScript</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Angular</span>
-    </Link>
-
-</div> */}
-
 
 // https://insights.dice.com/wp-content/uploads/2019/07/Software-Developer-Software-Engineer-Dice.png
