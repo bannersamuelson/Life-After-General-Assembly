@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import {getAllUsers,fetchAllCourses,getAllReviews,createReview} from "../services/apiconfig"
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 
 export default function Test(props) {
   const { user, setUser } = props;
   let slug = useParams();
+  let nav = useNavigate();
   const [courses, setCourse] = useState([]);
   const [filtered, setFiltered] = useState();
   const [reviews, setReviews] = useState([]);
@@ -61,7 +62,11 @@ export default function Test(props) {
     }
   }, [courses,slug]);
   
- 
+  const HandleDetails = (e, id) => {
+    e.preventDefault();
+    console.log(id);
+    nav(`/:${id}`);
+ }
   return <div>
     {/* {!user && <h1>Loading Users</h1>} */}
     {/* {!props.home && user && user.map((el,i) => {
@@ -72,7 +77,7 @@ export default function Test(props) {
       if (!course.types) {
         return <div key={i} className="w-full  p-4">
           <h1>Front-End: Course</h1>
-          <h1>Title:{course.title}</h1>
+          <h1 onClick={(e) => { HandleDetails(e,course._id) }}>Title:{course.title}</h1>
           <h1>Rating:{course.rate}/10</h1>
           <h1>Review:{course.review}</h1>
           <h1>Type:{course.types}</h1>
