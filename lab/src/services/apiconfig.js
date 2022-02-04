@@ -139,16 +139,18 @@ export const updateUser = (userName,data) =>
     console.log(error);
   });
 
-export const createReview = (id, data) =>
+
+  export const addReview = (data,id) =>
       axios({
         method: "post",
-        url: `${base}/courses/addreview/${id}`,
-        headers: {"Access-Control-Allow-Origin": "*"},
-        data: data,
+        url: `${base}/addreview/${data,id}`,
+        headers: { "Access-Control-Allow-Origin": "*" },
+        data:data,
       })
         .then((response) => {
           return response.data;
         })
         .catch((error) => {
           console.log(error);
-        });  
+        });
+
