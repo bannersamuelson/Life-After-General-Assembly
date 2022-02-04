@@ -23,7 +23,7 @@ function App() {
         </Layout>} />
         <Route path="/front" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <h1>FrontEnd</h1>
-          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} front={true}>
           </Test>
         </Layout>} />
         <Route path="/back" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
