@@ -51,14 +51,14 @@ const handleInput = (e)=>{
 // }
 
   return (
-    <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xl text-xl" style={{fontFamily:"Nunito"}}>
-      <h2 className="text-center font-bold">Login to your account</h2>
-      <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
+      <form className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}>
-          <div className="flex items-center border-b border-teal-500 py-2">
+        <h2 className="text-center font-bold">Login to your account</h2>
+          <div className="flex items-center border-b border-blue-900 py-2">
             <br/>
             <input
-              className="placeholder-black text-teal-700"
+              className="placeholder-black text-blue-900"
               type="text"
               placeholder="Email"
               id="email" 
@@ -68,7 +68,7 @@ const handleInput = (e)=>{
             <br />
             <br/>
             <input
-              className="placeholder-black text-teal-700"
+              className="placeholder-black text-blue-900"
               type="text"
               placeholder="Password"
               id="password" 
@@ -79,7 +79,7 @@ const handleInput = (e)=>{
           {handleError}
           <br/> */}
           <br/>
-          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 border-4 text-white py-1 px-2 rounded text-xl">Submit</button>
+          <button className="flex-shrink-0 bg-blue-800 hover:bg-blue-800 border-blue-700 hover:border-blue-800 border-4 text-white py-1 px-2 rounded text-xl">Submit</button>
       </form>
     </div>
   );

@@ -33,7 +33,7 @@ return (
   <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
     <h2 className="text-center font-bold ">Add a Review about Course</h2>
     <form onSubmit={handleSubmit}
-  className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
+  className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
       <label >Course</label>
       <br />
       <input
@@ -67,7 +67,7 @@ return (
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
       <br />
-      <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 border-4 text-white py-1 px-2 rounded text-xl">
+      <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded text-xl">
       Add Course
       </button>
     </form>
