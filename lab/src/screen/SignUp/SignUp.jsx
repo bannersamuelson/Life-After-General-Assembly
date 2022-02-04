@@ -57,7 +57,7 @@ export default function SignUp(props) {
 // console.log(props);
   return (
       <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
-      <form className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      <form className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-6/12" onSubmit={handleSubmit}>
       <h2 className="text-center font-bold ">Sign up</h2>
           <br/>
           <label >User name</label>
@@ -68,7 +68,7 @@ export default function SignUp(props) {
             id="userName"
             value={newUser.userName}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+            className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
           />
           <br />
           <label>Upload avatar</label>
@@ -79,7 +79,7 @@ export default function SignUp(props) {
             id="avatar"
             value={newUser.avatar}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+            className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
           />
           <br />
           <label>First Name</label>
@@ -90,7 +90,7 @@ export default function SignUp(props) {
             id="firstName"
             value={newUser.firstName}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+            className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
           />
           <br />
           <label>Last Name</label>
@@ -101,7 +101,7 @@ export default function SignUp(props) {
             id="lastName"
             value={newUser.lastName}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+            className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
           />
           <br />
           <label>Email</label>
@@ -112,7 +112,7 @@ export default function SignUp(props) {
             id="email"
             value={newUser.email}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+            className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
           />
           <br />
           <label>Password</label>
@@ -123,7 +123,7 @@ export default function SignUp(props) {
             id="password"
             value={newUser.password}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+            className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
           />
           <br />
           <label>Confirm password</label>
@@ -134,7 +134,7 @@ export default function SignUp(props) {
             id="confirmPassword"
             value={newUser.confirmPassword}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+            className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
           />
           <br />
           <h3>{validationMessage}</h3>
