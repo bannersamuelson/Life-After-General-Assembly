@@ -6,7 +6,7 @@ export default function Layout(props) {
 
   return (
     <div className='layout'>
-      <Nav user={props.user} />
+      <Nav user={props.user} setLoginUser={props.setLoginUser} loginUser={props.loginUser}/>
       <div className="layout-children">
           {props.children}
       </div>

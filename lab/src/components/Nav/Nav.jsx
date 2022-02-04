@@ -27,8 +27,7 @@ const alwaysOptions = (
   </>
 )
 
-
-const Nav = ({ user }) => {
+const Nav = (props) => {
 
   return (
     <nav className="bg-amber-400  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5 dark:bg-gray-800 
@@ -41,14 +40,15 @@ const Nav = ({ user }) => {
         </NavLink>
         <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-            {user && <div className="">Welcome, {user.email}</div>}
-            {alwaysOptions}
-            {user ? authenticatedOptions : unauthenticatedOptions}
+            {props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}
+                 {alwaysOptions}
+            {props.user && props.loginUser ? authenticatedOptions : unauthenticatedOptions}
           </ul>
         </div>
       </div>
 
     </nav>
   )
+
 }
 export default Nav

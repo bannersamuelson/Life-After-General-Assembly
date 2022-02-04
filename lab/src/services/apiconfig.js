@@ -101,20 +101,23 @@ export const fetchAllCourses = () =>
 //            console.log(error);
 //          });      
 export const addCourse = (data) =>
-  axios({
-    method: "post",
-    url: `${base}/addcourse`,
-    headers: { "Access-Control-Allow-Origin": "*" },
-    data: data,
-  })
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-export const updateUser = (userName, data) =>
+      axios({
+        method: "post",
+        url: `${base}/addcourse`,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Authorization: localStorage.getItem("token"),
+        },
+        data: data,
+      })
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    
+export const updateUser = (userName,data) =>
   axios({
     method: "put",
     url: `${base}update/${userName}`,
