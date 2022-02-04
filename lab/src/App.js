@@ -7,11 +7,12 @@ import AddReview from "./components/AddReview/AddReview.jsx";
 import { useState } from 'react';
 import AddCourse from './components/AddCourse/AddCourse';
 import HomePage from './screen/HomePage/HomePage.jsx';
+import FetchCourses from './components/FetchCourses/FetchCourses.jsx';
 function App() {
   const [user, setUser] = useState();
   const [loginUser, setLoginUser] = useState();
-  console.log(user);
-  console.log(loginUser);
+  // console.log(user);
+  // console.log(loginUser);
   // const [course, setCourse] = useState();
   // const [review, setReview] = useState();
   return (
@@ -21,26 +22,34 @@ function App() {
           <HomePage user={user} setUser={setUser} />
           <Test user={user} setUser={setUser} home={true} />
         </Layout>} />
-        <Route path="/front" element={<Layout
-          user={user}
-          setUser={setUser}
-          loginUser={loginUser}
-          setLoginUser={setLoginUser}>
+        <Route path="/:id" element={
+          <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
+        <FetchCourses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></FetchCourses>
+        </Layout>} />
+        <Route path="/front" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <h1>FrontEnd</h1>
-          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} front={true}>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}>
           </Test>
         </Layout>} />
         <Route path="/back" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-
+          <h1>BackEnd</h1>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
+          </Test>
         </Layout>} />
         <Route path="/database" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-
+          <h1>Database</h1>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
+          </Test>
         </Layout>} />
         <Route path="/devops" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <h1>BackEnd</h1>
+          <h1>Dev-Ops</h1>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
+          </Test>
         </Layout>} />
         <Route path="/mobile" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <h1>BackEnd</h1>
+          <h1>Mobile</h1>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
+          </Test>
         </Layout>} />
         <Route
           path="/signup"

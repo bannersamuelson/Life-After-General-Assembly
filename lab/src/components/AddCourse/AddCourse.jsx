@@ -33,12 +33,7 @@ export default function AddCourse() {
     }));
   };
 
-  // useEffect(() => {
-  //   console.log("validator");
-  //   const res = signUp(newUser);
-  //   console.log(res);
-  //   checkIfValid();
-  // }, [newUser.password, newUser.confirmPassword]);
+
   
 
 return (

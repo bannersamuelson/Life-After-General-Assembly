@@ -58,10 +58,9 @@ export const loginUser = (props) =>
 export const getCourse = (id) =>
   axios({
     method: "get",
-    url: `${base}/course/${id}`,
+    url: `${base}/courses/${id}`,
     headers: {
       "Access-Control-Allow-Origin": "*",
-      Authorization: localStorage.getItem("token"),
     },
   })
     .then((response) => {
@@ -145,8 +144,11 @@ export const getAllReviews = () =>
 export const createReview = (data, id) =>
   axios({
     method: "post",
-    url: `${base}/addreview/${data, id}`,
-    headers: { "Access-Control-Allow-Origin": "*" },
+    url: `${base}/courses/addreview/${id}`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
     data: data,
   })
     .then((response) => {
