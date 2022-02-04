@@ -44,7 +44,7 @@ export default function FetchCourses() {
   
   return <div>
     <h1>Id:{id.id.split(":")}</h1>
-    {details && details.data.map((course, i) => {
+    {details && details?.data.map((course, i) => {
       return <div key={i} className="w-full  p-4">
       <h1>Front-End: Course</h1>
       <h1>Title:{course.title}</h1>
