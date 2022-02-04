@@ -42,9 +42,14 @@ function App() {
         <Route path="/mobile" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <h1>BackEnd</h1>
         </Layout>} />
-        <Route path="/signup" element={<Layout user={user} setUser={setUser}>
-          <SignUp user={user} setUser={setUser} />
-        </Layout>} />
+        <Route
+          path="/signup"
+          element={<Layout
+            user={user}
+            setUser={setUser}>
+            <SignUp
+              user={user} setUser={setUser} />
+          </Layout>} />
         <Route path="/login" element={<Layout user={user} setUser={setUser}>
           <Login loginUser={loginUser} setLoginUser={setLoginUser} />
         </Layout>} />
