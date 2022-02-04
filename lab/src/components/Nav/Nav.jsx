@@ -34,7 +34,7 @@ const Nav = (props) => {
     flex items-center h-16 border-b">
 
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <NavLink to="/" className="flex">
+        <NavLink to="/" className="flex active">
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
           <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
         </NavLink>
