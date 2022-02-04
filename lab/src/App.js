@@ -18,19 +18,23 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <HomePage user={user} setUser={setUser}/>
-          <Test user={user} setUser={setUser} home={true}/>
+          <HomePage user={user} setUser={setUser} />
+          <Test user={user} setUser={setUser} home={true} />
         </Layout>} />
-        <Route path="/front" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
+        <Route path="/front" element={<Layout
+          user={user}
+          setUser={setUser}
+          loginUser={loginUser}
+          setLoginUser={setLoginUser}>
           <h1>FrontEnd</h1>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} front={true}>
           </Test>
         </Layout>} />
         <Route path="/back" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <h1>BackEnd</h1>
+
         </Layout>} />
         <Route path="/database" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <h1>BackEnd</h1>
+
         </Layout>} />
         <Route path="/devops" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <h1>BackEnd</h1>
@@ -38,9 +42,14 @@ function App() {
         <Route path="/mobile" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <h1>BackEnd</h1>
         </Layout>} />
-        <Route path="/signup" element={<Layout user={user} setUser={setUser}>
-          <SignUp user={user} setUser={setUser} />
-        </Layout>} />
+        <Route
+          path="/signup"
+          element={<Layout
+            user={user}
+            setUser={setUser}>
+            <SignUp
+              user={user} setUser={setUser} />
+          </Layout>} />
         <Route path="/login" element={<Layout user={user} setUser={setUser}>
           <Login loginUser={loginUser} setLoginUser={setLoginUser} />
         </Layout>} />
