@@ -27,7 +27,6 @@ const alwaysOptions = (
     </>
 )
 
-
 const Nav = (props) => {
   console.log(props);
         return (
