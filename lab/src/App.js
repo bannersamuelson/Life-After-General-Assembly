@@ -18,8 +18,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <HomePage />
-          <Test user={user} setUser={setUser} />
+          <HomePage user={user} setUser={setUser}/>
+          <Test user={user} setUser={setUser} home={true}/>
         </Layout>} />
         <Route path="/front" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <h1>FrontEnd</h1>
