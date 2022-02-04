@@ -28,16 +28,16 @@ const alwaysOptions = (
 )
 
 
-const Nav = ({user}) => {
-
+const Nav = (props) => {
+  console.log(props);
         return (
             <nav className='navbar'>
                 <div className="nav">
                     <NavLink className="logo" to="/">L.A.G.A</NavLink>
                     <div className="links">
-                {user && <div className="link welcome">Welcome, {user.email}</div>}
+                {props.user && <div className="link welcome">Welcome, {props.loginUser}</div>}
                         {alwaysOptions}
-                        {user ? authenticatedOptions : unauthenticatedOptions}
+                        {props.user ? authenticatedOptions : unauthenticatedOptions}
                     </div>
                 </div>
             </nav>
