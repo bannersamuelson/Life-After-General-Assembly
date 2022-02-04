@@ -4,7 +4,8 @@ import {useNavigate} from "react-router-dom";
 import {loginUser} from "../../services/apiconfig";
 // import Layout from "../../components/Layout/Layout"
 
-export default function Login() {
+export default function Login(props) {
+  console.log(props);
   const navigate = useNavigate()
   const [user, setUser] = useState({
     email: "",
@@ -18,6 +19,8 @@ const handleSubmit = async (e)=>{
   try{
     const login = await loginUser(user)
     console.log(login);
+    props.setLoginUser(login.data.user.firstName);
+    console.log(props);
     localStorage.setItem("token", login.data.token);
     console.log(localStorage.getItem("token")); 
     navigate("/")

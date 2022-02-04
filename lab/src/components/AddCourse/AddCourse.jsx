@@ -9,6 +9,7 @@ export default function AddCourse() {
     image: "",
     content: "",
     link: "",
+    types:"",
     review: "",
     rate: 0,
   });
@@ -89,6 +90,21 @@ return (
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
         />
+      <br />
+      <label>Type</label>
+      <br />
+      <select
+        type="text"
+        placeholder="course description"
+        id="types"
+        value={newCourse.types}
+        onChange={handleInput}
+        className="flex items-center border-b border-teal-500 py-2 text-teal-700"
+      >
+        <option>Front-End</option>
+        <option>Back-End</option>
+        <option>Dev-Ops</option>
+        </select>
       <br />
       <label>Link to source</label>
       <br />
