@@ -30,18 +30,18 @@ const alwaysOptions = (
 const Nav = (props) => {
 
   return (
-    <nav className="bg-amber-400  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5 dark:bg-gray-800 
+    <nav className="bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
     flex items-center h-16 border-b">
 
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <NavLink to="/" className="flex">
+        <NavLink to="/" className="flex active">
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
           <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
         </NavLink>
         <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             {props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}
-                 {alwaysOptions}
+            {alwaysOptions}
             {props.user && props.loginUser ? authenticatedOptions : unauthenticatedOptions}
           </ul>
         </div>

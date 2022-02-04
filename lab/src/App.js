@@ -19,8 +19,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-          <HomePage user={user} setUser={setUser}/>
-          <Test user={user} setUser={setUser} home={true}/>
+          <HomePage user={user} setUser={setUser} />
+          <Test user={user} setUser={setUser} home={true} />
         </Layout>} />
         <Route path="/:id" element={
           <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
@@ -51,9 +51,14 @@ function App() {
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
           </Test>
         </Layout>} />
-        <Route path="/signup" element={<Layout user={user} setUser={setUser}>
-          <SignUp user={user} setUser={setUser} />
-        </Layout>} />
+        <Route
+          path="/signup"
+          element={<Layout
+            user={user}
+            setUser={setUser}>
+            <SignUp
+              user={user} setUser={setUser} />
+          </Layout>} />
         <Route path="/login" element={<Layout user={user} setUser={setUser}>
           <Login loginUser={loginUser} setLoginUser={setLoginUser} />
         </Layout>} />

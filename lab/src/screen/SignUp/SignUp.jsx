@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUser } from "../../services/apiconfig"; 
+import { createUser } from "../../services/apiconfig";
+
 // import Layout from "../../components/Layout/Layout"; 
 
 
@@ -44,7 +45,7 @@ export default function SignUp(props) {
     if (newUser.password === "" || newUser.confirmPassword === "") {
       setValidationMessage("");
       setValid(false);
-    } else if (newUser.password.length < 9) {
+    } else if (newUser.password.length < 8) {
       setValidationMessage("Short password! Must be at least 8 characters");
     } else if (newUser.password !== newUser.confirmPassword) {
       setValidationMessage("Passwords must much!");
@@ -54,95 +55,182 @@ export default function SignUp(props) {
       setValid(true);
     }
   };
-// console.log(props);
+  // console.log(props);
   return (
-      <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
-      <form className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-      <h2 className="text-center font-bold ">Sign up</h2>
-          <br/>
-          <label >User name</label>
-          <br />
+    // <div className="w-full flex items-center text-xl bg-gradient-to-r from-blue-800 to-blue-900 h-screen" style={{ fontFamily: "Nunito" }}>
+
+    <div className="bg-slate-100 text-slate-600 py-20 h-screen">
+      <form
+        onSubmit={handleSubmit}
+        className="px-20 py-10 mx-96 bg-slate-200 border-slate300 border rounded-xl">
+        <h2 className="text-center font-bold pb-2">Sign up</h2>
+        <div class="relative z-0 mb-6 w-full group">
           <input
-            type="text"
-            placeholder="create user name"
-            id="userName"
             value={newUser.userName}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-          />
-          <br />
-          <label>Upload avatar</label>
-          <br />
-          <input
             type="text"
-            placeholder="avatar link"
-            id="avatar"
-            value={newUser.avatar}
-            onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-          />
-          <br />
-          <label>First Name</label>
-          <br />
+            name="username"
+            id="userName"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
+          <label
+            for="username"
+            className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
+        </div>
+        <div className="grid xl:grid-cols-2 xl:gap-6">
+          <div className="relative z-0 mb-6 w-full group">
+            <input value={newUser.firstName}
+              onChange={handleInput}
+              type="text"
+              name="floating_first_name"
+              id="firstName"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
+            <label
+              for="floating_first_name"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
+          </div>
+          <div className="relative z-0 mb-6 w-full group">
+            <input value={newUser.lastName}
+              onChange={handleInput}
+              type="text"
+              name="floating_last_name"
+              id="lastName"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
+            <label
+              for="floating_last_name"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
+          </div>
+        </div>
+        <div className="relative z-0 mb-6 w-full group">
           <input
-            type="text"
-            placeholder="first name"
-            id="firstName"
-            value={newUser.firstName}
-            onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-          />
-          <br />
-          <label>Last Name</label>
-          <br />
-          <input
-            type="text"
-            placeholder="last name"
-            id="lastName"
-            value={newUser.lastName}
-            onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-          />
-          <br />
-          <label>Email</label>
-          <br />
-          <input
-            type="text"
-            placeholder="email"
-            id="email"
             value={newUser.email}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <input
             type="text"
-            placeholder="create password"
-            id="password"
+            id="email"
+            name="floating_email"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
+          <label
+            for="floating_email"
+            className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+        </div>
+        <div className="relative z-0 mb-6 w-full group">
+          <input
             value={newUser.password}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-          />
-          <br />
-          <label>Confirm password</label>
-          <br />
-          <input
             type="text"
-            placeholder="confirm password"
-            id="confirmPassword"
+            name="floating_password"
+            id="password"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
+          <label
+            for="floating_password"
+            className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+        </div>
+        <div className="relative z-0 mb-6 w-full group">
+          <input
             value={newUser.confirmPassword}
             onChange={handleInput}
-            className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-          />
-          <br />
-          <h3>{validationMessage}</h3>
-          <br />
-          <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded text-xl" disabled={!valid}>
-            SIGN UP
-          </button>
-        </form>
-      </div>
+            type="text"
+            name="repeat_password"
+            id="confirmPassword"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer"
+            placeholder=" " required />
+          <label
+            for="floating_repeat_password"
+            className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+        </div>
+        <h3>{validationMessage}</h3>
+
+        <button
+          disabled={!valid}
+          className="text-white bg-blue-700 hover:bg-blue-800 mt-4 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-800 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Sign Up</button>
+      </form>
+    </div>
+
   );
 }
+{/* <form className="" onSubmit={handleSubmit}>
+        <h2 className="text-center font-bold ">Sign up</h2>
+        <br />
+        <label >User name</label>
+        <br />
+        <input
+          type="text"
+          placeholder="create user name"
+          id="userName"
+          value={newUser.userName}
+          onChange={handleInput}
+          className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+        />
+        <br />
+        <label>Upload avatar</label>
+        <br />
+        <input
+          type="text"
+          placeholder="avatar link"
+          id="avatar"
+          value={newUser.avatar}
+          onChange={handleInput}
+          className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+        />
+        <br />
+        <label>First Name</label>
+        <br />
+        <input
+          type="text"
+          placeholder="first name"
+          id="firstName"
+          value={newUser.firstName}
+          onChange={handleInput}
+          className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+        />
+        <br />
+        <label>Last Name</label>
+        <br />
+        <input
+          type="text"
+          placeholder="last name"
+          id="lastName"
+          value={newUser.lastName}
+          onChange={handleInput}
+          className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+        />
+        <br />
+        <label>Email</label>
+        <br />
+        <input
+          type="text"
+          placeholder="email"
+          id="email"
+          value={newUser.email}
+          onChange={handleInput}
+          className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+        />
+        <br />
+        <label>Password</label>
+        <br />
+        <input
+          type="text"
+          placeholder="create password"
+          id="password"
+          value={newUser.password}
+          onChange={handleInput}
+          className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+        />
+        <br />
+        <label>Confirm password</label>
+        <br />
+        <input
+          type="text"
+          placeholder="confirm password"
+          id="confirmPassword"
+          value={newUser.confirmPassword}
+          onChange={handleInput}
+          className="flex items-center border-b border-blue-900 py-2 text-blue-900"
+        />
+        <br />
+        <h3>{validationMessage}</h3>
+        <br />
+        <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 border-4 text-white py-1 px-2 rounded text-xl" disabled={!valid}>
+          SIGN UP
+        </button>
+      </form> */}
