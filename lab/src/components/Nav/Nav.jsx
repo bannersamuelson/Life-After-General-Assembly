@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import "./Nav.css"
+import { useNavigate } from 'react-router-dom';
 
 const handleLogout = (e) => {
   e.preventDefault();
