@@ -1,12 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCourse,createReview,getAllReviews } from '../../services/apiconfig';
-export default function FetchCourses() {
+export default function FetchCourses(props) {
   let id = useParams();
+  console.log(props.loginUser);
   const [details, setDetails] = useState();
   const [reviews, setReviews] = useState([]);
   const [toggle,setToggle ] = useState(false);
   const [newReview, setNewReview] = useState({
+    author:`${props.loginUser}`,
     course:"",
     review:"",
     rate:0,
@@ -37,6 +39,7 @@ export default function FetchCourses() {
     const GrabReviews = async () => {
       let res =  await getAllReviews();
       setReviews(res.data);
+      console.log(res.data);
     }
     GrabReviews();
   }, []);
@@ -84,7 +87,8 @@ export default function FetchCourses() {
     )}
     {reviews && reviews.map((review, i) => {
       return <div key={i}>
-        <h1 style={{color:"red"}}>Review</h1>
+        <h1 style={{ color: "red" }}>Review</h1>
+        <h1>Author:{review.author}</h1>
         <h1>Rating:{review.rate}</h1>
         <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>

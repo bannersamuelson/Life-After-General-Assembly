@@ -19,7 +19,7 @@ const handleSubmit = async (e)=>{
   try{
     const login = await loginUser(user)
     console.log(login);
-    props.setLoginUser(login.data.user.firstName);
+    props.setLoginUser([login.data.user.userName]);
     console.log(props);
     localStorage.setItem("token", login.data.token);
     console.log(localStorage.getItem("token")); 
