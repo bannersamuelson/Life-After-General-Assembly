@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from "../../services/apiconfig";
 // import Layout from "../../components/Layout/Layout"
 
@@ -76,7 +76,7 @@ export default function Login(props) {
             value={user.password}
             onChange={handleInput}
             className="focus:placeholder-transparent shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
-          <p className="text-red-500 text-xs italic">Please enter your password.</p>
+          <p className="text-slate-500 text-xs italic">Not a user? <Link className="underline hover:cursor-pointer hover:text-red-100" to='/signup'>Sign up!</Link></p>
         </div>
         <div className="flex items-center justify-between">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

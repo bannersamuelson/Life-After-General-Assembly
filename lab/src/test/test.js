@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, createReview } from "../services/apiconfig"
 import { useParams, useNavigate } from 'react-router-dom';
-import img from '../images/database.jpg'
+import img from '../images/code.png'
 
 export default function Test(props) {
   const { user, setUser } = props;
@@ -79,7 +79,7 @@ export default function Test(props) {
 
 
           <div className="relative overflow-hidden">
-            <img className="w-full" src={img} alt="Sunset in the mountains" />
+            <img className="w-full h-auto" src={img} alt="Sunset in the mountains" />
 
           </div>
 
