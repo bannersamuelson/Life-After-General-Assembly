@@ -51,10 +51,10 @@ export default function Login(props) {
   // }
 
   return (
-    <div class="grid justify-items-center w-full mt-10">
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+    <div className="grid justify-items-center w-full mt-10">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
             Email
           </label>
           <input
@@ -65,21 +65,26 @@ export default function Login(props) {
             onChange={handleInput}
             className="focus:placeholder-transparent shadow appearance-none border rounded w-full py-2 pl-3 pr-20 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
-        <div class="mb-6">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
             Password
           </label>
-          <input class="focus:placeholder-transparent shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="**********" />
-          <p class="text-red-500 text-xs italic">Please enter your password.</p>
+          <input
+            type="text"
+            placeholder="********"
+            id="password"
+            value={user.password}
+            onChange={handleInput}
+            className="focus:placeholder-transparent shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
+          <p className="text-red-500 text-xs italic">Please enter your password.</p>
         </div>
-        <div class="flex items-center justify-between">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        <div className="flex items-center justify-between">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Sign In
           </button>
-
         </div>
       </form>
-      <p class="text-center text-gray-500 text-xs">
+      <p className="text-center text-gray-500 text-xs">
         &copy;2022 LAGA. All rights reserved.
       </p>
     </div>
