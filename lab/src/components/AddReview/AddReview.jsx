@@ -3,19 +3,21 @@ import {createReview} from "../../services/apiconfig";
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
-export default function AddReview() {
+export default function AddReview(props) {
   const [newReview, setNewReview] = useState({
+    author:`${props.loginUser}`,
     course: "",
     review: "",
     rate: 0,
   });
+  console.log(props,newReview);
   
   
   const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newReview);
+    console.log(newReview.author);
     let res=await createReview(newReview);
     console.log(res);
     navigation("/");

@@ -41,7 +41,7 @@ export default function Test(props) {
     const GrabCourse = async () => {
       let res = await fetchAllCourses();
       console.log(res);
-      setCourse(res.data);
+      setCourse(res?.data);
     }
 
 
@@ -60,8 +60,7 @@ export default function Test(props) {
   useEffect(() => {
     if (courses) {
       setFiltered(courses.filter(course => course.types == props.types));
-      console.log(filtered)
-      console.log("yo")
+      // console.log(filtered)
     }
   }, [courses, slug]);
 
@@ -70,6 +69,7 @@ export default function Test(props) {
     console.log(id);
     nav(`/:${id}`);
   }
+ 
   return <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 
     {!courses && <h1>Loading Courses</h1>}
@@ -98,8 +98,7 @@ export default function Test(props) {
           <h1>Review:{course.review}</h1>
           <h1>Type:{course.types}</h1>
           <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
-
-
+          
           {/*           
           <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Review</button>
           {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
