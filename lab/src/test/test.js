@@ -75,16 +75,17 @@ export default function Test(props) {
     {!courses && <h1>Loading Courses</h1>}
     {!props.home && filtered && filtered.map((course, i) => {
       if (course.types) {
-        return <div key={i} onClick={(e) => { HandleDetails(e, course._id) }} className="my-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
+        return <div key={i} onClick={(e) => { HandleDetails(e, course._id) }} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
 
 
           <div className="relative overflow-hidden">
-            <img className="w-full border-b-2 border-slate-200" src={img} alt="Sunset in the mountains" />
-            <div className="absolute w-full py-2.5 bottom-5 inset-x-0 inset-y-60 text-slate-900 font-extrabold  text-5xl text-center">{course.title}</div>
+            <img className="w-full" src={img} alt="Sunset in the mountains" />
+
           </div>
 
 
           <div className="px-6 py-4">
+            <h1 className="text-gray-900 text-4xl font-extrabold">{course.title}</h1>
             <p className="text-gray-700 text-base">
               Description:{course.content}
             </p>
