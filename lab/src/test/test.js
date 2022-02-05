@@ -70,12 +70,12 @@ export default function Test(props) {
     console.log(id);
     nav(`/:${id}`);
   }
-  return <div className="items-center justify-center mx-5 drop-shadow-2xl m-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
 
     {!courses && <h1>Loading Courses</h1>}
     {!props.home && filtered && filtered.map((course, i) => {
       if (course.types) {
-        return <div key={i} onClick={(e) => { HandleDetails(e, course._id) }} className="items-center justify-center self-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
+        return <div key={i} onClick={(e) => { HandleDetails(e, course._id) }} className="my-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
 
 
           <div className="relative overflow-hidden">
