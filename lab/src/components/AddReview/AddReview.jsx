@@ -4,6 +4,7 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
 export default function AddReview(props) {
+  console.log(props);
   const [newReview, setNewReview] = useState({
     author:`${props.loginUser}`,
     course: "",
@@ -36,17 +37,6 @@ return (
     <h2 className="text-center font-bold ">Add a Review about Course</h2>
     <form onSubmit={handleSubmit}
   className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
-      <label >Course</label>
-      <br />
-      <input
-        type="text"
-        placeholder="course title"
-        id="course"
-        value={newReview.course}
-        onChange={handleInput}
-        className="flex items-center border-b border-teal-500 py-2 text-teal-700"
-      />
-      <br />
       <label >Review</label>
       <br />
       <input

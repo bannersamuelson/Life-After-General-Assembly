@@ -4,17 +4,17 @@ import { getCourse,createReview,getAllReviews, deleteUser, deleteReview } from '
 import AddReview from '../AddReview/AddReview';
 export default function FetchCourses(props) {
   let id = useParams();
-  console.log(props.loginUser);
   let nav = useNavigate();
   const [details, setDetails] = useState();
   const [reviews, setReviews] = useState([]);
   const [toggle,setToggle ] = useState(false);
   const [newReview, setNewReview] = useState({
-    author:`${props.loginUser}`,
+    author:`${props.firstName}`,
     course:"",
     review:"",
     rate:0,
   });
+  console.log(newReview);
   const handleSubmit = async (e,id) => {
     e.preventDefault();
     newReview.course = id;
@@ -99,6 +99,7 @@ export default function FetchCourses(props) {
     }
     )}
     {reviews && reviews.map((review, i) => {
+      console.log(review);
       return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
         {/* <h1 style={{ color: "red" }}>Review</h1> */}
         <h1>Author:{review.author}</h1>
