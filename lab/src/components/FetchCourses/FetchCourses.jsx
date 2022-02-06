@@ -28,6 +28,10 @@ export default function FetchCourses(props) {
     }));
   };
 
+
+  const star = (`${'\u2728'}`)
+  console.log(star)
+
   useEffect(() => {
     const Details = async () => {
       id = id.id.split(":")
@@ -62,7 +66,7 @@ export default function FetchCourses(props) {
                 <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new review</h2>
                 <div class="w-full md:w-full px-3 mb-2 mt-2">
                   <input
-                    className="grid items-start focus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
+                    className="grid items-start çfocus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
                     type="text"
                     id="review"
                     value={newReview.review}
@@ -70,6 +74,16 @@ export default function FetchCourses(props) {
                     placeholder='Type your review'
                     required />
                 </div>
+                <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a rating</h2>
+                <br />
+                <input
+                  type="number"
+                  placeholder="create Rating"
+                  id="rate"
+                  value={newReview.rate}
+                  onChange={handleInput}
+                  className="grid items-start çfocus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
+                />
                 <div class="w-full md:w-full flex items-start md:w-full px-3">
                   <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
                     <svg fill="none" class="w-5 h-5 text-gray-600 mr-1" viewBox="0 0 24 24" stroke="currentColor">
@@ -117,7 +131,9 @@ export default function FetchCourses(props) {
       return <div key={i}>
         <h1 style={{ color: "red" }}>Review</h1>
         <h1>Author:{review.author}</h1>
-        <h1>Rating:{review.rate}</h1>
+        <h1>Rating:</h1>
+        <>{star.repeat(`${review.rate}`)}</>
+
         <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
       </div>
