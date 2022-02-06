@@ -70,7 +70,7 @@ export default function Test(props) {
     console.log(id);
     nav(`/:${id}`);
   }
-  return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
+  return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center drop-shadow-2xl m-2">
 
     {!courses && <h1>Loading Courses</h1>}
     {!props.home && filtered && filtered.map((course, i) => {
