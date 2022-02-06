@@ -22,6 +22,11 @@ function App() {
           <HomePage user={user} setUser={setUser} />
           <Test user={user} setUser={setUser} home={true} />
         </Layout>} />
+        <Route path="/courses" element={
+          <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
+            <Courses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></Courses>
+            {/* <Test user={user} setUser={setUser} home={true} /> */}
+          </Layout>} />
         <Route path="/:id" element={
           <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
             <FetchCourses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></FetchCourses>
