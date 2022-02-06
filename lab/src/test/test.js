@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, createReview } from "../services/apiconfig"
 import { useParams, useNavigate } from 'react-router-dom';
-import img from '../images/database.jpg'
+import img from '../images/code.png'
 
 export default function Test(props) {
   const { user, setUser } = props;
@@ -59,7 +59,7 @@ export default function Test(props) {
 
   useEffect(() => {
     if (courses) {
-      setFiltered(courses.filter(course => course.types == props.types));
+      setFiltered(courses.filter(course => course.types === props.types));
       console.log(filtered)
       console.log("yo")
     }
@@ -70,21 +70,22 @@ export default function Test(props) {
     console.log(id);
     nav(`/:${id}`);
   }
-  return <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+  return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
 
     {!courses && <h1>Loading Courses</h1>}
     {!props.home && filtered && filtered.map((course, i) => {
       if (course.types) {
-        return <div key={i} onClick={(e) => { HandleDetails(e, course._id) }} className="hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
+        return <div key={i} onClick={(e) => { HandleDetails(e, course._id) }} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
 
 
           <div className="relative overflow-hidden">
-            <img className="w-full border-b-2 border-slate-200" src={img} alt="Sunset in the mountains" />
-            <div className="absolute w-full py-2.5 bottom-5 inset-x-0 inset-y-60 text-slate-900 font-extrabold  text-5xl text-center">{course.title}</div>
+            <img className="w-full h-auto" src={img} alt="Sunset in the mountains" />
+
           </div>
 
 
           <div className="px-6 py-4">
+            <h1 className="text-gray-900 text-4xl font-extrabold">{course.title}</h1>
             <p className="text-gray-700 text-base">
               Description:{course.content}
             </p>
