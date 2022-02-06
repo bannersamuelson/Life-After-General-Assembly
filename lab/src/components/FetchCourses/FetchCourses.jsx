@@ -1,18 +1,20 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCourse,createReview,getAllReviews } from '../../services/apiconfig';
+import { getCourse,createReview,getAllReviews, deleteUser, deleteReview } from '../../services/apiconfig';
+import AddReview from '../AddReview/AddReview';
 export default function FetchCourses(props) {
   let id = useParams();
-  console.log(props.loginUser);
+  let nav = useNavigate();
   const [details, setDetails] = useState();
   const [reviews, setReviews] = useState([]);
   const [toggle,setToggle ] = useState(false);
   const [newReview, setNewReview] = useState({
-    author:`${props.loginUser}`,
+    author:`${props.firstName}`,
     course:"",
     review:"",
     rate:0,
   });
+  console.log(newReview);
   const handleSubmit = async (e,id) => {
     e.preventDefault();
     newReview.course = id;
@@ -43,7 +45,18 @@ export default function FetchCourses(props) {
     }
     GrabReviews();
   }, []);
-  
+  const HandleUpdate = async(e,review) =>{
+    e.preventDefault();
+    console.log(review, props._id);
+    props.setReview(review);
+    nav("/update/review");
+  }
+  const HandleDelete = async(e,id) =>{
+    e.preventDefault();
+    let res = await deleteReview(id);
+    // console.log(res);
+    window.location.reload(false);
+  }
   return <div>
     {details && details?.data.map((course, i) => {
       return <div key={i} className="w-full  p-4">
@@ -86,12 +99,15 @@ export default function FetchCourses(props) {
     }
     )}
     {reviews && reviews.map((review, i) => {
-      return <div key={i}>
-        <h1 style={{ color: "red" }}>Review</h1>
+      console.log(review);
+      return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
+        {/* <h1 style={{ color: "red" }}>Review</h1> */}
         <h1>Author:{review.author}</h1>
         <h1>Rating:{review.rate}</h1>
         <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
+        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e,review)}}>Update</button>
+        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e,review._id)}}>Delete</button>
       </div>
     })}
   </div>;
