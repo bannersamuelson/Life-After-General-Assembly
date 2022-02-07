@@ -24,7 +24,9 @@ export default function FetchCourses(props) {
     e.preventDefault();
     newReview.course = id;
     let res=await createReview(newReview,id);
-    console.log(res);
+    // console.log(res);
+    GrabReviews();
+    setToggle((prevToggle)=>!prevToggle);
   };
 
   const handleInput = (e) => {
@@ -43,7 +45,6 @@ export default function FetchCourses(props) {
       console.log(res.data);
     }
     Details();
-    
     GrabReviews();
   }, []);
   const HandleUpdate = async(e,review) =>{
@@ -54,7 +55,8 @@ export default function FetchCourses(props) {
   }
   const HandleDelete = async(e,id) =>{
     e.preventDefault();
-    await deleteReview(id);
+    let res = await deleteReview(id);
+    console.log(res);
     GrabReviews();
   }
   return <div>
