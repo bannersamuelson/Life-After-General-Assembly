@@ -9,6 +9,8 @@ console.log(props);
     <>
       <Nav user={props.user} id={props._id} firstName={props.firstName} loginUser={props.userName} setLoginUser={props.setLoginUser}/>
       <div props={props}>{props.children}</div>
+      <Footer />
+
     </>
 
   )
