@@ -9,6 +9,7 @@ import AddCourse from './components/AddCourse/AddCourse';
 import HomePage from './screen/HomePage/HomePage.jsx';
 import FetchCourses from './components/FetchCourses/FetchCourses.jsx';
 import UpdateReview from './components/ReviewsUpdate/UpdateReview.jsx';
+import Courses from './screen/Courses/Courses.jsx';
 function App() {
   const [user, setUser] = useState();
   const [loginUser, setLoginUser] = useState();
@@ -20,15 +21,14 @@ function App() {
   return (
     <div className="App">
       <Layout user={user} setUser={setUser} {...loginUser} setLoginUser={setLoginUser}>
-      <Routes>
-        <Route path="/" element={<>
-          <HomePage user={user} setUser={setUser} />
-          <Test user={user} setUser={setUser} home={true} />
-        </>} />
-        <Route path="/:id" element={
-          <>
-              <FetchCourses user={user} setUser={setUser} setLoginUser={setLoginUser} {...loginUser} review={review} setReview={setReview}></FetchCourses>
-            {/* <Test user={user} setUser={setUser} home={true} /> */}
+        <Routes>
+          <Route path="/" element={<>
+            <HomePage user={user} setUser={setUser} />
+            <Test user={user} setUser={setUser} home={true} />
+          </>} />
+          <Route path="/Courses" element={<>
+            <Courses user={user} setUser={setUser} />
+
           </>} />
           <Route path="/Front-End" element={
             <>
@@ -56,20 +56,14 @@ function App() {
             <SignUp
               user={user} setUser={setUser} />
           </>} />
-        <Route path="/login" element={<>
-          <Login loginUser={loginUser} setLoginUser={setLoginUser} />
-        </>} />
-        <Route path="/addcourse" element={<>
-            <AddCourse user={user} setUser={setUser} {...loginUser}/>
-        </>} />
-        <Route path="/courses/addreview/${id}" element={<>
-            <AddReview user={user} setUser={setUser} review={review} setReview={setReview}/>
+          <Route path="/courses/addreview/${id}" element={<>
+            <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />
           </>} />
           <Route path="update/review" element={
-            <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview} {...loginUser}/>
-          }/>
+            <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview} {...loginUser} />
+          } />
         </Routes>
-        </Layout>
+      </Layout>
     </div>
   );
 }
