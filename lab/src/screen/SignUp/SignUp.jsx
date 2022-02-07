@@ -59,9 +59,9 @@ export default function SignUp(props) {
   return (
     <div className="grid justify-items-center mt-10">
       <form onSubmit={handleSubmit} class="w-full max-w-lg">
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3 mb-6">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3 mb-6">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Username
             </label>
             <input
@@ -73,8 +73,8 @@ export default function SignUp(props) {
               placeholder="coreygibson"
               className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" />
           </div>
-          <div class="w-full mb-6 md:w-1/2 md:mb-0 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+          <div className="w-full mb-6 md:w-1/2 md:mb-0 px-3">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               First Name
             </label>
             <input
@@ -86,8 +86,8 @@ export default function SignUp(props) {
               placeholder="john"
               className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
           </div>
-          <div class="w-full md:w-1/2 md:mb-0 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+          <div className="w-full md:w-1/2 md:mb-0 px-3">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Last Name
             </label>
             <input value={newUser.lastName}
@@ -99,9 +99,9 @@ export default function SignUp(props) {
               className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Password
             </label>
             <input
@@ -112,8 +112,8 @@ export default function SignUp(props) {
               id="password"
               className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" placeholder="********" />
           </div>
-          <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+          <div className="w-full px-3">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Confirm Password
             </label>
             <input
@@ -126,9 +126,9 @@ export default function SignUp(props) {
             <p className="text-red-500 text-xs italic">{validationMessage}</p>
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full 3 px-3 mb-6">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full 3 px-3 mb-6">
+            <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
               Email Address
             </label>
             <input
@@ -137,7 +137,7 @@ export default function SignUp(props) {
               type="text"
               id="email"
               name="floating_email"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:placeholder-transparent focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
           </div>
         </div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
