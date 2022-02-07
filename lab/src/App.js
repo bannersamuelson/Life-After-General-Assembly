@@ -74,6 +74,7 @@ function App() {
           </>} />
           <Route path="/addcourse" element={<>
             <AddCourse user={user} setUser={setUser} {...loginUser} />
+
           </>} />
           <Route path="/courses/addreview/${id}" element={<>
             <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />

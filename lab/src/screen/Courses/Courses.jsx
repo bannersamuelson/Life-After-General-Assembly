@@ -33,23 +33,23 @@ export default function Courses() {
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>
-          <Link to='/database' class="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
+          <Link to='/database' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
            hover:bg-gradient-to-r from-yellow-200 to-yellow-400 bg-slate-100 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
-            <div class="mb-8">
-              <img class="object-center object-cover rounded-full h-36 w-36" src={dataImg} alt="photo" />
+            <div className="mb-8">
+              <img className="object-center object-cover rounded-full h-36 w-36" src={dataImg} alt="photo" />
             </div>
-            <div class="text-center">
-              <h1 class="text-2xl text-slate-800 font-bold mb-2">DATABASE</h1>
+            <div className="text-center">
+              <h1 className="text-2xl text-slate-800 font-bold mb-2">DATABASE</h1>
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>
-          <Link to='/devops' class="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
+          <Link to='/devops' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
            bg-slate-100 hover:bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
-            <div class="mb-8">
-              <img class="object-center object-cover rounded-full h-36 w-36" src={devops} alt="photo" />
+            <div className="mb-8">
+              <img className="object-center object-cover rounded-full h-36 w-36" src={devops} alt="photo" />
             </div>
-            <div class="text-center">
-              <h1 class="text-2xl text-slate-800 font-bold mb-2">DEVOPS</h1>
+            <div className="text-center">
+              <h1 className="text-2xl text-slate-800 font-bold mb-2">DEVOPS</h1>
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>

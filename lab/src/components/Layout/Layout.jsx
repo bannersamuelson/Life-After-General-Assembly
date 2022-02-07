@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer';
 
 
 export default function Layout(props) {
-console.log(props);
+// console.log(props);
   return (
     <>
       <Nav user={props.user} id={props._id} firstName={props.firstName} loginUser={props.userName} setLoginUser={props.setLoginUser}/>
