@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../services/apiconfig"
 import { useParams, useNavigate } from 'react-router-dom';
 import img from '../images/code.png'
-import UpdateCourse from '../components/AddCourse/AddCourse';
+import UpdateCourse from '../components/AddCourse/UpdateCourse';
 
 export default function Test(props) {
   const { user, setUser } = props;
@@ -71,7 +71,7 @@ export default function Test(props) {
     GrabCourse();
   }
   return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
->>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
+
 
     {!courses && <h1>Loading Courses</h1>}
     {!props.home && !toggle && filtered && filtered.map((course, i) => {
@@ -102,9 +102,11 @@ export default function Test(props) {
         return null
       }
     })}
-    {!props.home && toggle && <UpdateCourse {...props.loginUser} {...props} update={update}>
-
-    </UpdateCourse>
+    {!props.home && toggle && <>
+      <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Update</button>
+      <UpdateCourse {...props.loginUser} {...props} update={update}>
+      </UpdateCourse>
+    </>
     }
   </div >;
 }
