@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import img from '../../images/database.jpg'
+import Courses from '../Courses/Courses';
+import Skew from '../../components/skew/Skew'
 
 export default function HomePage(props) {
 
@@ -23,9 +25,8 @@ export default function HomePage(props) {
               <img className="mt-10 md:mt-0" src={img} alt="databasestack" />
             </div>
           </div>
-
-
-
+          <Skew />
+          <Courses />
         </div>
       </div>
 
