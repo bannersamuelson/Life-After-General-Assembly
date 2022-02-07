@@ -26,7 +26,7 @@ function App() {
             <HomePage user={user} setUser={setUser} />
             <Test user={user} setUser={setUser} home={true} />
           </>} />
-          <Route path="/" element={<>
+          <Route path="/Courses" element={<>
             <Courses user={user} setUser={setUser} />
 
           </>} />
