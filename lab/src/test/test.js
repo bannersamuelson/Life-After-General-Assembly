@@ -117,5 +117,5 @@ export default function Test(props) {
       <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
     </div>
     }
-  </div >;
+  </div >
 }
