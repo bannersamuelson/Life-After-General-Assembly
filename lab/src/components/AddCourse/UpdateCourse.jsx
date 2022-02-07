@@ -23,6 +23,8 @@ export default function UpdateCourse(props) {
     let res=await updateCourse(props.update._id,props.update);
     console.log(res);
     props.setToggle(false);
+    props.setUpdate(props.update);
+    props.GrabCourse();
     navigation(`/${props.types}`);
   };
 

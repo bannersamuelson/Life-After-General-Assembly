@@ -24,7 +24,6 @@ export default function Test(props) {
     const GrabUsers = async () => {
       let res = await getAllUsers();
       setUser(res.data);
-      //  let id = "61fadf73cfd40ba8f9ef8792";
     }
    
 
@@ -41,6 +40,7 @@ export default function Test(props) {
     console.log(courses);
     console.log(reviews);
   }, []);
+
 
   useEffect(() => {
     if (courses) {
@@ -101,7 +101,7 @@ export default function Test(props) {
       }
     })}
     {!props.home && toggle && <>
-      <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle}>
+      <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
       </UpdateCourse>
       <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Go back</button>
     </>
