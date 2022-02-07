@@ -87,22 +87,31 @@ export const fetchAllCourses = () =>
     });
    
 export const addCourse = (data) =>
-      axios({
-        method: "post",
-        url: `${base}/addcourse`,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          Authorization: localStorage.getItem("token"),
-        },
-        data: data,
-      })
-        .then((response) => {
-          return response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
+  axios({
+    method: "post",
+    url: `${base}/addcourse`,
+    headers: {
+    "Access-Control-Allow-Origin": "*",
+    Authorization: localStorage.getItem("token"),
+  },
+    data: data,
+  })
+    .then((response) => {
+      return response.data;
+  })
+    .catch((error) => {
+      console.log(error);
+  });
+export const updateCourse = (id,data) =>
+  axios({
+  method: "put",
+  url: `${base}/updating/course/${id}`,
+  data: data,
+  }).then((response) => {
+    return response.data;
+  }).catch((error) => {
+    console.log(error);
+  });
 export const deleteCourse = (id) =>
     axios({
       method: "delete",

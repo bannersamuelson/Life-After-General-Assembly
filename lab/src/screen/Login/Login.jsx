@@ -42,14 +42,6 @@ const handleSubmit = async (e)=>{
     }))
   };
 
-  // const handleError = (e)=>{
-  //     if (user.isError) {
-  //       return (
-  //         <h3>{user.errorMsg}</h3>
-  //       );
-  //     }
-  // }
-
   return (
     <div className="grid justify-items-center w-full mt-10">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
