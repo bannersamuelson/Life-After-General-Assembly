@@ -3,19 +3,22 @@ import {createReview} from "../../services/apiconfig";
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
-export default function AddReview() {
+export default function AddReview(props) {
+  console.log(props);
   const [newReview, setNewReview] = useState({
+    author:`${props.loginUser}`,
     course: "",
     review: "",
     rate: 0,
   });
+  console.log(props,newReview);
   
   
   const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newReview);
+    console.log(newReview.author);
     let res=await createReview(newReview);
     console.log(res);
     navigation("/");
@@ -33,18 +36,7 @@ return (
   <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
     <h2 className="text-center font-bold ">Add a Review about Course</h2>
     <form onSubmit={handleSubmit}
-  className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded text-sm px-3 pb-3 w-6/12"> 
-      <label >Course</label>
-      <br />
-      <input
-        type="text"
-        placeholder="course title"
-        id="course"
-        value={newReview.course}
-        onChange={handleInput}
-        className="flex items-center border-b border-teal-500 py-2 text-teal-700"
-      />
-      <br />
+  className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
       <label >Review</label>
       <br />
       <input

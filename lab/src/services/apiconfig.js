@@ -58,10 +58,9 @@ export const loginUser = (props) =>
 export const getCourse = (id) =>
   axios({
     method: "get",
-    url: `${base}/course/${id}`,
+    url: `${base}/courses/${id}`,
     headers: {
       "Access-Control-Allow-Origin": "*",
-      Authorization: localStorage.getItem("token"),
     },
   })
     .then((response) => {
@@ -120,8 +119,18 @@ export const addCourse = (data) =>
 export const updateUser = (userName,data) =>
   axios({
     method: "put",
-    url: `${base}update/${userName}`,
+    url: `${base}/update/${userName}`,
     data: data,
+  }).then((response) => {
+    return response.data;
+  }).catch((error) => {
+    console.log(error);
+  });
+
+export const deleteUser = (id) =>
+  axios({
+    method: "delete",
+    url: `${base}/delete/${id}`,
   }).then((response) => {
     return response.data;
   }).catch((error) => {
@@ -145,8 +154,11 @@ export const getAllReviews = () =>
 export const createReview = (data, id) =>
   axios({
     method: "post",
-    url: `${base}/addreview/${data, id}`,
-    headers: { "Access-Control-Allow-Origin": "*" },
+    url: `${base}/courses/addreview/${id}`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
     data: data,
   })
     .then((response) => {
@@ -155,3 +167,37 @@ export const createReview = (data, id) =>
     .catch((error) => {
       console.log(error);
     });
+
+
+export const updateReview = (data, courseid,userId) =>
+  axios({
+    method: "put",
+    url: `${base}/update/${userId}/${courseid}`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
+    data: data,
+  })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+export const deleteReview = (id) =>
+    axios({
+      method: "delete",
+      url: `${base}/delete/review/${id}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
