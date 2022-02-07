@@ -35,22 +35,18 @@ function App() {
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}/>
         </>} />
         <Route path="/Back-End" element={<>
-          <h1>BackEnd</h1>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
           </Test>
         </>} />
         <Route path="/database" element={<>
-          <h1>Database</h1>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
           </Test>
         </>} />
         <Route path="/devops" element={<>
-          <h1>Dev-Ops</h1>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
           </Test>
         </>} />
         <Route path="/mobile" element={<>
-          <h1>Mobile</h1>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
           </Test>
         </>} />
