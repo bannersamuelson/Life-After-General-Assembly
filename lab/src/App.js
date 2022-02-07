@@ -9,6 +9,7 @@ import AddCourse from './components/AddCourse/AddCourse';
 import HomePage from './screen/HomePage/HomePage.jsx';
 import FetchCourses from './components/FetchCourses/FetchCourses.jsx';
 import UpdateReview from './components/ReviewsUpdate/UpdateReview.jsx';
+import Courses from './screen/Courses/Courses.jsx';
 function App() {
   const [user, setUser] = useState();
   const [loginUser, setLoginUser] = useState();
@@ -19,68 +20,66 @@ function App() {
   // const [review, setReview] = useState();
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={
-          <Layout user={user} setUser={setUser} {...loginUser} setLoginUser={setLoginUser}>
+      <Layout user={user} setUser={setUser} {...loginUser} setLoginUser={setLoginUser}>
+        <Routes>
+          <Route path="/" element={<>
             <HomePage user={user} setUser={setUser} />
             <Test user={user} setUser={setUser} home={true} />
-          </Layout>} />
+          </>} />
+          <Route path="/Courses" element={<>
+            <Courses user={user} setUser={setUser} />
 
-        <Route path="/courses" element={
-          <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-            <Courses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></Courses>
-            {/* <Test user={user} setUser={setUser} home={true} /> */}
-          </Layout>} />
-        <Route path="/:id" element={
-          <>
-            <FetchCourses user={user} setUser={setUser} setLoginUser={setLoginUser} {...loginUser} review={review} setReview={setReview}></FetchCourses>
-            {/* <Test user={user} setUser={setUser} home={true} /> */}
           </>} />
-        <Route path="/front" element={
-          <>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
+          <Route path="/:id" element={
+            <>
+              <FetchCourses user={user} setUser={setUser} setLoginUser={setLoginUser} {...loginUser} review={review} setReview={setReview}></FetchCourses>
+              {/* <Test user={user} setUser={setUser} home={true} /> */}
+            </>} />
+          <Route path="/front" element={
+            <>
+              <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
+            </>} />
+          <Route path="/back" element={<>
+            <h1>BackEnd</h1>
+            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
+            </Test>
           </>} />
-        <Route path="/back" element={<>
-          <h1>BackEnd</h1>
-          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
-          </Test>
-        </>} />
-        <Route path="/database" element={<>
-          <h1>Database</h1>
-          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
-          </Test>
-        </>} />
-        <Route path="/devops" element={<>
-          <h1>Dev-Ops</h1>
-          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
-          </Test>
-        </>} />
-        <Route path="/mobile" element={<>
-          <h1>Mobile</h1>
-          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
-          </Test>
-        </>} />
-        <Route
-          path="/signup"
-          element={<>
-            <SignUp
-              user={user} setUser={setUser} />
+          <Route path="/database" element={<>
+            <h1>Database</h1>
+            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
+            </Test>
           </>} />
-        <Route path="/login" element={<>
-          <Login loginUser={loginUser} setLoginUser={setLoginUser} />
-        </>} />
-        <Route path="/addcourse" element={<>
-          <AddCourse user={user} setUser={setUser} {...loginUser} />
-        </>} />
-        <Route path="/courses/addreview/${id}" element={<>
-          <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />
-        </>} />
-        <Route path="update/review" element={
-          <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview} {...loginUser} />
-        } />
-      </Routes>
-    </Layout>
-    </div >
+          <Route path="/devops" element={<>
+            <h1>Dev-Ops</h1>
+            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
+            </Test>
+          </>} />
+          <Route path="/mobile" element={<>
+            <h1>Mobile</h1>
+            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
+            </Test>
+          </>} />
+          <Route
+            path="/signup"
+            element={<>
+              <SignUp
+                user={user} setUser={setUser} />
+            </>} />
+          <Route path="/login" element={<>
+            <Login loginUser={loginUser} setLoginUser={setLoginUser} />
+          </>} />
+          <Route path="/addcourse" element={<>
+            <AddCourse user={user} setUser={setUser} {...loginUser} />
+          </>} />
+          <Route path="/courses/addreview/${id}" element={<>
+            <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />
+          </>} />
+          <Route path="update/review" element={
+            <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview} {...loginUser} />
+          } />
+        </Routes>
+      </Layout>
+    </div>
   );
 }
 

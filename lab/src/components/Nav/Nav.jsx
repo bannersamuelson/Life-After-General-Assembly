@@ -1,4 +1,5 @@
-import { Navigate, NavLink, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom'
 import img from '../../images/database.jpg'
 
 const Nav = (props) => {
@@ -7,11 +8,14 @@ const Nav = (props) => {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
-    // window.location.reload(false);
+    // alert("logging out");
+    props.setLoginUser(null);
     console.log("removed");
-    navigate('/')
+    navigate('/');
   }
 
+  
+  
 
   const authenticatedOptions = (
     <>
