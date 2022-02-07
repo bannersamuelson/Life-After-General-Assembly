@@ -19,10 +19,11 @@ export default function UpdateCourse(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(newCourse);
-    let res=await updateCourse(props.update);
+    console.log(props.update);
+    let res=await updateCourse(props.update._id,props.update);
     console.log(res);
-    navigation("/");
+    props.setToggle(false);
+    navigation(`/${props.types}`);
   };
 
   const handleInput = (e) => {
@@ -36,7 +37,8 @@ export default function UpdateCourse(props) {
   useEffect(() => {
   if (props.firstName==undefined) {
     alert("login");
-    navigation("/");
+    props.setToggle(false);
+    navigation(`/${props.types}`);
   }
 }, []);
 
@@ -57,7 +59,7 @@ return (
         className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
       />
       <br />
-      <label >Upload Title</label>
+      <label>Upload Title</label>
       <br />
       <input
         type="text"
