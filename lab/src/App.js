@@ -40,6 +40,7 @@ function App() {
             </>} />
           <Route path="/Front-End" element={
             <>
+<<<<<<< HEAD
               <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
             </>} />
 
@@ -74,6 +75,31 @@ function App() {
           </>} />
           <Route path="/addcourse" element={<>
             <AddCourse user={user} setUser={setUser} {...loginUser} />
+=======
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}/>
+        </>} />
+        <Route path="/Back-End" element={<>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
+          </Test>
+        </>} />
+        <Route path="/database" element={<>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
+          </Test>
+        </>} />
+        <Route path="/devops" element={<>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
+          </Test>
+        </>} />
+        <Route path="/mobile" element={<>
+          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
+          </Test>
+        </>} />
+        <Route
+          path="/signup"
+          element={<>
+            <SignUp
+              user={user} setUser={setUser} />
+>>>>>>> 9cc34cdc2dcde892de969334c51fdee1a83c6d85
           </>} />
           <Route path="/courses/addreview/${id}" element={<>
             <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />

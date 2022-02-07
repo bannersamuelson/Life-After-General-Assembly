@@ -35,7 +35,7 @@ export default function SignUp(props) {
   };
 
   useEffect(() => {
-    console.log("validator");
+    // console.log("validator");
     // const res = signUp(newUser);
     // console.log(res);
     checkIfValid();
@@ -58,7 +58,7 @@ export default function SignUp(props) {
   // console.log(props);
   return (
     <div className="grid justify-items-center mt-10">
-      <form onSubmit={handleSubmit} class="w-full max-w-lg">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-6">
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
