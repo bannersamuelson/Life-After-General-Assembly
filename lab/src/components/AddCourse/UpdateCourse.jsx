@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { updateCourse } from "../../services/apiconfig"; 
-
+import { useState,useEffect } from "react";
 export default function UpdateCourse(props) {
   console.log(props);
   const [newCourse, setNewCourse] = useState({
@@ -47,7 +47,7 @@ return (
     <form onSubmit={handleSubmit}
   className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
     {/* <h3 >{validationMessage}</h3> */}
-      <label>Not</label>
+      <label>User</label>
       <br />
       <input
         type="text"

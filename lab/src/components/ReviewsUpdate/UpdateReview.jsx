@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {updateReview} from "../../services/apiconfig";
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
 export default function UpdateReview(props) {
   console.log(props);
+  const navigation = useNavigate();
   const [newReview, setNewReview] = useState({
     author:`${props.firstName}`,
     course: `${props.review.course}`,
@@ -12,9 +13,13 @@ export default function UpdateReview(props) {
     rate: `${props.review.rate}`,
   });
   console.log(props,newReview);
+  useEffect(() => {
+    if (props.review.author !== props.firstName) {
+      navigation("/");
+    }
+  }, []);
   
   
-  const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
