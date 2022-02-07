@@ -30,11 +30,11 @@ function App() {
               <FetchCourses user={user} setUser={setUser} setLoginUser={setLoginUser} {...loginUser} review={review} setReview={setReview}></FetchCourses>
             {/* <Test user={user} setUser={setUser} home={true} /> */}
           </>} />
-          <Route path="/front" element={
+          <Route path="/Front-End" element={
             <>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}/>
         </>} />
-        <Route path="/back" element={<>
+        <Route path="/Back-End" element={<>
           <h1>BackEnd</h1>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
           </Test>
