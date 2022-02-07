@@ -24,7 +24,6 @@ export default function Test(props) {
     const GrabUsers = async () => {
       let res = await getAllUsers();
       setUser(res.data);
-      //  let id = "61fadf73cfd40ba8f9ef8792";
     }
 
 
@@ -42,6 +41,7 @@ export default function Test(props) {
     console.log(reviews);
   }, []);
 
+
   useEffect(() => {
     if (courses) {
       setFiltered(courses.filter(course => course.types === props.types));
@@ -56,7 +56,7 @@ export default function Test(props) {
 
   const HandleUpdate = async (e, id, updated) => {
     e.preventDefault();
-    console.log(id);
+    console.log(id, updated);
     setToggle(true);
     setUpdate(updated);
     // let res = await updateCourse(id,data);
@@ -103,9 +103,9 @@ export default function Test(props) {
       }
     })}
     {!props.home && toggle && <>
-      <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Update</button>
-      <UpdateCourse {...props.loginUser} {...props} update={update}>
+      <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
       </UpdateCourse>
+      <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
     </>
     }
   </div >;
