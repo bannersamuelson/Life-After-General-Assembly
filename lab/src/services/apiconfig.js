@@ -85,20 +85,7 @@ export const fetchAllCourses = () =>
     .catch((error) => {
       console.log(error);
     });
-//What was I doing
-// export const signUp = (props) =>
-//       axios({
-//          method: "post",
-//         url: `${base}/signup`,
-//         headers: {"Access-Control-Allow-Origin": "*"},
-//          data: props,
-//        })
-//          .then((response) => {
-//            return response.data;
-//          })
-//          .catch((error) => {
-//            console.log(error);
-//          });      
+   
 export const addCourse = (data) =>
       axios({
         method: "post",
@@ -115,12 +102,38 @@ export const addCourse = (data) =>
         .catch((error) => {
           console.log(error);
         });
-    
+
+export const deleteCourse = (id) =>
+    axios({
+      method: "delete",
+      url: `${base}/delete/course/${id}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
 export const updateUser = (userName,data) =>
   axios({
     method: "put",
-    url: `${base}update/${userName}`,
+    url: `${base}/update/${userName}`,
     data: data,
+  }).then((response) => {
+    return response.data;
+  }).catch((error) => {
+    console.log(error);
+  });
+
+export const deleteUser = (id) =>
+  axios({
+    method: "delete",
+    url: `${base}/delete/${id}`,
   }).then((response) => {
     return response.data;
   }).catch((error) => {
@@ -157,3 +170,37 @@ export const createReview = (data, id) =>
     .catch((error) => {
       console.log(error);
     });
+
+
+export const updateReview = (data,userId,id,) =>
+  axios({
+    method: "put",
+    url: `${base}/update/${userId}/${id}`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
+    data: data,
+  })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+export const deleteReview = (id) =>
+    axios({
+      method: "delete",
+      url: `${base}/delete/review/${id}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });

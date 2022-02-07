@@ -1,13 +1,19 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import { getCourse, createReview, getAllReviews } from '../../services/apiconfig';
+=======
+import { getCourse,createReview,getAllReviews, deleteReview } from '../../services/apiconfig';
+
+>>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
 export default function FetchCourses(props) {
   let id = useParams();
-  console.log(props.loginUser);
+  let nav = useNavigate();
   const [details, setDetails] = useState();
   const [reviews, setReviews] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [newReview, setNewReview] = useState({
+<<<<<<< HEAD
     author: `${props.loginUser}`,
     course: "",
     review: "",
@@ -18,6 +24,26 @@ export default function FetchCourses(props) {
     newReview.course = id;
     let res = await createReview(newReview, id);
     console.log(res);
+=======
+    author:`${props.firstName}`,
+    course:"",
+    review:"",
+    rate:0,
+  });
+  console.log(newReview);
+  const GrabReviews = async () => {
+    let res =  await getAllReviews();
+    setReviews(res.data);
+    console.log(res.data);
+  }
+  const handleSubmit = async (e,id) => {
+    e.preventDefault();
+    newReview.course = id;
+    let res=await createReview(newReview,id);
+    // console.log(res);
+    GrabReviews();
+    setToggle((prevToggle)=>!prevToggle);
+>>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
   };
 
   const handleInput = (e) => {
@@ -34,12 +60,13 @@ export default function FetchCourses(props) {
 
   useEffect(() => {
     const Details = async () => {
-      id = id.id.split(":")
-      let res = await getCourse(id[1]);
+      let newId = id.id.split(":")
+      let res = await getCourse(newId[1]);
       setDetails(res.data);
       console.log(res.data);
     }
     Details();
+<<<<<<< HEAD
     const GrabReviews = async () => {
       let res = await getAllReviews();
       setReviews(res.data);
@@ -48,6 +75,22 @@ export default function FetchCourses(props) {
     GrabReviews();
   }, []);
 
+=======
+    GrabReviews();
+  }, []);
+  const HandleUpdate = async(e,review) =>{
+    e.preventDefault();
+    console.log(review, props._id);
+    props.setReview(review);
+    nav("/update/review");
+  }
+  const HandleDelete = async(e,id) =>{
+    e.preventDefault();
+    let res = await deleteReview(id);
+    console.log(res);
+    GrabReviews();
+  }
+>>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
   return <div>
     {details && details?.data.map((course, i) => {
       return <div key={i} className="w-full  p-4">
@@ -128,14 +171,23 @@ export default function FetchCourses(props) {
     }
     )}
     {reviews && reviews.map((review, i) => {
+<<<<<<< HEAD
       return <div key={i}>
         <h1 style={{ color: "red" }}>Review</h1>
         <h1>Author:{review.author}</h1>
         <h1>Rating:</h1>
         <>{star.repeat(`${review.rate}`)}</>
 
+=======
+      console.log(review);
+      return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
+        <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
+        <h1>Rating:{review.rate}</h1>
+>>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
         <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
+        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e,review)}}>Update</button>
+        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e,review._id)}}>Delete</button>
       </div>
     })}
   </div>;

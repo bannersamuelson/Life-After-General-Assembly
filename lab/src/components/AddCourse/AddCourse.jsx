@@ -1,8 +1,9 @@
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addCourse } from "../../services/apiconfig"; 
 
-export default function AddCourse() {
+export default function AddCourse(props) {
+  console.log(props);
   const [newCourse, setNewCourse] = useState({
     user: "",
     title: "",
@@ -33,8 +34,13 @@ export default function AddCourse() {
     }));
   };
 
+  useEffect(() => {
+  if (props.firstName==undefined) {
+    console.log("first");
+    navigation("/");
+  }
+}, []);
 
-  
 
 return (
   <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
