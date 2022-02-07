@@ -9,6 +9,7 @@ export default function Layout(props) {
     <>
       <Nav user={props.user} setLoginUser={props.setLoginUser} loginUser={props.loginUser} />
       {props.children}
+      <Footer />
     </>
 
   )
