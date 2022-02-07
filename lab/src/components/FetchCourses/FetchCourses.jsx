@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCourse,createReview,getAllReviews, deleteUser, deleteReview } from '../../services/apiconfig';
-import AddReview from '../AddReview/AddReview';
+import { getCourse,createReview,getAllReviews, deleteReview } from '../../services/apiconfig';
+
 export default function FetchCourses(props) {
   let id = useParams();
   let nav = useNavigate();
@@ -15,11 +15,18 @@ export default function FetchCourses(props) {
     rate:0,
   });
   console.log(newReview);
+  const GrabReviews = async () => {
+    let res =  await getAllReviews();
+    setReviews(res.data);
+    console.log(res.data);
+  }
   const handleSubmit = async (e,id) => {
     e.preventDefault();
     newReview.course = id;
     let res=await createReview(newReview,id);
-    console.log(res);
+    // console.log(res);
+    GrabReviews();
+    setToggle((prevToggle)=>!prevToggle);
   };
 
   const handleInput = (e) => {
@@ -32,17 +39,12 @@ export default function FetchCourses(props) {
   
   useEffect(() => {
     const Details = async () => {
-      id = id.id.split(":")
-      let res = await getCourse(id[1]);
+      let newId = id.id.split(":")
+      let res = await getCourse(newId[1]);
       setDetails(res.data);
       console.log(res.data);
     }
     Details();
-    const GrabReviews = async () => {
-      let res =  await getAllReviews();
-      setReviews(res.data);
-      console.log(res.data);
-    }
     GrabReviews();
   }, []);
   const HandleUpdate = async(e,review) =>{
@@ -54,8 +56,8 @@ export default function FetchCourses(props) {
   const HandleDelete = async(e,id) =>{
     e.preventDefault();
     let res = await deleteReview(id);
-    // console.log(res);
-    window.location.reload(false);
+    console.log(res);
+    GrabReviews();
   }
   return <div>
     {details && details?.data.map((course, i) => {
@@ -101,8 +103,7 @@ export default function FetchCourses(props) {
     {reviews && reviews.map((review, i) => {
       console.log(review);
       return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
-        {/* <h1 style={{ color: "red" }}>Review</h1> */}
-        <h1>Author:{review.author}</h1>
+        <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
         <h1>Rating:{review.rate}</h1>
         <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
