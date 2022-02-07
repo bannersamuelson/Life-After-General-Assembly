@@ -128,7 +128,7 @@ export default function SignUp(props) {
         </div>
         <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full 3 px-3 mb-6">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-city">
+            <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
               Email Address
             </label>
             <input
@@ -137,7 +137,7 @@ export default function SignUp(props) {
               type="text"
               id="email"
               name="floating_email"
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:placeholder-transparent focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
           </div>
         </div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
