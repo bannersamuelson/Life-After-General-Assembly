@@ -18,18 +18,18 @@ export default function Test(props) {
   //   rate: 0,
   // });
   
-
+  const GrabCourse = async () => {
+    let res = await fetchAllCourses();
+    console.log(res);
+    setCourse(res?.data);
+  }
   useEffect(() => {
     const GrabUsers = async () => {
       let res = await getAllUsers();
       setUser(res.data);
       //  let id = "61fadf73cfd40ba8f9ef8792";
     }
-    const GrabCourse = async () => {
-      let res = await fetchAllCourses();
-      console.log(res);
-      setCourse(res?.data);
-    }
+   
 
 
     const GrabReviews = async () => {
@@ -60,6 +60,7 @@ export default function Test(props) {
     console.log(id);
     let res = await deleteCourse(id);
     console.log(res);
+    GrabCourse();
   }
   return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
 
