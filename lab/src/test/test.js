@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../services/apiconfig"
 import { useParams, useNavigate } from 'react-router-dom';
 import img from '../images/code.png'
-import UpdateCourse from '../components/AddCourse/AddCourse';
+import UpdateCourse from '../components/AddCourse/UpdateCourse';
 
 export default function Test(props) {
   const { user, setUser } = props;
@@ -100,9 +100,11 @@ export default function Test(props) {
         return null
       }
     })}
-    {!props.home && toggle && <UpdateCourse {...props.loginUser} {...props} update={update}>
-      
+    {!props.home && toggle && <>
+      <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Update</button>
+      <UpdateCourse {...props.loginUser} {...props} update={update}>
     </UpdateCourse>
+    </>
     }
   </div >;
 }
