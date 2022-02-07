@@ -19,30 +19,27 @@ function App() {
   // const [review, setReview] = useState();
   return (
     <div className="App">
-      <Layout user={user} setUser={setUser} {...loginUser} setLoginUser={setLoginUser}>
       <Routes>
-        <Route path="/" element={<>
-          <HomePage user={user} setUser={setUser} />
-          <Test user={user} setUser={setUser} home={true} />
-<<<<<<< HEAD
-        </Layout>} />
+        <Route path="/" element={
+          <Layout user={user} setUser={setUser} {...loginUser} setLoginUser={setLoginUser}>
+            <HomePage user={user} setUser={setUser} />
+            <Test user={user} setUser={setUser} home={true} />
+          </Layout>} />
+
         <Route path="/courses" element={
           <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
-            {/* <Courses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></Courses> */}
+            <Courses user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}></Courses>
             {/* <Test user={user} setUser={setUser} home={true} /> */}
           </Layout>} />
-=======
-        </>} />
->>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
         <Route path="/:id" element={
           <>
-              <FetchCourses user={user} setUser={setUser} setLoginUser={setLoginUser} {...loginUser} review={review} setReview={setReview}></FetchCourses>
+            <FetchCourses user={user} setUser={setUser} setLoginUser={setLoginUser} {...loginUser} review={review} setReview={setReview}></FetchCourses>
             {/* <Test user={user} setUser={setUser} home={true} /> */}
           </>} />
-          <Route path="/front" element={
-            <>
-          <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}/>
-        </>} />
+        <Route path="/front" element={
+          <>
+            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
+          </>} />
         <Route path="/back" element={<>
           <h1>BackEnd</h1>
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
@@ -73,17 +70,17 @@ function App() {
           <Login loginUser={loginUser} setLoginUser={setLoginUser} />
         </>} />
         <Route path="/addcourse" element={<>
-            <AddCourse user={user} setUser={setUser} {...loginUser}/>
+          <AddCourse user={user} setUser={setUser} {...loginUser} />
         </>} />
         <Route path="/courses/addreview/${id}" element={<>
-            <AddReview user={user} setUser={setUser} review={review} setReview={setReview}/>
-          </>} />
-          <Route path="update/review" element={
-            <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview} {...loginUser}/>
-          }/>
-        </Routes>
-        </Layout>
-    </div>
+          <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />
+        </>} />
+        <Route path="update/review" element={
+          <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview} {...loginUser} />
+        } />
+      </Routes>
+    </Layout>
+    </div >
   );
 }
 
