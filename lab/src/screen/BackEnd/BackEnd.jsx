@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../../services/apiconfig"
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import img from '../../images/code.png'
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
 import backend from '../../images/backend.png'
@@ -72,20 +72,19 @@ export default function Test(props) {
     GrabCourse();
   }
   return (
-    <div className="bg-gradient-to-r from-red-300 to-red-500">
-      <div className="flex justify-center p-10">
-        <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl pl-10 dark:border-gray-700 dark:bg-gray-800">
-          <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={backend} alt="" />
-          <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Back-End Resources</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.<span className="text-gray-100"> The back end of a computer system encompasses “behind-the-scenes” technologies such as the database and operating system.</span></p>
-            <Link to='/addcourse' className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Add Course
-
-            </Link>
+    <div className="bg-gradient-to-r from-red-200 to-red-500">
+      <div className="ml-11 mb-11">
+        <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-28 md:rounded-none md:rounded-l-lg" src={backend} alt="usb" />
+        <div class="flex w-full items-center md:flex-row pl-10">
+          <div class="mt-10 mr-44 flex flex-col justify-between p-4">
+            <h5 class="mb-2 font-bold tracking-tight text-white text-5xl mt-10">Back-End Resources</h5>
+            <p class="mb-3 mr-36 font-normal text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two. <span className="font-bold">The back end of a computer system encompasses “behind-the-scenes” technologies such as the database and operating system.</span><br />
+              <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-400 dark:focus:ring-red-800">
+                Add Course
+              </Link></span></p>
           </div>
         </div>
-      </div>
+      </div >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
 
 
@@ -95,7 +94,6 @@ export default function Test(props) {
             return <div key={i} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
               <div onClick={(e) => { HandleDetails(e, course._id) }}>
                 <div className="relative overflow-hidden">
-                  <img className="w-full h-auto" src={img} alt="Sunset in the mountains" />
                 </div>
                 <div className="px-6 py-4">
                   <h1 className="text-gray-900 text-4xl font-extrabold">{course.title}</h1>
@@ -125,6 +123,6 @@ export default function Test(props) {
         </>
         }
       </div >
-    </div>
+    </div >
   )
 }
