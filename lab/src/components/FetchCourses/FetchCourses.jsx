@@ -42,14 +42,14 @@ export default function FetchCourses(props) {
       let newId = id.id.split(":")
       let res = await getCourse(newId[1]);
       setDetails(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     }
     Details();
     GrabReviews();
   }, []);
   const HandleUpdate = async(e,review) =>{
     e.preventDefault();
-    console.log(review, props._id);
+    // console.log(review, props._id);
     props.setReview(review);
     nav("/update/review");
   }
@@ -101,7 +101,7 @@ export default function FetchCourses(props) {
     }
     )}
     {reviews && reviews.map((review, i) => {
-      console.log(review);
+      // console.log(review);
       return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
         <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
         <h1>Rating:{review.rate}</h1>

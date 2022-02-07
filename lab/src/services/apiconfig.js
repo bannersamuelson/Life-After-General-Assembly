@@ -105,7 +105,11 @@ export const addCourse = (data) =>
 export const updateCourse = (id,data) =>
   axios({
   method: "put",
-  url: `${base}/updating/course/${id}`,
+    url: `${base}/updating/course/${id}`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
   data: data,
   }).then((response) => {
     return response.data;
@@ -181,10 +185,10 @@ export const createReview = (data, id) =>
     });
 
 
-export const updateReview = (data,userId,id,) =>
+export const updateReview = (data,id,) =>
   axios({
     method: "put",
-    url: `${base}/update/${userId}/${id}`,
+    url: `${base}/update/review/${id}`,
     headers: {
       "Access-Control-Allow-Origin": "*",
       Authorization: localStorage.getItem("token"),
