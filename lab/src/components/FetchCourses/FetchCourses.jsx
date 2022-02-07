@@ -1,16 +1,20 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCourse,createReview,getAllReviews } from '../../services/apiconfig';
-export default function FetchCourses() {
+import { getCourse,createReview,getAllReviews, deleteUser, deleteReview } from '../../services/apiconfig';
+import AddReview from '../AddReview/AddReview';
+export default function FetchCourses(props) {
   let id = useParams();
+  let nav = useNavigate();
   const [details, setDetails] = useState();
   const [reviews, setReviews] = useState([]);
   const [toggle,setToggle ] = useState(false);
   const [newReview, setNewReview] = useState({
+    author:`${props.firstName}`,
     course:"",
     review:"",
     rate:0,
   });
+  console.log(newReview);
   const handleSubmit = async (e,id) => {
     e.preventDefault();
     newReview.course = id;
@@ -29,7 +33,6 @@ export default function FetchCourses() {
   useEffect(() => {
     const Details = async () => {
       id = id.id.split(":")
-      console.log(id[1]);
       let res = await getCourse(id[1]);
       setDetails(res.data);
       console.log(res.data);
@@ -38,13 +41,24 @@ export default function FetchCourses() {
     const GrabReviews = async () => {
       let res =  await getAllReviews();
       setReviews(res.data);
+      console.log(res.data);
     }
     GrabReviews();
   }, []);
-  
+  const HandleUpdate = async(e,review) =>{
+    e.preventDefault();
+    console.log(review, props._id);
+    props.setReview(review);
+    nav("/update/review");
+  }
+  const HandleDelete = async(e,id) =>{
+    e.preventDefault();
+    let res = await deleteReview(id);
+    // console.log(res);
+    window.location.reload(false);
+  }
   return <div>
-    <h1>Id:{id.id.split(":")}</h1>
-    {details && details.data.map((course, i) => {
+    {details && details?.data.map((course, i) => {
       return <div key={i} className="w-full  p-4">
       <h1>Front-End: Course</h1>
       <h1>Title:{course.title}</h1>
@@ -85,11 +99,15 @@ export default function FetchCourses() {
     }
     )}
     {reviews && reviews.map((review, i) => {
-      return <div key={i}>
-        <h1 style={{color:"red"}}>Review</h1>
+      console.log(review);
+      return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
+        {/* <h1 style={{ color: "red" }}>Review</h1> */}
+        <h1>Author:{review.author}</h1>
         <h1>Rating:{review.rate}</h1>
-        <h1>Course:{details.data[0].title}</h1>
+        <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
+        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e,review)}}>Update</button>
+        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e,review._id)}}>Delete</button>
       </div>
     })}
   </div>;
