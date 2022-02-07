@@ -41,6 +41,9 @@ function App() {
           <Route path="/Front-End" element={
             <>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8363381ee7aa839c0f6e11d9c69b2db13b59197a
               <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
             </>} />
 
@@ -75,6 +78,7 @@ function App() {
           </>} />
           <Route path="/addcourse" element={<>
             <AddCourse user={user} setUser={setUser} {...loginUser} />
+<<<<<<< HEAD
 =======
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}/>
         </>} />
@@ -100,6 +104,9 @@ function App() {
             <SignUp
               user={user} setUser={setUser} />
 >>>>>>> 9cc34cdc2dcde892de969334c51fdee1a83c6d85
+=======
+
+>>>>>>> 8363381ee7aa839c0f6e11d9c69b2db13b59197a
           </>} />
           <Route path="/courses/addreview/${id}" element={<>
             <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />
