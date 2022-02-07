@@ -29,7 +29,7 @@ export default function FetchCourses(props) {
   };
 
 
-  const star = (`${'\u2728'}`)
+  const star = (`${'\u2B50'}`)
   console.log(star)
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function FetchCourses(props) {
                 <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new review</h2>
                 <div class="w-full md:w-full px-3 mb-2 mt-2">
                   <input
-                    className="grid items-start çfocus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
+                    className="grid items-start focus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
                     type="text"
                     id="review"
                     value={newReview.review}

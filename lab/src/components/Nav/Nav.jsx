@@ -2,6 +2,7 @@ import { Navigate, NavLink, useNavigate } from 'react-router-dom'
 import img from '../../images/database.jpg'
 
 const Nav = (props) => {
+
   const navigate = useNavigate();
   const handleLogout = (e) => {
 
@@ -38,12 +39,17 @@ const Nav = (props) => {
   return (
     <nav className="bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
     flex items-center h-16 border-b">
-
-      <div className="mx-5 container flex flex-wrap justify-between items-center mx-auto">
+      <div className="mx-5 container flex flex-wrap justify-between items-center">
         <NavLink to="/" className="flex active">
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
           <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
         </NavLink>
+
+        <div className="md:hidden items-end tham tham-e-slider tham-w-8">
+          <div className="tham-box">
+            <div className="tham-inner bg-white" />
+          </div>
+        </div>
         <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             {props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}
