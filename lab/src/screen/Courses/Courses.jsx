@@ -23,17 +23,16 @@ export default function Courses() {
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>
-          <Link to='/back' class="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
-           hover:bg-gradient-to-r from-red-300 to-red-600  bg-slate-100 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
-            <div class="mb-8">
-              <img class="object-center object-cover rounded-full h-36 w-36" src={backend} alt="photo" />
+          <Link to='/front' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer   hover:-translate-y-1 hover:scale-105 duration-300 
+          hover:bg-gradient-to-r from-red-200 to-red-500  bg-slate-100 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+              <img className="object-center object-cover rounded-full h-36 w-36" src={backend} alt="photo" />
             </div>
-            <div class="text-center">
-              <h1 class="text-2xl text-slate-800 font-bold mb-2">BACK-END</h1>
+            <div className="text-center">
+              <h1 className="text-2xl text-slate-800 font-bold mb-2">BACK-END</h1>
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>
-
           <Link to='/database' class="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
            hover:bg-gradient-to-r from-yellow-200 to-yellow-400 bg-slate-100 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
             <div class="mb-8">
