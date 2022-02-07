@@ -8,6 +8,8 @@ import { useState } from 'react';
 import AddCourse from './components/AddCourse/AddCourse';
 import HomePage from './screen/HomePage/HomePage.jsx';
 import FetchCourses from './components/FetchCourses/FetchCourses.jsx';
+import Courses from './screen/Courses/Courses.jsx';
+
 function App() {
   const [user, setUser] = useState();
   const [loginUser, setLoginUser] = useState([]);
@@ -21,6 +23,11 @@ function App() {
         <Route path="/" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
           <HomePage user={user} setUser={setUser} />
           <Test user={user} setUser={setUser} home={true} />
+        </Layout>} />
+
+        <Route path="/courses" element={<Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
+          <Courses user={user} setUser={setUser} />
+
         </Layout>} />
         <Route path="/:id" element={
           <Layout user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser}>
