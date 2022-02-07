@@ -5,7 +5,6 @@ import { loginUser } from "../../services/apiconfig";
 // import Layout from "../../components/Layout/Layout"
 
 export default function Login(props) {
-  console.log(props);
   const navigate = useNavigate()
   const [user, setUser] = useState({
     email: "",
@@ -14,25 +13,26 @@ export default function Login(props) {
     errorMsg: "",
   })
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const login = await loginUser(user)
-      console.log(login);
-      props.setLoginUser([login.data.user.userName]);
-      console.log(props);
-      localStorage.setItem("token", login.data.token);
-      console.log(localStorage.getItem("token"));
-      navigate("/")
-    } catch (error) {
-      setUser({
-        isError: true,
-        errorMsg: "Invalid Credentials",
-        email: "",
-        password: ""
-      })
-    }
-  };
+const handleSubmit = async (e)=>{
+  e.preventDefault();
+  try{
+    const login = await loginUser(user)
+    console.log([login.data.user]);
+    props.setLoginUser(login.data.user);
+    console.log(props.loginUser);
+    console.log(props);
+    localStorage.setItem("token", login.data.token);
+    console.log(localStorage.getItem("token")); 
+    navigate("/")
+  }catch(error){
+    setUser({
+      isError: true,
+      errorMsg: "Invalid Credentials",
+      email: "",
+      password: ""
+    })
+  }
+};
 
   const handleInput = (e) => {
     const { id, value } = e.target;
@@ -41,14 +41,6 @@ export default function Login(props) {
       [id]: value,
     }))
   };
-
-  // const handleError = (e)=>{
-  //     if (user.isError) {
-  //       return (
-  //         <h3>{user.errorMsg}</h3>
-  //       );
-  //     }
-  // }
 
   return (
     <div className="grid justify-items-center w-full mt-10">

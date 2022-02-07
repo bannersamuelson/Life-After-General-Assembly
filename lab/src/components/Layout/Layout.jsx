@@ -4,11 +4,13 @@ import Footer from '../Footer/Footer';
 
 
 export default function Layout(props) {
-
+console.log(props);
   return (
     <>
-      <Nav user={props.user} setLoginUser={props.setLoginUser} loginUser={props.loginUser} />
-      {props.children}
+      <Nav user={props.user} id={props._id} firstName={props.firstName} loginUser={props.userName} setLoginUser={props.setLoginUser}/>
+      <div props={props}>{props.children}</div>
+      <Footer />
+
     </>
 
   )
