@@ -64,13 +64,13 @@ function App() {
           <Login loginUser={loginUser} setLoginUser={setLoginUser} />
         </>} />
         <Route path="/addcourse" element={<>
-          <AddCourse user={user} setUser={setUser} />
+            <AddCourse user={user} setUser={setUser} {...loginUser}/>
         </>} />
         <Route path="/courses/addreview/${id}" element={<>
             <AddReview user={user} setUser={setUser} review={review} setReview={setReview}/>
           </>} />
           <Route path="update/review" element={
-            <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview}/>
+            <UpdateReview user={user} setUser={setUser} review={review} setReview={setReview} {...loginUser}/>
           }/>
         </Routes>
         </Layout>

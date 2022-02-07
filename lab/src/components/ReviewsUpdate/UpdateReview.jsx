@@ -1,9 +1,10 @@
 import React from 'react';
-import {createReview} from "../../services/apiconfig";
+import {updateReview} from "../../services/apiconfig";
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
 export default function UpdateReview(props) {
+  console.log(props);
   const [newReview, setNewReview] = useState({
     author:`${props.firstName}`,
     course: `${props.review.course}`,
@@ -18,7 +19,7 @@ export default function UpdateReview(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(newReview.author);
-    let res=await createReview(newReview);
+    let res=await updateReview(newReview,props._id,props.review._id);
     console.log(res);
     navigation("/");
   };
@@ -33,17 +34,6 @@ export default function UpdateReview(props) {
   return <div>
     <form onSubmit={handleSubmit}
     className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
-        <label >Course</label>
-        <br />
-        <input
-          type="text"
-          placeholder="course title"
-          id="course"
-          value={newReview.course}
-          onChange={handleInput}
-          className="flex items-center border-b border-teal-500 py-2 text-teal-700"
-        />
-        <br />
         <label >Review</label>
         <br />
         <input
@@ -67,7 +57,7 @@ export default function UpdateReview(props) {
         />
         <br />
         <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded text-xl">
-        Add Course
+        Update review
         </button>
       </form>
   </div>;
