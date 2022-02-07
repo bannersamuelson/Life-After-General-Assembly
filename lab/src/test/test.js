@@ -17,7 +17,7 @@ export default function Test(props) {
   
   const GrabCourse = async () => {
     let res = await fetchAllCourses();
-    console.log(res);
+    // console.log(res);
     setCourse(res?.data);
   }
   useEffect(() => {
@@ -36,9 +36,9 @@ export default function Test(props) {
     GrabUsers();
     GrabReviews();
     setToggle(false);
-    console.log(user);
-    console.log(courses);
-    console.log(reviews);
+    // console.log(user);
+    // console.log(courses);
+    // console.log(reviews);
   }, []);
 
 
