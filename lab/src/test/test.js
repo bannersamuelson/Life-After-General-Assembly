@@ -56,19 +56,28 @@ export default function Test(props) {
 
   const HandleUpdate = async (e, id, updated) => {
     e.preventDefault();
-    console.log(id, updated);
-    setToggle(true);
-    setUpdate(updated);
-    // let res = await updateCourse(id,data);
-    // console.log(res);
-    // GrabCourse();
+    if (props.firstName === undefined) {
+      alert("login");
+    } else if (props.firstName !== updated.user) {
+      alert("login");
+    } else {
+      console.log(id, updated);
+      setToggle(true);
+      setUpdate(updated);
+    }
   }
-  const HandleDelete = async (e, id) => {
+  const HandleDelete = async (e, id,course) => {
     e.preventDefault();
-    console.log(id);
-    let res = await deleteCourse(id);
-    console.log(res);
-    GrabCourse();
+    // console.log(id);
+    if (props.firstName == undefined) {
+      alert("login");
+    } else if (props.firstName !== course.user) {
+      alert("login");
+    } else {
+      let res = await deleteCourse(id);
+      console.log(res);
+      GrabCourse();
+    }
   }
   return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
 
@@ -96,7 +105,7 @@ export default function Test(props) {
             <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
           </div>
           <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
-          <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>
+          <button onClick={(e) => { HandleDelete(e, course._id,course) }}>Delete</button>
         </div>
       } else {
         return null

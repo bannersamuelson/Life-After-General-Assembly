@@ -80,6 +80,7 @@ body {
  * Transform all the slices of hamburger
  * into a crossmark.
  */
+
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
@@ -103,7 +104,7 @@ body {
 
 /*
  * Make this absolute positioned
- * at the top left of the screen
+ * at the top right of the screen
  */
 #menu {
   position: absolute;
@@ -129,7 +130,7 @@ body {
 }
 
 /*
- * And let's slide it in from the left
+ * And let's slide it in from the right
  */
 #menuToggle input:checked ~ ul {
   transform: none;

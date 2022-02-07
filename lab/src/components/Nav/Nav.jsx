@@ -87,12 +87,12 @@ const Nav = (props) => {
 
 
           <input type="checkbox" className='container flex justify-end'/>
-          <div className='flex justify-end'>
-            <div >
+          <div className='flex justify-end '>
+            <div>
               <span></span>
               <span></span>
               <span></span>
-              </div>
+            </div>
           </div>
 
           <ul id="menu" className="flex align-c-end flex-wrap text-2xl flex flex-col mt-4" >
