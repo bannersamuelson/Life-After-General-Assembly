@@ -1,11 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-<<<<<<< HEAD
-import { getCourse, createReview, getAllReviews } from '../../services/apiconfig';
-=======
-import { getCourse,createReview,getAllReviews, deleteReview } from '../../services/apiconfig';
+import { getCourse, createReview, getAllReviews, deleteReview } from '../../services/apiconfig';
 
->>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
 export default function FetchCourses(props) {
   let id = useParams();
   let nav = useNavigate();
@@ -13,37 +9,24 @@ export default function FetchCourses(props) {
   const [reviews, setReviews] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [newReview, setNewReview] = useState({
-<<<<<<< HEAD
-    author: `${props.loginUser}`,
+    author: `${props.firstName}`,
     course: "",
     review: "",
     rate: 0,
   });
+  console.log(newReview);
+  const GrabReviews = async () => {
+    let res = await getAllReviews();
+    setReviews(res.data);
+    console.log(res.data);
+  }
   const handleSubmit = async (e, id) => {
     e.preventDefault();
     newReview.course = id;
     let res = await createReview(newReview, id);
-    console.log(res);
-=======
-    author:`${props.firstName}`,
-    course:"",
-    review:"",
-    rate:0,
-  });
-  console.log(newReview);
-  const GrabReviews = async () => {
-    let res =  await getAllReviews();
-    setReviews(res.data);
-    console.log(res.data);
-  }
-  const handleSubmit = async (e,id) => {
-    e.preventDefault();
-    newReview.course = id;
-    let res=await createReview(newReview,id);
     // console.log(res);
     GrabReviews();
-    setToggle((prevToggle)=>!prevToggle);
->>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
+    setToggle((prevToggle) => !prevToggle);
   };
 
   const handleInput = (e) => {
@@ -66,31 +49,20 @@ export default function FetchCourses(props) {
       console.log(res.data);
     }
     Details();
-<<<<<<< HEAD
-    const GrabReviews = async () => {
-      let res = await getAllReviews();
-      setReviews(res.data);
-      console.log(res.data);
-    }
     GrabReviews();
   }, []);
-
-=======
-    GrabReviews();
-  }, []);
-  const HandleUpdate = async(e,review) =>{
+  const HandleUpdate = async (e, review) => {
     e.preventDefault();
     console.log(review, props._id);
     props.setReview(review);
     nav("/update/review");
   }
-  const HandleDelete = async(e,id) =>{
+  const HandleDelete = async (e, id) => {
     e.preventDefault();
     let res = await deleteReview(id);
     console.log(res);
     GrabReviews();
   }
->>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
   return <div>
     {details && details?.data.map((course, i) => {
       return <div key={i} className="w-full  p-4">
@@ -127,7 +99,7 @@ export default function FetchCourses(props) {
                   onChange={handleInput}
                   className="grid items-start çfocus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
                 />
-                <div class="w-full md:w-full flex items-start md:w-full px-3">
+                <div class="w-full md:w-full flex items-start px-3">
                   <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
                     <svg fill="none" class="w-5 h-5 text-gray-600 mr-1" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -171,23 +143,14 @@ export default function FetchCourses(props) {
     }
     )}
     {reviews && reviews.map((review, i) => {
-<<<<<<< HEAD
-      return <div key={i}>
-        <h1 style={{ color: "red" }}>Review</h1>
-        <h1>Author:{review.author}</h1>
-        <h1>Rating:</h1>
-        <>{star.repeat(`${review.rate}`)}</>
-
-=======
       console.log(review);
       return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
         <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
         <h1>Rating:{review.rate}</h1>
->>>>>>> 6ed809f0469a198e9f8af1d421e95bc675166dd7
         <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
-        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e,review)}}>Update</button>
-        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e,review._id)}}>Delete</button>
+        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
+        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
       </div>
     })}
   </div>;
