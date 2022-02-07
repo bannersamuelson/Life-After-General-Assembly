@@ -169,10 +169,10 @@ export const createReview = (data, id) =>
     });
 
 
-export const updateReview = (data, courseid,userId) =>
+export const updateReview = (data,userId,id,) =>
   axios({
     method: "put",
-    url: `${base}/update/${userId}/${courseid}`,
+    url: `${base}/update/${userId}/${id}`,
     headers: {
       "Access-Control-Allow-Origin": "*",
       Authorization: localStorage.getItem("token"),
