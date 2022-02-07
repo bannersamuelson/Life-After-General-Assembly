@@ -102,7 +102,7 @@ export default function Test(props) {
     })}
     {!props.home && toggle && <>
       <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Update</button>
-      <UpdateCourse {...props.loginUser} {...props} update={update}>
+      <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate}>
     </UpdateCourse>
     </>
     }
