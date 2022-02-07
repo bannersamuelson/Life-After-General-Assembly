@@ -85,37 +85,49 @@ export const fetchAllCourses = () =>
     .catch((error) => {
       console.log(error);
     });
-//What was I doing
-// export const signUp = (props) =>
-//       axios({
-//          method: "post",
-//         url: `${base}/signup`,
-//         headers: {"Access-Control-Allow-Origin": "*"},
-//          data: props,
-//        })
-//          .then((response) => {
-//            return response.data;
-//          })
-//          .catch((error) => {
-//            console.log(error);
-//          });      
+   
 export const addCourse = (data) =>
-      axios({
-        method: "post",
-        url: `${base}/addcourse`,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          Authorization: localStorage.getItem("token"),
-        },
-        data: data,
+  axios({
+    method: "post",
+    url: `${base}/addcourse`,
+    headers: {
+    "Access-Control-Allow-Origin": "*",
+    Authorization: localStorage.getItem("token"),
+  },
+    data: data,
+  })
+    .then((response) => {
+      return response.data;
+  })
+    .catch((error) => {
+      console.log(error);
+  });
+export const updateCourse = (id,data) =>
+  axios({
+  method: "put",
+  url: `${base}/updating/course/${id}`,
+  data: data,
+  }).then((response) => {
+    return response.data;
+  }).catch((error) => {
+    console.log(error);
+  });
+export const deleteCourse = (id) =>
+    axios({
+      method: "delete",
+      url: `${base}/delete/course/${id}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => {
+        return response.data;
       })
-        .then((response) => {
-          return response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    
+      .catch((error) => {
+        console.log(error);
+      });
+
 export const updateUser = (userName,data) =>
   axios({
     method: "put",
@@ -169,10 +181,10 @@ export const createReview = (data, id) =>
     });
 
 
-export const updateReview = (data, courseid,userId) =>
+export const updateReview = (data,userId,id,) =>
   axios({
     method: "put",
-    url: `${base}/update/${userId}/${courseid}`,
+    url: `${base}/update/${userId}/${id}`,
     headers: {
       "Access-Control-Allow-Origin": "*",
       Authorization: localStorage.getItem("token"),
