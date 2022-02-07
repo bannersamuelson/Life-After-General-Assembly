@@ -100,11 +100,11 @@ export default function Test(props) {
         return null
       }
     })}
-    {!props.home && toggle && <>
+    {!props.home && toggle && <div className="flex flex-col w-screen flex items-center text-base bg-gradient-to-r from-blue-800 to-blue-900 h-screen mr-auto ml-auto space-x-reverse-4"> 
       <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle}>
       </UpdateCourse>
-      <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Go back</button>
-    </>
+      <button className='text-blue-900 bg-white py-1 px-2 rounded text-l mb-12' onClick={(e) => { e.preventDefault(); setToggle(false);}}>Go back</button>
+    </div>
     }
   </div >;
 }

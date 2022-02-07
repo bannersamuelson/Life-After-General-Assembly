@@ -44,7 +44,7 @@ export default function UpdateCourse(props) {
 
 
 return (
-  <div className="relative w-full flex items-center text-base bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
+  <div className="w-full flex items-center text-base bg-gradient-to-r from-blue-800 to-blue-900 h-screen" style={{fontFamily:"Nunito"}}>
     <form onSubmit={handleSubmit}
   className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded text-sm px-3 pb-3 w-6/12"> 
       <h2 className="text-center font-bold ">Update Course</h2>
