@@ -91,6 +91,7 @@ export default function Test(props) {
 
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
+          console.log(course.author, props.loginUser);
           if (course.types) {
             return <div key={i} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
               <div onClick={(e) => { HandleDetails(e, course._id) }}>
@@ -111,14 +112,14 @@ export default function Test(props) {
                 <h1>Type:{course.types}</h1>
                 <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
               </div>
-              <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
-              <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>
+              {(course.author === props.loginUser) && course.author !== undefined && <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
+               && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
             </div>
           } else {
             return null
           }
         })}
-        {!props.home && toggle && <>
+        {!props.home && toggle &&  <>
           <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
           </UpdateCourse>
           <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
