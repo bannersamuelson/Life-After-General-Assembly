@@ -3,31 +3,31 @@ import { updateCourse } from "../../services/apiconfig";
 import { useState,useEffect } from "react";
 export default function UpdateCourse(props) {
   console.log(props);
-  const [newCourse, setNewCourse] = useState({
-    user: "",
-    title: "",
-    image: "",
-    content: "",
-    link: "",
-    types:"",
-    review: "",
-    rate: 0,
-  });
+  // const [newCourse, setNewCourse] = useState({
+  //   user: "",
+  //   title: "",
+  //   image: "",
+  //   content: "",
+  //   link: "",
+  //   types:"",
+  //   review: "",
+  //   rate: 0,
+  // });
   
   
   const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newCourse);
-    let res=await updateCourse(newCourse);
+    // console.log(newCourse);
+    let res=await updateCourse(props.update);
     console.log(res);
     navigation("/");
   };
 
   const handleInput = (e) => {
     const { id, value } = e.target;
-    setNewCourse((prevState) => ({
+    props.setUpdate((prevState) => ({
       ...prevState,
       [id]: value,
     }));
@@ -53,7 +53,7 @@ return (
         type="text"
         placeholder="your user name"
         id="user"
-        value={newCourse.user}
+        value={props.update.user}
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
@@ -64,7 +64,7 @@ return (
         type="text"
        placeholder="course title"
        id="title"
-       value={newCourse.title}
+       value={props.update.title}
        onChange={handleInput}
        className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
@@ -75,7 +75,7 @@ return (
         type="text"
         placeholder="image link"
         id="image"
-        value={newCourse.image}
+        value={props.update.image}
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
@@ -86,7 +86,7 @@ return (
         type="text"
         placeholder="course description"
         id="content"
-        value={newCourse.content}
+        value={props.update.content}
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
         />
@@ -97,7 +97,7 @@ return (
         type="text"
         placeholder="course description"
         id="types"
-        value={newCourse.types}
+        value={props.update.types}
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       >
@@ -112,7 +112,7 @@ return (
         type="text"
         placeholder="link"
         id="link"
-        value={newCourse.link}
+        value={props.update.link}
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
@@ -123,7 +123,7 @@ return (
         type="text"
         placeholder="review"
         id="review"
-        value={newCourse.review}
+        value={props.update.review}
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
@@ -134,14 +134,14 @@ return (
         type="number"
         placeholder="rate"
         id="rate"
-        value={newCourse.rate}
+        value={props.update.rate}
         onChange={handleInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
       <br />
       <br />
       <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 border-4 text-white py-1 px-2 rounded text-xl">
-      Add Course
+      Update Course
       </button>
     </form>
   </div>
