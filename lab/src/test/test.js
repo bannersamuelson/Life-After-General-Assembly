@@ -100,11 +100,16 @@ export default function Test(props) {
         return null
       }
     })}
+<<<<<<< HEAD
+    {!props.home && toggle && <div className="flex flex-col w-screen flex items-center text-base bg-gradient-to-r from-blue-800 to-blue-900 h-screen mr-auto ml-auto space-x-reverse-4"> 
+      <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle}>
+=======
     {!props.home && toggle && <>
       <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
+>>>>>>> ed7d1911469826bb9ac254a091b241457b4eeaa2
       </UpdateCourse>
-      <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Go back</button>
-    </>
+      <button className='text-blue-900 bg-white py-1 px-2 rounded text-l mb-12' onClick={(e) => { e.preventDefault(); setToggle(false);}}>Go back</button>
+    </div>
     }
   </div >;
 }

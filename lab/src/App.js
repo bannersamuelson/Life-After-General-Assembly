@@ -35,7 +35,7 @@ function App() {
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"}/>
         </>} />
         <Route path="/Back-End" element={<>
-          <h1>BackEnd</h1>
+          {/* <h1>BackEnd</h1> */}
           <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
           </Test>
         </>} />
