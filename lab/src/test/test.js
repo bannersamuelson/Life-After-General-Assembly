@@ -101,9 +101,9 @@ export default function Test(props) {
       }
     })}
     {!props.home && toggle && <>
-      <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Update</button>
       <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
-    </UpdateCourse>
+      </UpdateCourse>
+      <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Go back</button>
     </>
     }
   </div >;
