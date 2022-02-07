@@ -1,9 +1,8 @@
-import React, {  useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addCourse } from "../../services/apiconfig"; 
+import { updateCourse } from "../../services/apiconfig"; 
 
-export default function AddCourse(props) {
-  console.log(props,"stop");
+export default function UpdateCourse(props) {
+  console.log(props);
   const [newCourse, setNewCourse] = useState({
     user: "",
     title: "",
@@ -21,7 +20,7 @@ export default function AddCourse(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(newCourse);
-    let res=await addCourse(newCourse);
+    let res=await updateCourse(newCourse);
     console.log(res);
     navigation("/");
   };
@@ -36,7 +35,6 @@ export default function AddCourse(props) {
 
   useEffect(() => {
   if (props.firstName==undefined) {
-    console.log("first");
     alert("login");
     navigation("/");
   }
@@ -45,11 +43,11 @@ export default function AddCourse(props) {
 
 return (
   <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
-    <h2 className="text-center font-bold ">Add a Course</h2>
+    <h2 className="text-center font-bold ">Update Course</h2>
     <form onSubmit={handleSubmit}
   className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> 
     {/* <h3 >{validationMessage}</h3> */}
-      <label >User</label>
+      <label>Not</label>
       <br />
       <input
         type="text"
