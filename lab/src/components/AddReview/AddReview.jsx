@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 export default function AddReview(props) {
   console.log(props);
   const [newReview, setNewReview] = useState({
-    author:`${props.loginUser}`,
+    author:`${props.firstName}`,
     course: "",
     review: "",
     rate: 0,
