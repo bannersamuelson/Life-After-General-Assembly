@@ -23,7 +23,7 @@ export default function Courses() {
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>
-          <Link to='/front' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer   hover:-translate-y-1 hover:scale-105 duration-300 
+          <Link to='/back' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer   hover:-translate-y-1 hover:scale-105 duration-300 
           hover:bg-gradient-to-r from-red-200 to-red-500  bg-slate-100 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
             <div className="mb-8">
               <img className="object-center object-cover rounded-full h-36 w-36" src={backend} alt="photo" />
