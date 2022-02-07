@@ -55,7 +55,7 @@ export default function Test(props) {
   }
   const HandleUpdate = async(e, id,updated) => {
     e.preventDefault();
-    console.log(id);
+    console.log(id, updated);
     setToggle(true);
     setUpdate(updated);
     // let res = await updateCourse(id,data);
@@ -101,9 +101,9 @@ export default function Test(props) {
       }
     })}
     {!props.home && toggle && <>
-      <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Update</button>
-      <UpdateCourse {...props.loginUser} {...props} update={update}>
-    </UpdateCourse>
+      <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle}>
+      </UpdateCourse>
+      <button onClick={(e) => { e.preventDefault(); setToggle(false);}}>Go back</button>
     </>
     }
   </div >;
