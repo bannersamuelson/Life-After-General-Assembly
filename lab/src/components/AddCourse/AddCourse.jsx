@@ -5,7 +5,7 @@ import { addCourse } from "../../services/apiconfig";
 export default function AddCourse(props) {
   console.log(props,"stop");
   const [newCourse, setNewCourse] = useState({
-    user: "",
+    user: `${props.userName}`,
     title: "",
     image: "",
     content: "",
@@ -51,14 +51,9 @@ return (
       <h2 className="text-center font-bold ">Add a Course</h2>
       <label >User</label>
       <br />
-      <input
-        type="text"
-        placeholder="your user name"
-        id="user"
-        value={newCourse.user}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      />
+      <h1>
+        {newCourse.user}
+      </h1>
       <br />
       <label >Upload Title</label>
       <br />
@@ -103,6 +98,7 @@ return (
         onChange={handleInput}
         className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
       >
+        <option> </option>
         <option>Front-End</option>
         <option>Back-End</option>
         <option>Dev-Ops</option>
