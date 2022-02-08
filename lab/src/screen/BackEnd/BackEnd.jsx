@@ -91,8 +91,6 @@ export default function BackEnd(props) {
 
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
-
-
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
           console.log(course.author, props.loginUser);
@@ -111,8 +109,8 @@ export default function BackEnd(props) {
                   <h1 className="text-gray-700 text-base">Author: {course.user === undefined ? "Anonymous" : course.user}</h1>
                 </div>
               </div>
-              {(course.user === props.loginUser.userName) && course.user !== undefined && <button className="text-slate-900 p-4 hover:text-slate-400" onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>}
-              {(course.user === props.loginUser.userName) && course.user !== undefined && <button className="text-slate-900 p-4 hover:text-slate-400" onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
+              {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
+                && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
             </div>
           } else {
             return null
