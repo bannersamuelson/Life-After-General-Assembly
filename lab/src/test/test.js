@@ -14,7 +14,6 @@ export default function Test(props) {
   const [reviews, setReviews] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [update, setUpdate] = useState();
-
   const GrabCourse = async () => {
     let res = await fetchAllCourses();
     // console.log(res);
@@ -104,8 +103,8 @@ export default function Test(props) {
             <h1>Type:{course.types}</h1>
             <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
           </div>
-          <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
-          <button onClick={(e) => { HandleDelete(e, course._id,course) }}>Delete</button>
+          {(course.user === props.loginUser.firstName)  && <><button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
+            <br/><button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button></>}
         </div>
       } else {
         return null

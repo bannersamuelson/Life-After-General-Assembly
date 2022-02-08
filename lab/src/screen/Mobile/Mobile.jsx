@@ -2,14 +2,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../../services/apiconfig"
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import img from '../../images/code.png'
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
-import backend from '../../images/backend.png'
+import phone from '../../images/phone.png'
 
-
-
-export default function BackEnd(props) {
-
+export default function Mobile(props) {
   const { user, setUser } = props;
   let slug = useParams();
   let nav = useNavigate();
@@ -75,16 +71,16 @@ export default function BackEnd(props) {
     GrabCourse();
   }
   return (
-    <div className="bg-gradient-to-r from-red-200 to-red-500">
+    <div className="bg-gradient-to-r from-blue-400 to-blue-600">
       <div className="flex flex-col items-center mb-11">
         <div className="flex flex-col items-center">
-          <div class="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
-            <img class="flex h-24 md:w-auto md:h-44 rounded-t-lg md:rounded-none md:rounded-l-lg" src={backend} alt="usb" />
-            <h5 class="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Back-End Resources</h5>
+          <div className="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
+            <img className="flex h-36 md:w-auto md:h-36 m-5 rounded-t-lg md:rounded-none md:rounded-l-lg" src={phone} alt="usb" />
+            <h5 className="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Back-End Resources</h5>
           </div>
-          <p class="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
-            <span className="font-bold">The back end of a computer system encompasses “behind-the-scenes” technologies such as the database and operating system.</span><br />
-            <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-400 dark:focus:ring-red-800">
+          <p className="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-slate-100">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
+            <span className="mt-5 font-bold">Mobile application development is the process of creating software applications that run on a mobile device, and a typical mobile application utilizes a network connection to work with remote computing resources.</span><br />
+            <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-100 dark:focus:ring-red-800">
               Add Course
             </Link></span></p>
         </div >
@@ -96,9 +92,8 @@ export default function BackEnd(props) {
 
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
-          console.log(course.author, props.loginUser);
           if (course.types) {
-            return <div key={i} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
+            return <div key={i} className="m-4 flex flex-stretch transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
               <div onClick={(e) => { HandleDetails(e, course._id) }}>
                 <div className="relative overflow-hidden">
                 </div>
@@ -116,14 +111,14 @@ export default function BackEnd(props) {
                 <h1>Type:{course.types}</h1>
                 <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
               </div>
-              {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
-               && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
+              <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
+              <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>
             </div>
           } else {
             return null
           }
         })}
-        {!props.home && toggle &&  <>
+        {!props.home && toggle && <>
           <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
           </UpdateCourse>
           <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>

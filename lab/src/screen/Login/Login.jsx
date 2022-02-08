@@ -6,6 +6,8 @@ import { loginUser } from "../../services/apiconfig";
 
 export default function Login(props) {
   const navigate = useNavigate()
+  const [hidePassword, setHidePassword] = useState("password");
+  const [oldPassword, setOldPassword] = useState("text");
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -13,26 +15,26 @@ export default function Login(props) {
     errorMsg: "",
   })
 
-const handleSubmit = async (e)=>{
-  e.preventDefault();
-  try{
-    const login = await loginUser(user)
-    console.log([login.data.user]);
-    props.setLoginUser(login.data.user);
-    console.log(props.loginUser);
-    console.log(props);
-    localStorage.setItem("token", login.data.token);
-    console.log(localStorage.getItem("token")); 
-    navigate("/")
-  }catch(error){
-    setUser({
-      isError: true,
-      errorMsg: "Invalid Credentials",
-      email: "",
-      password: ""
-    })
-  }
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const login = await loginUser(user)
+      console.log([login.data.user]);
+      props.setLoginUser(login.data.user);
+      console.log(props.loginUser);
+      console.log(props);
+      localStorage.setItem("token", login.data.token);
+      console.log(localStorage.getItem("token"));
+      navigate("/")
+    } catch (error) {
+      setUser({
+        isError: true,
+        errorMsg: "Invalid Credentials",
+        email: "",
+        password: ""
+      })
+    }
+  };
 
   const handleInput = (e) => {
     const { id, value } = e.target;
@@ -41,7 +43,12 @@ const handleSubmit = async (e)=>{
       [id]: value,
     }))
   };
-
+  const Toggle = (e) => {
+    e.preventDefault();
+    let temp = hidePassword;
+    setHidePassword(oldPassword);
+    setOldPassword(temp);
+}
   return (
     <div className="grid justify-items-center w-full mt-10">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -62,12 +69,15 @@ const handleSubmit = async (e)=>{
             Password
           </label>
           <input
-            type="text"
+
+            type={hidePassword}
+
             placeholder="********"
             id="password"
             value={user.password}
             onChange={handleInput}
             className="focus:placeholder-transparent shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
+          <button onClick={(e)=>{Toggle(e)}}>Show Password</button>
           <p className="text-slate-500 text-xs italic">Not a user? <Link className="underline hover:cursor-pointer hover:text-red-100" to='/signup'>Sign up!</Link></p>
         </div>
         <div className="flex items-center justify-between">
