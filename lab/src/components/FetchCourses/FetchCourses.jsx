@@ -14,11 +14,11 @@ export default function FetchCourses(props) {
     review: "",
     rate: 0,
   });
-  console.log(newReview);
+  // console.log(newReview);
   const GrabReviews = async () => {
     let res = await getAllReviews();
     setReviews(res.data);
-    console.log(res.data);
+    // console.log(res.data);
   }
 
   const handleSubmit = async (e, id) => {
@@ -51,9 +51,10 @@ export default function FetchCourses(props) {
   };
 
   const star = (`${'\u2B50'}`)
-  console.log(star)
+  // console.log(star)
 
   let newId = id.id.split(":")
+
   useEffect(() => {
     const Details = async () => {
       let res = await getCourse(newId[1]);
@@ -76,8 +77,28 @@ export default function FetchCourses(props) {
     GrabReviews();
   }
 
-  let length = reviews.length
+
+  let length = () => {
+
+    let i = 0;
+    let newLength
+
+
+    reviews.map((review) => {
+      if (newId[1] === review.course[0]) {
+        console.log(review.course[0])
+        i++
+        newLength = i
+      }
+    })
+
+    console.log(newLength)
+    return newLength
+
+  }
+  console.log(newId[1])
   console.log(length)
+  console.log(reviews)
 
 
 
@@ -137,16 +158,19 @@ export default function FetchCourses(props) {
     )}
 
     {reviews && reviews.map((review, i) => {
-      console.log(review, props);
+      // console.log(review, props);
       if (newId[1] === review.course) {
-        return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
-          <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
-          <h1>Rating:{review.rate}</h1>
-          <h1>Course:{details?.data[0].title}</h1>
-          <h1>Review:{review.review}</h1>
-          {(review.author === props.user) && review.author !== undefined && <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>}
-          {(review.author === props.user) && review.author !== undefined && <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>}
-        </div>
+        return (
+          <div key={i} className="md:px-72 lg:px-96 border  text-slate-800 px-10 py-4 bg-slate-100" >
+            <h1 className="text-xl font-bold">{review.author === undefined ? "Anonymous" : review.author}</h1>
+            <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
+            <h1 className="italic my-4">Review: {review.review}</h1>
+            <div className="flex">
+              <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
+              <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
+            </div>
+          </div>
+        )
       } else {
         return null
       }
