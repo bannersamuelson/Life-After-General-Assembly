@@ -70,7 +70,7 @@ export default function SignUp(props) {
       <form onSubmit={handleSubmit} className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-6">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Username
             </label>
             <input
@@ -83,8 +83,7 @@ export default function SignUp(props) {
               className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" />
           </div>
           <div className="w-full mb-6 md:w-1/2 md:mb-0 px-3">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              First Name
+            <label className="block text-gray-700 text-sm font-bold mb-2">              First Name
             </label>
             <input
               value={newUser.firstName}
@@ -96,8 +95,7 @@ export default function SignUp(props) {
               className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
           </div>
           <div className="w-full md:w-1/2 md:mb-0 px-3">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              Last Name
+            <label className="block text-gray-700 text-sm font-bold mb-2">              Last Name
             </label>
             <input value={newUser.lastName}
               onChange={handleInput}
@@ -110,7 +108,7 @@ export default function SignUp(props) {
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Password
             </label>
             <input
@@ -125,7 +123,7 @@ export default function SignUp(props) {
           <div className="text-slate-500 mb-2 ml-4" onClick={(e) => { Toggle(e) }}><img className="w-8 hover:cursor-pointer" src={show} alt="show password eye" /></div>
 
           <div className="w-full px-3">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Confirm Password
             </label>
             <input
@@ -140,7 +138,7 @@ export default function SignUp(props) {
         </div>
         <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full 3 px-3 mb-6">
-            <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Email Address
             </label>
             <input

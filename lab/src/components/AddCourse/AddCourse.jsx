@@ -63,8 +63,7 @@ export default function AddCourse(props) {
                 className="flex items-center border p-2 py-2 text-slate-500 w-full"
               />
             </div>
-
-            <div className="w-full mb-6 md:w-1/2 md:mb-0 px-3">
+            <div className="w-full px-3 mb-6">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Course Description
               </label>
@@ -79,7 +78,8 @@ export default function AddCourse(props) {
               />
             </div>
 
-            <div className="w-full md:w-1/2 md:mb-0 px-3">
+
+            <div className="w-full px-3">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Course Category
               </label>
