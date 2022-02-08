@@ -31,7 +31,18 @@ export default function AddReview(props) {
       [id]: value,
     }));
   };
-
+  const handleNumberInput = (e) => {
+    const { id, value } = e.target;
+    console.log(value);
+    if (value > 5 || value<0) {
+      alert("rating can't be bigger than 5");
+      return null;
+    }
+    setNewReview((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
 return (
   <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl" style={{fontFamily:"Nunito"}}>
     <h2 className="text-center font-bold ">Add a Review about Course</h2>
@@ -48,14 +59,14 @@ return (
        className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
       <br />
-      <label >Rate</label>
+      <label>Rate</label>
       <br />
       <input
         type="number"
         placeholder="image link"
         id="rate"
         value={newReview.rate}
-        onChange={handleInput}
+        onChange={handleNumberInput}
         className="flex items-center border-b border-teal-500 py-2 text-teal-700"
       />
       <br />

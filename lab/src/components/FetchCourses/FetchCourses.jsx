@@ -20,6 +20,7 @@ export default function FetchCourses(props) {
     setReviews(res.data);
     console.log(res.data);
   }
+
   const handleSubmit = async (e, id) => {
     e.preventDefault();
     newReview.course = id;
@@ -36,7 +37,18 @@ export default function FetchCourses(props) {
       [id]: value,
     }));
   };
-
+  const handleNumberInput = (e) => {
+    const { id, value } = e.target;
+    console.log(value);
+    if (value > 5 || value < 0) {
+      alert("rating can't be bigger than 5 or smaller than 0");
+      return null;
+    }
+    setNewReview((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
 
   const star = (`${'\u2B50'}`)
   console.log(star)
@@ -63,95 +75,85 @@ export default function FetchCourses(props) {
     console.log(res);
     GrabReviews();
   }
+
+  let length = reviews.length
+  console.log(length)
+
+
+
   return <div>
     {details && details?.data.map((course, i) => {
-      return <div key={i} className="w-full  p-4">
-        <h1>Front-End: Course</h1>
-        <h1>Title:{course.title}</h1>
-        <h1>Rating:{course.rate}/10</h1>
-        <h1>Review:{course.review}</h1>
-        <h1>Type:{course.types}</h1>
-        <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
-        <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Review</button>
-        {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
-          <h2 className="flex items-center">New Review</h2>
-          <div class="flex items-center justify-center shadow-lg mt-56 mx-8 mb-4 max-w-lg">
-            <div class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
-              <div class="flex flex-wrap -mx-3 mb-6">
-                <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new review</h2>
-                <div class="w-full md:w-full px-3 mb-2 mt-2">
-                  <input
-                    className="grid items-start focus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
-                    type="text"
-                    id="review"
-                    value={newReview.review}
-                    onChange={handleInput}
-                    placeholder='Type your review'
-                    required />
-                </div>
-                <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a rating</h2>
-                <br />
-                <input
-                  type="number"
-                  placeholder="create Rating"
-                  id="rate"
-                  value={newReview.rate}
-                  onChange={handleInput}
-                  className="grid items-start çfocus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
-                />
-                <div class="w-full md:w-full flex items-start px-3">
-                  <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
-                    <svg fill="none" class="w-5 h-5 text-gray-600 mr-1" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <p class="text-xs md:text-sm pt-px">Some HTML is okay.</p>
-                  </div>
-                  <div class="-mr-1">
-                    <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Post Comment' />
-                  </div>
-                </div>
-              </div>
-            </div>
+
+      return <div key={i} className="md:px-44 lg:px-80 w-full bg-slate-100 p-4">
+
+        <h1 className="text-slate-900 text-3xl font-bold font-nunito mt-4">{course.user === undefined ? "Anonymous" : course.user}</h1>
+        <a className="text-slate-500 hover:text-slate-800" href={`${course.link}`}>{course.title}</a>
+        <h1 className="my-4"> {star.repeat(`${course.rate[0]}`)}</h1>
+        <div className="bg-white rounded-xl mb-10 ">
+          <div className=" text-slate-800 grid grid-cols-1 justify-items-start">
+            <h1 className="p-3 mb-10 text-xl text-slate-500"> "{course.review}"</h1>
           </div>
-          <label>Review</label>
+        </div>
+
+        {!toggle && <button className="bg-sky-400 rounded text-slate-100 mb-10 p-2 hover:bg-sky-600 hover:cursor-pointer"
+          onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Leave Review</button>
+        }
+        <h1 className="text-slate-500">Total Reviews:{length}</h1>
+        {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
+
+          <label className="text-slate-500">Review</label>
           <br />
           <input
+            className=" placeholder:text-slate-300 grid focus:placeholder-transparent bg-slate-100 rounded border border-slate-200 leading-normal resize-none w-full h-14 px-3 font-medium text-slate-800 focus:outline-none focus:bg-white"
             type="text"
-            placeholder="Review"
             id="review"
             value={newReview.review}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
-          />
+            placeholder='Type your review'
+            required />
           <br />
-          <label>Rate</label>
+          <label className="text-slate-500">Rate</label>
           <br />
           <input
             type="number"
-            placeholder="create Rating"
+            placeholder="0 - 5"
             id="rate"
             value={newReview.rate}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            required
+            className="focus:border-slate-300 text-slate-800 pl-2 flex items-center border-b border-slate-300 py-2 rounded focus:border-collapse bg-slate-100"
           />
           <br />
-          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
-            SUBMIT
-          </button>
+          <button className="flex-shrink-0 bg-sky-400 hover:bg-sky-600 hover:border-tskyeal-700 text-sm text-white py-1 px-2 rounded">
+            Submit
+          </button> {toggle && <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}
+            className="flex-shrink-0 text-sm text-slate-400 hover:text-slate-500 py-1 px-2 rounded">
+            Close
+          </button>}
+
         </form>}
       </div>
     }
     )}
+
     {reviews && reviews.map((review, i) => {
-      // console.log(review);
-      return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
-        <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
-        <h1>Rating:{review.rate}</h1>
-        <h1>Course:{details?.data[0].title}</h1>
-        <h1>Review:{review.review}</h1>
-        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
-        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
-      </div>
+      console.log(review);
+
+
+      return (
+
+        <div key={i} className="md:px-72 lg:px-96 border  text-slate-800 px-10 py-4 bg-slate-100" >
+          <h1 className="text-xl font-bold">{review.author === undefined ? "Anonymous" : review.author}</h1>
+          <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
+          <h1 className="italic my-4">Review: {review.review}</h1>
+          <div className="flex">
+            <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
+            <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
+          </div>
+        </div>
+
+      )
     })}
-  </div>;
+  </div>
+
 }
