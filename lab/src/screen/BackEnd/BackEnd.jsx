@@ -119,7 +119,7 @@ export default function BackEnd(props) {
         {!props.home && toggle && <>
           <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
           </UpdateCourse>
-          <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
+          <button className="md:bg-transparent md:hover:p-1 bg-slate-800 hover:bg-slate-800 hover:opacity-100 opacity-75 font-bold text-xl p-3 m-5 rounded" onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
         </>
         }
       </div >
