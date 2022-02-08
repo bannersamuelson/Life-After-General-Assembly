@@ -40,7 +40,7 @@ export default function FetchCourses(props) {
   const handleNumberInput = (e) => {
     const { id, value } = e.target;
     console.log(value);
-    if (value > 5 || value<0) {
+    if (value > 5 || value < 0) {
       alert("rating can't be bigger than 5 or smaller than 0");
       return null;
     }
@@ -87,8 +87,7 @@ export default function FetchCourses(props) {
       return <div key={i} className="w-full bg-white p-4">
 
         <h1 className="text-slate-900 text-3xl font-bold font-nunito mt-4">{course.user === undefined ? "Anonymous" : course.user}</h1>
-        <h1 className="grid grid-cols-1 italic text-lg text-slate-800">{course.title}</h1>
-        <a className="hover:text-slate-200" href={`${course.link}`}>{course.link}</a>
+        <a className="hover:text-slate-600" href={`${course.link}`}>{course.title}</a>
         <div className="bg-white">
           <h1 className="my-4"> {star.repeat(`${course.rate[0]}`)}</h1>
           <div className=" text-slate-800 grid grid-cols-1 justify-items-start">
@@ -96,73 +95,42 @@ export default function FetchCourses(props) {
           </div>
         </div>
 
-        <button className="bg-sky-400 rounded text-slate-100 mb-10 p-2 hover:bg-sky-600 hover:cursor-pointer" onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Leave Review</button>
+        {!toggle && <button className="bg-sky-400 rounded text-slate-100 mb-10 p-2 hover:bg-sky-600 hover:cursor-pointer"
+          onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Leave Review</button>
+        }
+        <h1>Total Reviews:{length}</h1>
         {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
-          <h2 className="flex items-center">New Review</h2>
-          <h1>Total Reviews:{length}</h1>
-          <div class="flex items-center justify-center shadow-lg mt-56 mx-8 mb-4 max-w-lg">
-            <div class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
-              <div class="flex flex-wrap -mx-3 mb-6">
-                <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new review</h2>
-                <div class="w-full md:w-full px-3 mb-2 mt-2">
-                  <input
-                    className="grid items-start focus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
-                    type="text"
-                    id="review"
-                    value={newReview.review}
-                    onChange={handleInput}
-                    placeholder='Type your review'
-                    required />
-                </div>
-                <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a rating</h2>
-                <br />
-                <input
-                  type="number"
-                  placeholder="create Rating"
-                  id="rate"
-                  value={newReview.rate}
-                  onChange={handleNumberInput}
-                  className="grid items-start çfocus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
-                />
-                <div class="w-full md:w-full flex items-start px-3">
-                  <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
-                    <svg fill="none" class="w-5 h-5 text-gray-600 mr-1" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <p class="text-xs md:text-sm pt-px">Some HTML is okay.</p>
-                  </div>
-                  <div class="-mr-1">
-                    <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Post Comment' />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <label>Review</label>
           <br />
           <input
+            className=" placeholder:text-slate-300 grid focus:placeholder-transparent bg-slate-100 rounded border border-slate-200 leading-normal resize-none w-full h-14 px-3 font-medium text-slate-800 focus:outline-none focus:bg-white"
             type="text"
-            placeholder="Review"
             id="review"
             value={newReview.review}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
-          />
+            placeholder='Type your review'
+            required />
           <br />
           <label>Rate</label>
           <br />
           <input
             type="number"
-            placeholder="create Rating"
+            placeholder="0 - 5"
             id="rate"
             value={newReview.rate}
             onChange={handleInput}
-            className="flex items-center border-b border-teal-500 py-2"
+            required
+            className="focus:border-slate-300 text-slate-800 pl-2 flex items-center border-b border-slate-300 py-2 rounded focus:border-collapse bg-slate-100"
           />
           <br />
-          <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
+          <button className="flex-shrink-0 bg-sky-400 hover:bg-sky-600 hover:border-tskyeal-700 text-sm text-white py-1 px-2 rounded">
             SUBMIT
-          </button>
+          </button> {toggle && <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}
+            className="flex-shrink-0 text-sm text-slate-400 hover:text-slate-500 py-1 px-2 rounded">
+            Close
+          </button>}
+
         </form>}
       </div>
     }
