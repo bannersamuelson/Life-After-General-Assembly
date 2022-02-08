@@ -3,7 +3,7 @@ import logo from '../../images/database.jpg'
 
 const Footer = () => {
   return (
-    <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
+    <footer className="p-4 sm:p-6 bg-gray-800">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0 flex items-center">
           <img src={logo} className="mr-4 h-10" alt="FlowBite Logo" />
