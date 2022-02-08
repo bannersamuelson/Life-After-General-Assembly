@@ -20,6 +20,7 @@ export default function FetchCourses(props) {
     setReviews(res.data);
     console.log(res.data);
   }
+
   const handleSubmit = async (e, id) => {
     e.preventDefault();
     newReview.course = id;
@@ -63,22 +64,31 @@ export default function FetchCourses(props) {
     console.log(res);
     GrabReviews();
   }
+
+  let length = reviews.length
+  console.log(length)
+
+
+
   return <div>
     {details && details?.data.map((course, i) => {
 
-      return <div key={i} className="w-full bg-slate-100 p-4">
+      return <div key={i} className="w-full bg-white p-4">
 
-        <h1 className="grid grid-cols-1 text-3xl text-slate-800">{course.title}</h1>
+        <h1 className="text-slate-900 text-3xl font-bold font-nunito italic mt-4">{course.user === undefined ? "Anonymous" : course.user}</h1>
+        <h1 className="grid grid-cols-1 text-xl text-slate-800">{course.title}</h1>
         <a className="hover:text-slate-200" href={`${course.link}`}>{course.link}</a>
-        <h1>{`${course.rate[0]}`} {star.repeat(`${course.rate[0]}`)}</h1>
-        <div className="bg-slate-200 grid grid-cols-1 justify-items-end">
-          <h1 className="text-6xl"> "{course.review}"</h1>
-          <h1 className="text-gray-500 font-nunito italic">- {course.user === undefined ? "Anonymous" : course.user}</h1>
+        <div className="bg-white">
+          <h1 className="my-4"> {star.repeat(`${course.rate[0]}`)}</h1>
+          <div className=" text-slate-800 grid grid-cols-1 justify-items-start">
+            <h1 className="mb-10 text-3xl"> "{course.review}"</h1>
+          </div>
         </div>
 
-        <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Leave Review</button>
+        <button className="bg-sky-400 rounded text-slate-100 mb-10 p-2 hover:bg-sky-600 hover:cursor-pointer" onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Leave Review</button>
         {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
           <h2 className="flex items-center">New Review</h2>
+          <h1>Total Reviews:{length}</h1>
           <div class="flex items-center justify-center shadow-lg mt-56 mx-8 mb-4 max-w-lg">
             <div class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
               <div class="flex flex-wrap -mx-3 mb-6">
@@ -148,6 +158,8 @@ export default function FetchCourses(props) {
     )}
     {reviews && reviews.map((review, i) => {
       // console.log(review);
+
+
       return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
         <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
         <h1>Rating:{review.rate}</h1>
