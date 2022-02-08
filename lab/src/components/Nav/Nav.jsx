@@ -86,7 +86,7 @@ const Nav = (props) => {
 
 
 
-          <input type="checkbox" className='container flex justify-end'/>
+          <input type="checkbox" defaultChecked="false" className='container flex justify-end'/>
           <div className='flex justify-end '>
             <div>
               <span></span>
