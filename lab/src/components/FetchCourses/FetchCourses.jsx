@@ -84,14 +84,14 @@ export default function FetchCourses(props) {
   return <div>
     {details && details?.data.map((course, i) => {
 
-      return <div key={i} className="w-full bg-slate-100 p-4">
+      return <div key={i} className="md:px-44 lg:px-80 w-full bg-slate-100 p-4">
 
         <h1 className="text-slate-900 text-3xl font-bold font-nunito mt-4">{course.user === undefined ? "Anonymous" : course.user}</h1>
         <a className="text-slate-500 hover:text-slate-800" href={`${course.link}`}>{course.title}</a>
         <h1 className="my-4"> {star.repeat(`${course.rate[0]}`)}</h1>
         <div className="bg-white rounded-xl mb-10 ">
           <div className=" text-slate-800 grid grid-cols-1 justify-items-start">
-            <h1 className="mb-10 text-3xl"> "{course.review}"</h1>
+            <h1 className="p-3 mb-10 text-xl text-slate-500"> "{course.review}"</h1>
           </div>
         </div>
 
@@ -135,17 +135,25 @@ export default function FetchCourses(props) {
       </div>
     }
     )}
+
     {reviews && reviews.map((review, i) => {
       console.log(review);
 
 
-      return <div key={i} className="text-slate-800 p-10 border bg-slate-100" >
-        <h1 className="text-xl font-bold">{review.author === undefined ? "Anonymous" : review.author}</h1>
-        <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
-        <h1 className="italic my-4">Review: {review.review}</h1>
-        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
-        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
-      </div>
+      return (
+
+        <div key={i} className="md:px-72 lg:px-96 border  text-slate-800 px-10 py-4 bg-slate-100" >
+          <h1 className="text-xl font-bold">{review.author === undefined ? "Anonymous" : review.author}</h1>
+          <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
+          <h1 className="italic my-4">Review: {review.review}</h1>
+          <div className="flex">
+            <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
+            <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
+          </div>
+        </div>
+
+      )
     })}
-  </div>;
+  </div>
+
 }
