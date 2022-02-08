@@ -8,6 +8,101 @@ L.A.G.A is a website for finding full-stuck materials. This web application will
 
 https://secret-mesa-13283.herokuapp.com/api
 
+```
+data: [
+{
+_id: "61fbf4fe84cee72d5207e01e",
+user: "banner",
+title: "CodeWars.com",
+review: "Join a clan now! Best way to learn 9/10",
+rate: [
+"9"
+]
+},
+{
+_id: "6201389a6c70f603f59f044d",
+user: "TEST",
+title: "A title appears",
+types: "Back-End",
+review: "decent",
+rate: [
+"10"
+]
+},
+{
+_id: "620195a1f58574b05187ccf6",
+user: "Banner",
+title: "mongodb",
+types: "Front-End",
+review: "Good website for this shit",
+rate: [
+"10"
+]
+},
+{
+_id: "6201a47fd55a40ad416420db",
+user: "Leland",
+title: "A new title Appears",
+types: "",
+review: "not that good",
+rate: [
+"8"
+]
+},
+{
+_id: "6201b4b86706bf2d9436b2b5",
+user: "Leland",
+title: "rooting",
+types: "",
+review: "rooote",
+rate: [
+"5"
+]
+},
+{
+_id: "6201b5a36706bf2d9436b2da",
+user: "Leland",
+title: "jksldjh",
+types: "Front-End",
+review: "bij",
+rate: [
+"6"
+]
+},
+{
+_id: "62021333afd91398a4fa0e0b",
+user: "banner",
+title: "tailwindcss",
+types: "Front-End",
+review: "Great to use. user-friendly and allows the user to never have to leave the page.",
+rate: [
+"5"
+]
+},
+{
+_id: "62027b9d1543ded690dffecb",
+user: "GalinaKKK",
+title: "MongoDB",
+types: "Back-End",
+review: "very helpfull",
+rate: [
+"10"
+]
+},
+{
+_id: "620285e30320cf5aa36aa484",
+user: "banner",
+title: "Tailwind TEST",
+types: "Front-End",
+review: "fantastic.",
+rate: [
+"7"
+]
+}
+]
+}
+```
+
 ## Component Hierarchy
 
 ![webimage](https://i.imgur.com/aGimmvr.png)
@@ -50,19 +145,19 @@ Auth for update/delete courses
 
 ## Timeframes
 
-| Component                               | Priority | Estimated Time | Time Invested | Actual Time |
-| --------------------------------------- | :------: | :------------: | :-----------: | :---------: |
-| Back&Front-end Routes                   |    H     |     5 hrs      |      hrs      |     hrs     |
-| MongoDB connection                      |    H     |     2 hrs      |      hrs      |     hrs     |
-| MongoDB C.R.U.D.                        |    H     |     3 hrs      |      hrs      |     hrs     |
-| Schema for Course and Reviews           |    M     |     1 hrs      |      hrs      |     hrs     |
-| MongoDB consumption passed to Front-end |    H     |     4 hrs      |      hrs      |     hrs     |
-| Review and liking system                |    M     |      6hrs      |      hrs      |     hrs     |
-| Tailwinds                               |    L     |    3.5 hrs     |      hrs      |     hrs     |
-| Deployment                              |    H     |      4hrs      |      hrs      |     hrs     |
-| Debugging                               |    M     |      4hrs      |      hrs      |     hrs     |
-| More Styling                            |    L     |     5 hrs      |      hrs      |     hrs     |
-| Polishing and adjustment                |    M     |      4hrs      |      hrs      |     hrs     |
-| Total                                   |    H     |    35.5 hrs    |      hrs      |     hrs     |
+| Component                               | Priority | Estimated Time | Time Invested |
+| --------------------------------------- | :------: | :------------: | :-----------: |
+| Back&Front-end Routes                   |    H     |     5 hrs      |     9hrs      |
+| MongoDB connection                      |    H     |     2 hrs      |     6hrs      |
+| MongoDB C.R.U.D.                        |    H     |     3 hrs      |     6hrs      |
+| Schema for Course and Reviews           |    M     |     1 hrs      |     2hrs      |
+| MongoDB consumption passed to Front-end |    H     |     4 hrs      |     8hrs      |
+| Review and liking system                |    M     |      6hrs      |     10hrs     |
+| Tailwinds                               |    L     |    3.5 hrs     |     8hrs      |
+| Deployment                              |    H     |      4hrs      |     4hrs      |
+| Debugging                               |    M     |      4hrs      |     7hrs      |
+| More Styling                            |    L     |     5 hrs      |     9hrs      |
+| Polishing and adjustment                |    M     |      4hrs      |     5hrs      |
+| Total                                   |    H     |    35.5 hrs    |     74hrs     |
 
 ## SWOT Analysis
