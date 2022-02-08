@@ -166,8 +166,8 @@ export default function FetchCourses(props) {
             <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
             <h1 className="italic my-4">Review: {review.review}</h1>
             <div className="flex">
-              <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
-              <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
+            {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>}
+            {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>}
             </div>
           </div>
         )
