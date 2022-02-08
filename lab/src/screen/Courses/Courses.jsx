@@ -10,7 +10,9 @@ import backend from '../../images/backend.png'
 export default function Courses() {
   return <div>
     <div className="w-full bg-gradient-to-r from-blue-800 to-blue-900 pb-10">
-      <h1 className="flex flex-col justify-center items-center pt-14 text-8xl text-extrabold text-extrabold text-slate-200">Browse Courses</h1>
+      <div className="grid grid-cols-1 justify-items-center">
+        <h1 className="flex flex-col justify-center items-center pt-14 text-8xl text-extrabold text-extrabold text-slate-200">Browse Courses</h1>
+      </div>
       <section className=" mx-auto px-4 sm:px-6 lg:px-4 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 hover:text-slate-100 lg:px-0 gap-4">
           <Link to='/Front-End' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer   hover:-translate-y-1 hover:scale-105 duration-300 

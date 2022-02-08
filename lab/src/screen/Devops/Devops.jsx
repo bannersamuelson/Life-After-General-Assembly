@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../../services/apiconfig"
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import img from '../../images/code.png'
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
 import devops from '../../images/devops.png'
 

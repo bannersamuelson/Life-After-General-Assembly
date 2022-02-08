@@ -22,7 +22,7 @@ export default function HomePage(props) {
               </div>
             </div>
             <div className="flex-grow w-full md:w-0">
-              <img className="mt-10 md:mt-0" src={img} alt="databasestack" />
+              <img className="md:w-full mt-10 md:mt-0" src={img} alt="databasestack" />
             </div>
           </div>
           <Skew />
