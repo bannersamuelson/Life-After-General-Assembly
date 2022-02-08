@@ -81,6 +81,7 @@ const Nav = (props) => {
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
           <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
         </NavLink>
+        <span className="flex">{props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}</span>
         <div id="menuToggle" className="navBar mx-5 container flex items-center">
 
           <input type="checkbox" defaultChecked="false" className='container flex justify-end' />
@@ -93,7 +94,6 @@ const Nav = (props) => {
           </div>
 
           <ul id="menu" className="flex align-c-end flex-wrap text-2xl flex-col mt-4" >
-            {props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}
             {alwaysOptions}
             {props.user && props.loginUser ? authenticatedOptions : unauthenticatedOptions}
           </ul>

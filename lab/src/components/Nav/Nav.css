@@ -1,10 +1,12 @@
 body {
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden; 
 
   /* make it look decent enough */
-  background: #232323;
-  color: #cdcdcd;
+  color: #f1f5f9;
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
@@ -22,13 +24,17 @@ body {
 
 #menuToggle a {
   text-decoration: none;
-  color: #232323;
+  border: none;
+  color: #f1f5f9;
+  background-color: #18202b;
 
   transition: color 0.2s ease;
 }
 
 #menuToggle a:hover {
-  color: tomato;
+  background-color: #1f2937;
+  width: 100vw;
+  
 }
 
 #menuToggle input {
@@ -38,7 +44,7 @@ body {
   position: absolute;
   top: -7px;
   right: 60px;
-
+  
   cursor: pointer;
 
   opacity: 0; /* hide this */
@@ -110,10 +116,10 @@ input:checked ~ span {
   position: absolute;
   width: 300px;
   margin: -80px 0 0 90vw;
-  padding: 50px;
+  padding-bottom: 100vh;
   padding-top: 125px;
 
-  background: #ededed;
+  background: #18202b;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
