@@ -50,7 +50,7 @@ export default function Login(props) {
     setOldPassword(temp);
 }
   return (
-    <div className="grid justify-items-center w-full mt-10">
+    <div className="grid justify-items-center w-full h-full mt-10">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
