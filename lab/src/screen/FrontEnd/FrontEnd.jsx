@@ -107,8 +107,8 @@ export default function FrontEnd(props) {
                   <h1 className="text-gray-700 text-base">Author: {course.user === undefined ? "Anonymous" : course.user}</h1>
                 </div>
               </div>
-              {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
-                && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
+              {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>}
+              {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
             </div>
           } else {
             return null
