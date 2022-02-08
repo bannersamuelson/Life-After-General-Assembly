@@ -7,7 +7,7 @@ const Nav = (props) => {
 
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [isActive, setActive] = useState(false);
-
+  const [inputStyle,setInputStyle]=useState("");
   console.log(navbarOpen)
 
   const handleToggle = () => {
@@ -30,26 +30,31 @@ const Nav = (props) => {
   const authenticatedOptions = (
     <>
       <NavLink className="block py-2 pr-4 pl-3 text-gray-400 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-        to="/addcourse">Add Courses</NavLink>
+        to="/addcourse" >Add Courses</NavLink>
       <NavLink className="block py-2 pr-4 pl-3 text-gray-400 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-        to="/" onClick={(e) => { handleLogout(e) }}>Logout</NavLink>
+        to="/" onClick={(e) => { handleLogout(e); }}>Logout</NavLink>
     </>
   )
   const unauthenticatedOptions = (
     <>
       <NavLink className="block py-2 pr-4 pl-3 text-gray-400 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-        to="/signup">Sign Up</NavLink>
+        to="/signup" >Sign Up</NavLink>
       <NavLink className="block py-2 pr-4 pl-3 text-gray-400 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-        to="/Login">Log In</NavLink>
+        to="/Login" >Log In</NavLink>
     </>
   )
   const alwaysOptions = (
     <>
       <NavLink className="block py-2 pr-4 pl-3 text-gray-400 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-        to="/courses">Courses</NavLink>
+        to="/courses" >Courses</NavLink>
     </>
   )
 
+  const changeStyle = (e) => {
+    e.preventDefault();
+    console.log("first");
+    setInputStyle("false");
+  }
 
 
   return (
@@ -76,7 +81,7 @@ const Nav = (props) => {
 
       {/* MOBILE NAV */}
       <nav role="navigation" className="md:hidden bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
-    h-16 border-b flex">
+    h-16 border-b flex" onLoad={(e) => { changeStyle(e) }}>
         <NavLink to="/" className="flex active">
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
           <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
