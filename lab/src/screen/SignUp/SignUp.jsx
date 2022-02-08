@@ -66,7 +66,7 @@ export default function SignUp(props) {
   };
   // console.log(props);
   return (
-    <div className="bg-slate-100 grid justify-items-center py-24">
+    <div className="px-14 bg-slate-100 grid justify-items-center py-24">
       <form onSubmit={handleSubmit} className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-6">
