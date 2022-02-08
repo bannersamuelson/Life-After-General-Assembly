@@ -29,6 +29,7 @@ body {
   color: #f1f5f9;
   background-color: #18202b;
   display: flex;
+  padding-left: 2rem;
   transition: color 0.2s ease;
 }
 
