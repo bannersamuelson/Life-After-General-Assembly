@@ -168,7 +168,7 @@ export default function FetchCourses(props) {
     }
     )}
     {reviews && reviews.map((review, i) => {
-      // console.log(review);
+      console.log(review);
 
 
       return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
@@ -176,8 +176,8 @@ export default function FetchCourses(props) {
         <h1>Rating:{review.rate}</h1>
         <h1>Course:{details?.data[0].title}</h1>
         <h1>Review:{review.review}</h1>
-        <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
-        <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
+        {(review.author === props.user) && review.author !== undefined && <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>}
+       {(review.author === props.user) && review.author !== undefined && <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>}
       </div>
     })}
   </div>;
