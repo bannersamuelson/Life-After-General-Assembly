@@ -10,7 +10,11 @@ import HomePage from './screen/HomePage/HomePage.jsx';
 import FetchCourses from './components/FetchCourses/FetchCourses.jsx';
 import UpdateReview from './components/ReviewsUpdate/UpdateReview.jsx';
 import BackEnd from './screen/BackEnd/BackEnd';
+import FrontEnd from './screen/FrontEnd/FrontEnd'
 import Courses from './screen/Courses/Courses'
+import Database from './screen/Database/Database'
+import Mobile from './screen/Mobile/Mobile'
+import Devops from './screen/Devops/Devops'
 
 
 function App() {
@@ -40,7 +44,7 @@ function App() {
             </>} />
           <Route path="/Front-End" element={
             <>
-              <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
+              <FrontEnd user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
             </>} />
 
           <Route path="/Back-End" element={<>
@@ -49,19 +53,17 @@ function App() {
             </BackEnd>
           </>} />
           <Route path="/database" element={<>
-            <h1>Database</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
-            </Test>
+            <Database user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
+            </Database>
           </>} />
           <Route path="/devops" element={<>
-            <h1>Dev-Ops</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
-            </Test>
+            <Devops user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
+            </Devops>
           </>} />
           <Route path="/mobile" element={<>
-            <h1>Mobile</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
-            </Test>
+
+            <Mobile user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
+            </Mobile>
           </>} />
           <Route
             path="/signup"
@@ -74,7 +76,6 @@ function App() {
           </>} />
           <Route path="/addcourse" element={<>
             <AddCourse user={user} setUser={setUser} {...loginUser} />
-
           </>} />
           <Route path="/courses/addreview/${id}" element={<>
             <AddReview user={user} setUser={setUser} review={review} setReview={setReview} />

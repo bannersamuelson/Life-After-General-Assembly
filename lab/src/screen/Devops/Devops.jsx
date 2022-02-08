@@ -4,7 +4,7 @@ import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import img from '../../images/code.png'
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
-import backend from '../../images/backend.png'
+import devops from '../../images/devops.png'
 
 export default function BackEnd(props) {
   const { user, setUser } = props;
@@ -72,15 +72,16 @@ export default function BackEnd(props) {
     GrabCourse();
   }
   return (
-    <div className="bg-gradient-to-r from-red-200 to-red-500">
+    <div className="bg-gradient-to-r from-orange-400 to-orange-600">
       <div className="flex flex-col items-center mb-11">
         <div className="flex flex-col items-center">
           <div class="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
-            <img class="flex h-24 md:w-auto md:h-44 rounded-t-lg md:rounded-none md:rounded-l-lg" src={backend} alt="usb" />
-            <h5 class="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Back-End Resources</h5>
+            <img class="flex h-24 md:w-auto md:h-44 rounded-t-lg md:rounded-none md:rounded-l-lg" src={devops} alt="usb" />
+            <h5 class="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Devops Resources</h5>
           </div>
-          <p class="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
-            <span className="font-bold">The back end of a computer system encompasses “behind-the-scenes” technologies such as the database and operating system.</span><br />
+          <p class="mb-3 mt-4 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
+            <span className="mt-10 font-bold">
+              DevOps is the combination of cultural philosophies, practices, and tools that increases an organization's ability to deliver applications and services at high velocity: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes.</span><br />
             <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-400 dark:focus:ring-red-800">
               Add Course
             </Link></span></p>

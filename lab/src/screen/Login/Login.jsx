@@ -13,26 +13,26 @@ export default function Login(props) {
     errorMsg: "",
   })
 
-const handleSubmit = async (e)=>{
-  e.preventDefault();
-  try{
-    const login = await loginUser(user)
-    console.log([login.data.user]);
-    props.setLoginUser(login.data.user);
-    console.log(props.loginUser);
-    console.log(props);
-    localStorage.setItem("token", login.data.token);
-    console.log(localStorage.getItem("token")); 
-    navigate("/")
-  }catch(error){
-    setUser({
-      isError: true,
-      errorMsg: "Invalid Credentials",
-      email: "",
-      password: ""
-    })
-  }
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const login = await loginUser(user)
+      console.log([login.data.user]);
+      props.setLoginUser(login.data.user);
+      console.log(props.loginUser);
+      console.log(props);
+      localStorage.setItem("token", login.data.token);
+      console.log(localStorage.getItem("token"));
+      navigate("/")
+    } catch (error) {
+      setUser({
+        isError: true,
+        errorMsg: "Invalid Credentials",
+        email: "",
+        password: ""
+      })
+    }
+  };
 
   const handleInput = (e) => {
     const { id, value } = e.target;
@@ -62,7 +62,7 @@ const handleSubmit = async (e)=>{
             Password
           </label>
           <input
-            type="text"
+            type="password"
             placeholder="********"
             id="password"
             value={user.password}
