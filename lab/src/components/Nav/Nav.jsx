@@ -77,11 +77,11 @@ const Nav = (props) => {
       {/* MOBILE NAV */}
       <nav role="navigation" className="md:hidden bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
     h-16 border-b flex">
+        <div className="flex">{props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}</div>
         <NavLink to="/" className="flex active">
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
           <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
         </NavLink>
-        <span className="flex">{props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}</span>
         <div id="menuToggle" className="navBar mx-5 container flex items-center">
 
           <input type="checkbox" defaultChecked="false" className='container flex justify-end' />
@@ -93,7 +93,7 @@ const Nav = (props) => {
             </div>
           </div>
 
-          <ul id="menu" className="flex align-c-end flex-wrap text-2xl flex-col mt-4" >
+          <ul id="menu" className="flex flex-wrap text-2xl flex-col mt-4" >
             {alwaysOptions}
             {props.user && props.loginUser ? authenticatedOptions : unauthenticatedOptions}
           </ul>

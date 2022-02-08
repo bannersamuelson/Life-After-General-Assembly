@@ -84,12 +84,12 @@ export default function FetchCourses(props) {
   return <div>
     {details && details?.data.map((course, i) => {
 
-      return <div key={i} className="w-full bg-white p-4">
+      return <div key={i} className="w-full bg-slate-100 p-4">
 
         <h1 className="text-slate-900 text-3xl font-bold font-nunito mt-4">{course.user === undefined ? "Anonymous" : course.user}</h1>
-        <a className="hover:text-slate-600" href={`${course.link}`}>{course.title}</a>
-        <div className="bg-white">
-          <h1 className="my-4"> {star.repeat(`${course.rate[0]}`)}</h1>
+        <a className="text-slate-500 hover:text-slate-800" href={`${course.link}`}>{course.title}</a>
+        <h1 className="my-4"> {star.repeat(`${course.rate[0]}`)}</h1>
+        <div className="bg-white rounded-xl mb-10 ">
           <div className=" text-slate-800 grid grid-cols-1 justify-items-start">
             <h1 className="mb-10 text-3xl"> "{course.review}"</h1>
           </div>
@@ -98,10 +98,10 @@ export default function FetchCourses(props) {
         {!toggle && <button className="bg-sky-400 rounded text-slate-100 mb-10 p-2 hover:bg-sky-600 hover:cursor-pointer"
           onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Leave Review</button>
         }
-        <h1>Total Reviews:{length}</h1>
+        <h1 className="text-slate-500">Total Reviews:{length}</h1>
         {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
 
-          <label>Review</label>
+          <label className="text-slate-500">Review</label>
           <br />
           <input
             className=" placeholder:text-slate-300 grid focus:placeholder-transparent bg-slate-100 rounded border border-slate-200 leading-normal resize-none w-full h-14 px-3 font-medium text-slate-800 focus:outline-none focus:bg-white"
@@ -112,7 +112,7 @@ export default function FetchCourses(props) {
             placeholder='Type your review'
             required />
           <br />
-          <label>Rate</label>
+          <label className="text-slate-500">Rate</label>
           <br />
           <input
             type="number"
@@ -125,7 +125,7 @@ export default function FetchCourses(props) {
           />
           <br />
           <button className="flex-shrink-0 bg-sky-400 hover:bg-sky-600 hover:border-tskyeal-700 text-sm text-white py-1 px-2 rounded">
-            SUBMIT
+            Submit
           </button> {toggle && <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}
             className="flex-shrink-0 text-sm text-slate-400 hover:text-slate-500 py-1 px-2 rounded">
             Close
@@ -136,14 +136,13 @@ export default function FetchCourses(props) {
     }
     )}
     {reviews && reviews.map((review, i) => {
-      // console.log(review);
+      console.log(review);
 
 
-      return <div key={i} className="grid grid-cols-2 border-4 bg-slate-500 pb-10 mb-10" >
-        <h1>Author:{review.author === undefined ? "Anonymous" : review.author}</h1>
-        <h1>Rating:{review.rate}</h1>
-        <h1>Course:{details?.data[0].title}</h1>
-        <h1>Review:{review.review}</h1>
+      return <div key={i} className="text-slate-800 p-10 border bg-slate-100" >
+        <h1 className="text-xl font-bold">{review.author === undefined ? "Anonymous" : review.author}</h1>
+        <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
+        <h1 className="italic my-4">Review: {review.review}</h1>
         <button className="w-1 flex justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>
         <button className="w-1 flex  justify-content-end items-center h-12 px-20 text-m  bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg text-gray-100 hover:from-amber-600 hover:to-orange-600 font-extrabold" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>
       </div>
