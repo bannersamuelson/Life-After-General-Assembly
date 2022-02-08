@@ -45,7 +45,7 @@ export default function UpdateReview(props) {
     const { id, value } = e.target;
     console.log(value);
     if (value > 5 || value < 1) {
-      alert("rating can't be bigger than 5");
+      alert("rating must be between 1-5");
       return null;
     }
     setNewReview((prevState) => ({
@@ -57,7 +57,7 @@ export default function UpdateReview(props) {
 
 
   return (
-    <div className="w-full mr-auto ml-auto mt-auto mb-auto max-w-xs text-xl">
+    <div className="mb-44 w-full mr-auto ml-auto mt-36 max-w-xs text-xl">
       <h2 className="m-5 text-center text-slate-600 font-bold ">Update Review</h2>
       <form onSubmit={handleSubmit}
         className="mr-auto ml-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">

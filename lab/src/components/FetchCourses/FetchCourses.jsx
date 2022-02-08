@@ -40,11 +40,10 @@ export default function FetchCourses(props) {
   const handleNumberInput = (e) => {
     const { id, value } = e.target;
     console.log(value);
-    if (value > 5 || value < 0) {
-      alert("rating can't be bigger than 5 or smaller than 0");
+    if (value > 5 || value < 1) {
+      alert("rating must be between 1-5");
       return null;
     }
-
     setNewReview((prevState) => ({
       ...prevState,
       [id]: value,
