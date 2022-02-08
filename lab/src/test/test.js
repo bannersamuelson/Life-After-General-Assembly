@@ -14,9 +14,10 @@ export default function Test(props) {
   const [reviews, setReviews] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [update, setUpdate] = useState();
+
   const GrabCourse = async () => {
     let res = await fetchAllCourses();
-    // console.log(res);
+    console.log(res);
     setCourse(res?.data);
   }
   useEffect(() => {
@@ -24,8 +25,6 @@ export default function Test(props) {
       let res = await getAllUsers();
       setUser(res.data);
     }
-
-
 
     const GrabReviews = async () => {
       let res = await getAllReviews();
@@ -35,9 +34,9 @@ export default function Test(props) {
     GrabUsers();
     GrabReviews();
     setToggle(false);
-    // console.log(user);
-    // console.log(courses);
-    // console.log(reviews);
+    console.log(user);
+    console.log(courses);
+    console.log(reviews);
   }, []);
 
 
@@ -55,31 +54,21 @@ export default function Test(props) {
 
   const HandleUpdate = async (e, id, updated) => {
     e.preventDefault();
-    if (props.firstName === undefined) {
-      alert("login");
-    } else if (props.firstName !== updated.user) {
-      alert("login");
-    } else {
-      console.log(id, updated);
-      setToggle(true);
-      setUpdate(updated);
-    }
+    console.log(id, updated);
+    setToggle(true);
+    setUpdate(updated);
+    // let res = await updateCourse(id,data);
+    // console.log(res);
+    // GrabCourse();
   }
-  const HandleDelete = async (e, id,course) => {
+  const HandleDelete = async (e, id) => {
     e.preventDefault();
-    // console.log(id);
-    if (props.firstName == undefined) {
-      alert("login");
-    } else if (props.firstName !== course.user) {
-      alert("login");
-    } else {
-      let res = await deleteCourse(id);
-      console.log(res);
-      GrabCourse();
-    }
+    console.log(id);
+    let res = await deleteCourse(id);
+    console.log(res);
+    GrabCourse();
   }
   return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
-
 
     {!courses && <h1>Loading Courses</h1>}
     {!props.home && !toggle && filtered && filtered.map((course, i) => {
@@ -103,8 +92,8 @@ export default function Test(props) {
             <h1>Type:{course.types}</h1>
             <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
           </div>
-          {(course.user === props.loginUser.firstName)  && <><button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
-            <br/><button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button></>}
+          <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
+          <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>
         </div>
       } else {
         return null

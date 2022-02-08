@@ -83,7 +83,7 @@ const Nav = (props) => {
         </NavLink>
         <div id="menuToggle" className="navBar mx-5 container flex items-center">
 
-          <input type="checkbox" defaultChecked="false" className='container flex justify-end' onLoad={style:{defaultChecked:"false"}}/>
+          <input type="checkbox" defaultChecked="false" className='container flex justify-end' />
           <div className='flex justify-end '>
             <div>
               <span></span>

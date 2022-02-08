@@ -9,7 +9,7 @@ import backend from '../../images/backend.png'
 
 export default function Courses() {
   return <div>
-    <div className="w-full bg-gradient-to-r from-blue-800 to-blue-900 pb-10">
+    <div className="pb-44 w-full bg-gradient-to-r from-blue-800 to-blue-900">
 
       <h1 className="flex flex-col justify-center items-center pt-14 
       text-5xl md:text-8xl text-extrabold text-extrabold text-slate-200">Browse Courses</h1>

@@ -106,14 +106,10 @@ export default function BackEnd(props) {
                   <p className="text-gray-700 text-base">
                     Description:{course.content}
                   </p>
-                  <p className="italic text-gray-700 text-base"> Avg course rating - {course.rate}
+                  <p className="italic text-gray-700 text-base"> Author course rating - {course.rate}
                   </p>
                   <h1 className="text-gray-700 text-base">Author: {course.user === undefined ? "Anonymous" : course.user}</h1>
                 </div>
-                <h1>Rating:{course.rate}/10</h1>
-                <h1>Review:{course.review}</h1>
-                <h1>Type:{course.types}</h1>
-                <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
               </div>
               {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>}
               {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
