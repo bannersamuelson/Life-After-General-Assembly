@@ -78,27 +78,13 @@ export default function FetchCourses(props) {
   }
 
 
-  let length = () => {
+  let length = 0;
+  reviews && reviews.map((review) => {
+    if (newId[1] === review.course) {
+      length++;
+    }
+  })
 
-    let i = 0;
-    let newLength
-
-
-    reviews.map((review) => {
-      if (newId[1] === review.course[0]) {
-        console.log(review.course[0])
-        i++
-        newLength = i
-      }
-    })
-
-    console.log(newLength)
-    return newLength
-
-  }
-  console.log(newId[1])
-  console.log(length)
-  console.log(reviews)
 
 
 
@@ -166,8 +152,8 @@ export default function FetchCourses(props) {
             <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
             <h1 className="italic my-4">Review: {review.review}</h1>
             <div className="flex">
-            {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>}
-            {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>}
+              {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>}
+              {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>}
             </div>
           </div>
         )

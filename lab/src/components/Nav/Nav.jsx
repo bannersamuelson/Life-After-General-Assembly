@@ -7,7 +7,7 @@ const Nav = (props) => {
 
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [isActive, setActive] = useState(false);
-  const [inputStyle,setInputStyle]=useState("");
+  const [inputStyle, setInputStyle] = useState("");
   console.log(navbarOpen)
 
   const handleToggle = () => {
@@ -98,7 +98,7 @@ const Nav = (props) => {
           </div>
 
           <ul id="menu" className="flex align-c-end flex-wrap text-2xl flex-col mt-4" >
-            {props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}
+            {props.user && props.loginUser && <div className="flex pl-7 pb-5 border-b border-slate-700 text-sm link welcome">Welcome, {props.loginUser}</div>}
             {alwaysOptions}
             {props.user && props.loginUser ? authenticatedOptions : unauthenticatedOptions}
           </ul>
