@@ -73,18 +73,21 @@ export default function Test(props) {
   }
   return (
     <div className="bg-gradient-to-r from-red-200 to-red-500">
-      <div className="ml-11 mb-11">
-        <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-28 md:rounded-none md:rounded-l-lg" src={backend} alt="usb" />
-        <div class="flex w-full items-center md:flex-row pl-10">
-          <div class="mt-10 mr-44 flex flex-col justify-between p-4">
-            <h5 class="mb-2 font-bold tracking-tight text-white text-5xl mt-10">Back-End Resources</h5>
-            <p class="mb-3 mr-36 font-normal text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two. <span className="font-bold">The back end of a computer system encompasses “behind-the-scenes” technologies such as the database and operating system.</span><br />
-              <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-400 dark:focus:ring-red-800">
-                Add Course
-              </Link></span></p>
+      <div className="flex flex-col items-center mb-11">
+        <div className="flex flex-col items-center">
+          <div class="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
+            <img class="flex h-24 md:w-auto md:h-44 rounded-t-lg md:rounded-none md:rounded-l-lg" src={backend} alt="usb" />
+            <h5 class="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Back-End Resources</h5>
           </div>
-        </div>
-      </div >
+          <p class="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
+            <span className="font-bold">The back end of a computer system encompasses “behind-the-scenes” technologies such as the database and operating system.</span><br />
+            <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-400 dark:focus:ring-red-800">
+              Add Course
+            </Link></span></p>
+        </div >
+      </div>
+
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
 
 
