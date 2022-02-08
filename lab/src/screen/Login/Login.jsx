@@ -48,7 +48,7 @@ export default function Login(props) {
     let temp = hidePassword;
     setHidePassword(oldPassword);
     setOldPassword(temp);
-}
+  }
   return (
     <div className="grid justify-items-center w-full mt-10">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -77,7 +77,7 @@ export default function Login(props) {
             value={user.password}
             onChange={handleInput}
             className="focus:placeholder-transparent shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
-          <button onClick={(e)=>{Toggle(e)}}>Show Password</button>
+          <button className="text-slate-500" onClick={(e) => { Toggle(e) }}>Show Password</button><i className="cil-eye"></i>
           <p className="text-slate-500 text-xs italic">Not a user? <Link className="underline hover:cursor-pointer hover:text-red-100" to='/signup'>Sign up!</Link></p>
         </div>
         <div className="flex items-center justify-between">
