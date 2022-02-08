@@ -48,10 +48,10 @@ function App() {
             </>} />
 
           <Route path="/Back-End" element={<>
-
             <BackEnd user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
             </BackEnd>
           </>} />
+
           <Route path="/database" element={<>
             <Database user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
             </Database>

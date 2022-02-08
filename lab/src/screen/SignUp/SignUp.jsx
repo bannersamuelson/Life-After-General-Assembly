@@ -66,8 +66,8 @@ export default function SignUp(props) {
   };
   // console.log(props);
   return (
-    <div className="px-14 bg-slate-100 grid justify-items-center py-24">
-      <form onSubmit={handleSubmit} className="w-full max-w-lg">
+    <div className=" bg-white grid justify-items-center py-24">
+      <form onSubmit={handleSubmit} className="shadow-md bg-slate-100 rounded p-14 w-full mx-44 max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -80,7 +80,7 @@ export default function SignUp(props) {
               name="username"
               id="userName"
               placeholder="coreygibson"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" />
           </div>
           <div className="w-full mb-6 md:w-1/2 md:mb-0 px-3">
             <label className="block text-gray-700 text-sm font-bold mb-2">              First Name
@@ -92,7 +92,7 @@ export default function SignUp(props) {
               name="floating_first_name"
               id="firstName"
               placeholder="john"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
           </div>
           <div className="w-full md:w-1/2 md:mb-0 px-3">
             <label className="block text-gray-700 text-sm font-bold mb-2">              Last Name
@@ -103,7 +103,7 @@ export default function SignUp(props) {
               name="floating_last_name"
               id="lastName"
               placeholder="smith"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -117,7 +117,7 @@ export default function SignUp(props) {
               type={hidePassword}
               name="floating_password"
               id="password"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200"
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200"
               placeholder="********" />
           </div>
           <div className="text-slate-500 mb-2 ml-4" onClick={(e) => { Toggle(e) }}><img className="w-8 hover:cursor-pointer" src={show} alt="show password eye" /></div>
@@ -132,7 +132,7 @@ export default function SignUp(props) {
               type="password"
               name="floating_password"
               id="confirmPassword"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" placeholder="********" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" placeholder="********" />
             <p className="text-red-500 text-xs italic">{validationMessage}</p>
           </div>
         </div>
@@ -147,13 +147,16 @@ export default function SignUp(props) {
               type="text"
               id="email"
               name="floating_email"
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:placeholder-transparent focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
+              className="shadow appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:placeholder-transparent focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
           </div>
         </div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
           Sign Up
         </button>
       </form>
+      <p className="mb-44 mt-4 text-center text-gray-500 text-xs">
+        &copy;2022 LAGA. All rights reserved.
+      </p>
     </div>
   )
 
