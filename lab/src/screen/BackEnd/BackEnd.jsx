@@ -6,7 +6,7 @@ import img from '../../images/code.png'
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
 import backend from '../../images/backend.png'
 
-export default function Test(props) {
+export default function BackEnd(props) {
   const { user, setUser } = props;
   let slug = useParams();
   let nav = useNavigate();

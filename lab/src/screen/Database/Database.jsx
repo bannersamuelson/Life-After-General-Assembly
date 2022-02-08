@@ -76,7 +76,7 @@ export default function DataBase(props) {
         <div className="flex flex-col items-center">
           <div className="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
             <img className="flex h-36 md:w-auto md:h-36 m-5 rounded-t-lg md:rounded-none md:rounded-l-lg" src={database} alt="usb" />
-            <h5 className="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Back-End Resources</h5>
+            <h5 className="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Database Resources</h5>
           </div>
           <p className="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-slate-700">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
             <span className="mt-5 font-bold">A database is an organized collection of structured information, or data, typically stored electronically in a computer system. ... The data can then be easily accessed, managed, modified, updated, controlled, and organized. Most databases use structured query language (SQL) for writing and querying data.</span><br />

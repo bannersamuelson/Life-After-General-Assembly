@@ -13,6 +13,8 @@ import BackEnd from './screen/BackEnd/BackEnd';
 import FrontEnd from './screen/FrontEnd/FrontEnd'
 import Courses from './screen/Courses/Courses'
 import Database from './screen/Database/Database'
+import Mobile from './screen/Mobile/Mobile'
+import Devops from './screen/Devops/Devops'
 
 
 function App() {
@@ -55,14 +57,13 @@ function App() {
             </Database>
           </>} />
           <Route path="/devops" element={<>
-            <h1>Dev-Ops</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
-            </Test>
+            <Devops user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
+            </Devops>
           </>} />
           <Route path="/mobile" element={<>
-            <h1>Mobile</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
-            </Test>
+
+            <Mobile user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
+            </Mobile>
           </>} />
           <Route
             path="/signup"

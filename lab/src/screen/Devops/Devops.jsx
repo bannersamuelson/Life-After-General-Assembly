@@ -4,9 +4,9 @@ import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import img from '../../images/code.png'
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
-import frontend from '../../images/frontend.png'
+import devops from '../../images/devops.png'
 
-export default function FrontEnd(props) {
+export default function BackEnd(props) {
   const { user, setUser } = props;
   let slug = useParams();
   let nav = useNavigate();
@@ -72,15 +72,16 @@ export default function FrontEnd(props) {
     GrabCourse();
   }
   return (
-    <div className="bg-gradient-to-r from-teal-200 to-teal-500">
+    <div className="bg-gradient-to-r from-orange-400 to-orange-600">
       <div className="flex flex-col items-center mb-11">
         <div className="flex flex-col items-center">
           <div class="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
-            <img class="flex h-36 md:w-auto md:h-36 m-5 rounded-t-lg md:rounded-none md:rounded-l-lg" src={frontend} alt="usb" />
-            <h5 class="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Front-End Resources</h5>
+            <img class="flex h-24 md:w-auto md:h-44 rounded-t-lg md:rounded-none md:rounded-l-lg" src={devops} alt="usb" />
+            <h5 class="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Devops Resources</h5>
           </div>
-          <p class="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
-            <span className="mt-5 font-bold">The front end is responsible for the visual look and feel of the website.</span><br />
+          <p class="mb-3 mt-4 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
+            <span className="mt-10 font-bold">
+              DevOps is the combination of cultural philosophies, practices, and tools that increases an organization's ability to deliver applications and services at high velocity: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes.</span><br />
             <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-400 dark:focus:ring-red-800">
               Add Course
             </Link></span></p>
@@ -94,7 +95,7 @@ export default function FrontEnd(props) {
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
           if (course.types) {
-            return <div key={i} className="m-4 flex flex-stretch transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
+            return <div key={i} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
               <div onClick={(e) => { HandleDetails(e, course._id) }}>
                 <div className="relative overflow-hidden">
                 </div>
