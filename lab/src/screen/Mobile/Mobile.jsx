@@ -79,7 +79,7 @@ export default function Mobile(props) {
         <div className="flex flex-col items-center">
           <div className="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
             <img className="flex h-36 md:w-auto md:h-36 m-5 rounded-t-lg md:rounded-none md:rounded-l-lg" src={phone} alt="usb" />
-            <h5 className="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Back-End Resources</h5>
+            <h5 className="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Mobile Resources</h5>
           </div>
           <p className="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-slate-100">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
             <span className="mt-5 font-bold">Mobile application development is the process of creating software applications that run on a mobile device, and a typical mobile application utilizes a network connection to work with remote computing resources.</span><br />
