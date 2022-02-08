@@ -39,6 +39,7 @@ export default function AddCourse(props) {
       alert("login");
       navigation("/");
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleNumberInput = (e) => {

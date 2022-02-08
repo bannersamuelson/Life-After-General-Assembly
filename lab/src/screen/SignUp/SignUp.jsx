@@ -19,6 +19,7 @@ export default function SignUp(props) {
     confirmPassword: "",
   });
   const [validationMessage, setValidationMessage] = useState("");
+  // eslint-disable-next-line
   const [valid, setValid] = useState(false);
   const navigation = useNavigate();
 
@@ -48,6 +49,7 @@ export default function SignUp(props) {
     // const res = signUp(newUser);
     // console.log(res);
     checkIfValid();
+    // eslint-disable-next-line
   }, [newUser.password, newUser.confirmPassword]);
 
   const checkIfValid = () => {

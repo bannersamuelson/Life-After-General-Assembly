@@ -64,6 +64,7 @@ export default function FetchCourses(props) {
     }
     Details();
     GrabReviews();
+    // eslint-disable-next-line
   }, []);
 
   const HandleUpdate = async (e, review) => {
@@ -85,6 +86,7 @@ export default function FetchCourses(props) {
     if (newId[1] === review.course) {
       length++;
     }
+    return null
   })
 
 

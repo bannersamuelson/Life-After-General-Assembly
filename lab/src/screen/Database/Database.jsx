@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../../services/apiconfig"
+import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse } from "../../services/apiconfig"
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
 import database from '../../images/yellow.png'
@@ -39,6 +39,8 @@ export default function DataBase(props) {
     console.log(user);
     console.log(courses);
     console.log(reviews);
+
+    // eslint-disable-next-line
   }, []);
 
 
@@ -46,6 +48,7 @@ export default function DataBase(props) {
     if (courses) {
       setFiltered(courses.filter(course => course.types === props.types));
     }
+    // eslint-disable-next-line
   }, [courses, slug]);
 
   const HandleDetails = (e, id) => {

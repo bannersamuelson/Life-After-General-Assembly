@@ -1,18 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { updateCourse } from "../../services/apiconfig";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 export default function UpdateCourse(props) {
   console.log(props);
-  // const [newCourse, setNewCourse] = useState({
-  //   user: "",
-  //   title: "",
-  //   image: "",
-  //   content: "",
-  //   link: "",
-  //   types:"",
-  //   review: "",
-  //   rate: 0,
-  // });
+
 
 
   const navigation = useNavigate();
@@ -37,11 +28,12 @@ export default function UpdateCourse(props) {
   };
 
   useEffect(() => {
-    if (props.firstName == undefined) {
+    if (props.firstName === undefined) {
       alert("login");
       props.setToggle(false);
       navigation(`/${props.types}`);
     }
+    // eslint-disable-next-line
   }, []);
 
 

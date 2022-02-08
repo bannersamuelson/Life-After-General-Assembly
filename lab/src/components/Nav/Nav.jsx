@@ -5,15 +5,10 @@ import './Nav.css'
 
 const Nav = (props) => {
 
-  const [navbarOpen, setNavbarOpen] = useState(false)
-  const [isActive, setActive] = useState(false);
   const [inputStyle, setInputStyle] = useState("");
-  console.log(navbarOpen)
 
-  const handleToggle = () => {
-    setNavbarOpen(prevToggle => !prevToggle)
-    setActive(!isActive);
-  }
+  console.log(inputStyle)
+
 
   const navigate = useNavigate();
   const handleLogout = (e) => {
