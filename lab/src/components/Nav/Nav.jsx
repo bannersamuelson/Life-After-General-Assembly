@@ -1,4 +1,4 @@
-import { Navigate, NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import img from '../../images/database.jpg'
 import './Nav.css'
@@ -8,10 +8,13 @@ const Nav = (props) => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [isActive, setActive] = useState(false);
 
+  console.log(navbarOpen)
+
   const handleToggle = () => {
     setNavbarOpen(prevToggle => !prevToggle)
     setActive(!isActive);
   }
+
   const navigate = useNavigate();
   const handleLogout = (e) => {
 
@@ -75,9 +78,9 @@ const Nav = (props) => {
       <nav role="navigation" className="md:hidden bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
     h-16 border-b flex">
         <NavLink to="/" className="flex active">
-    <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
-    <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
-  </NavLink>
+          <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
+          <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
+        </NavLink>
         <div id="menuToggle" className="navBar mx-5 container flex items-center">
           {/* <NavLink to="/" className="flex active">
             <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
@@ -86,7 +89,7 @@ const Nav = (props) => {
 
 
 
-          <input type="checkbox" defaultChecked="false" className='container flex justify-end'/>
+          <input type="checkbox" defaultChecked="false" className='container flex justify-end' />
           <div className='flex justify-end '>
             <div>
               <span></span>
@@ -95,7 +98,7 @@ const Nav = (props) => {
             </div>
           </div>
 
-          <ul id="menu" className="flex align-c-end flex-wrap text-2xl flex flex-col mt-4" >
+          <ul id="menu" className="flex align-c-end flex-wrap text-2xl flex-col mt-4" >
             {props.user && props.loginUser && <div className="link welcome">Welcome, {props.loginUser}</div>}
             {alwaysOptions}
             {props.user && props.loginUser ? authenticatedOptions : unauthenticatedOptions}
