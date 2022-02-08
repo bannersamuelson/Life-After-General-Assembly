@@ -36,7 +36,18 @@ export default function FetchCourses(props) {
       [id]: value,
     }));
   };
-
+  const handleNumberInput = (e) => {
+    const { id, value } = e.target;
+    console.log(value);
+    if (value > 5 || value<0) {
+      alert("rating can't be bigger than 5 or smaller than 0");
+      return null;
+    }
+    setNewReview((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
 
   const star = (`${'\u2B50'}`)
   console.log(star)
@@ -96,7 +107,7 @@ export default function FetchCourses(props) {
                   placeholder="create Rating"
                   id="rate"
                   value={newReview.rate}
-                  onChange={handleInput}
+                  onChange={handleNumberInput}
                   className="grid items-start çfocus:placeholder-transparent bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
                 />
                 <div class="w-full md:w-full flex items-start px-3">

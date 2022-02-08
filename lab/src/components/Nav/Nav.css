@@ -81,7 +81,7 @@ body {
  * into a crossmark.
  */
 
-#menuToggle input:checked ~ span {
+input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
