@@ -75,8 +75,8 @@ export default function FetchCourses(props) {
 
       return <div key={i} className="w-full bg-white p-4">
 
-        <h1 className="text-slate-900 text-3xl font-bold font-nunito italic mt-4">{course.user === undefined ? "Anonymous" : course.user}</h1>
-        <h1 className="grid grid-cols-1 text-xl text-slate-800">{course.title}</h1>
+        <h1 className="text-slate-900 text-3xl font-bold font-nunito mt-4">{course.user === undefined ? "Anonymous" : course.user}</h1>
+        <h1 className="grid grid-cols-1 italic text-lg text-slate-800">{course.title}</h1>
         <a className="hover:text-slate-200" href={`${course.link}`}>{course.link}</a>
         <div className="bg-white">
           <h1 className="my-4"> {star.repeat(`${course.rate[0]}`)}</h1>
