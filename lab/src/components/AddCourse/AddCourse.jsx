@@ -98,6 +98,7 @@ return (
         onChange={handleInput}
         className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
       >
+        <option> </option>
         <option>Front-End</option>
         <option>Back-End</option>
         <option>Dev-Ops</option>
