@@ -24,8 +24,7 @@ export default function FetchCourses(props) {
   const handleSubmit = async (e, id) => {
     e.preventDefault();
     newReview.course = id;
-    let res = await createReview(newReview, id);
-    // console.log(res);
+    await createReview(newReview, id);
     GrabReviews();
     setToggle((prevToggle) => !prevToggle);
   };
@@ -37,6 +36,7 @@ export default function FetchCourses(props) {
       [id]: value,
     }));
   };
+
   const handleNumberInput = (e) => {
     const { id, value } = e.target;
     console.log(value);
@@ -44,6 +44,7 @@ export default function FetchCourses(props) {
       alert("rating can't be bigger than 5 or smaller than 0");
       return null;
     }
+
     setNewReview((prevState) => ({
       ...prevState,
       [id]: value,
@@ -64,6 +65,7 @@ export default function FetchCourses(props) {
     Details();
     GrabReviews();
   }, []);
+
   const HandleUpdate = async (e, review) => {
     e.preventDefault();
     // console.log(review, props._id);
@@ -80,10 +82,10 @@ export default function FetchCourses(props) {
 
   let length = 0;
   reviews && reviews.map((review) => {
-      if (newId[1] === review.course) {
-        length++;
-      }
-})
+    if (newId[1] === review.course) {
+      length++;
+    }
+  })
 
 
 
@@ -126,7 +128,7 @@ export default function FetchCourses(props) {
             placeholder="0 - 5"
             id="rate"
             value={newReview.rate}
-            onChange={handleInput}
+            onChange={handleNumberInput}
             required
             className="focus:border-slate-300 text-slate-800 pl-2 flex items-center border-b border-slate-300 py-2 rounded focus:border-collapse bg-slate-100"
           />
@@ -152,8 +154,8 @@ export default function FetchCourses(props) {
             <h1>Course Rating:{star.repeat(`${review.rate}`)}</h1>
             <h1 className="italic my-4">Review: {review.review}</h1>
             <div className="flex">
-            {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>}
-            {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>}
+              {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleUpdate(e, review) }}>Update</button>}
+              {(review.author === props.userName) && review.author !== undefined && <button className="text-sm hover:text-slate-500 mx-6" onClick={(e) => { HandleDelete(e, review._id) }}>Delete</button>}
             </div>
           </div>
         )

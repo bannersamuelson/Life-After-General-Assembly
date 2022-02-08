@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../../services/apiconfig"
+import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse } from "../../services/apiconfig"
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
 import frontend from '../../images/frontend.png'
@@ -14,6 +14,8 @@ export default function FrontEnd(props) {
   const [reviews, setReviews] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [update, setUpdate] = useState();
+
+  console.log(user, reviews)
 
   const GrabCourse = async () => {
     let res = await fetchAllCourses();
@@ -36,9 +38,7 @@ export default function FrontEnd(props) {
     GrabUsers();
     GrabReviews();
     setToggle(false);
-    console.log(user);
-    console.log(courses);
-    console.log(reviews);
+    // eslint-disable-next-line
   }, []);
 
 
@@ -46,6 +46,7 @@ export default function FrontEnd(props) {
     if (courses) {
       setFiltered(courses.filter(course => course.types === props.types));
     }
+    // eslint-disable-next-line
   }, [courses, slug]);
 
   const HandleDetails = (e, id) => {
@@ -90,7 +91,6 @@ export default function FrontEnd(props) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
-          // console.log(course.user, props.loginUser.userName);
           if (course.types) {
             return <div key={i} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
               <div onClick={(e) => { HandleDetails(e, course._id) }}>
@@ -116,7 +116,7 @@ export default function FrontEnd(props) {
         {!props.home && toggle && <>
           <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
           </UpdateCourse>
-          <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
+          <button className="md:bg-transparent md:hover:p-1 bg-slate-800 hover:bg-slate-800 hover:opacity-100 opacity-75 font-bold text-xl p-3 m-5 rounded" onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
         </>
         }
       </div >
