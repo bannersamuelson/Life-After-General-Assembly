@@ -74,11 +74,11 @@ export default function FrontEnd(props) {
     <div className="bg-gradient-to-r from-teal-200 to-teal-500">
       <div className="flex flex-col items-center mb-11">
         <div className="flex flex-col items-center">
-          <div class="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
-            <img class="flex h-36 md:w-auto md:h-36 m-5 rounded-t-lg md:rounded-none md:rounded-l-lg" src={frontend} alt="usb" />
-            <h5 class="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Front-End Resources</h5>
+          <div className="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">
+            <img className="flex h-36 md:w-auto md:h-36 m-5 rounded-t-lg md:rounded-none md:rounded-l-lg" src={frontend} alt="usb" />
+            <h5 className="md:mb-10 md:mt-16 md:mr-5 font-bold tracking-tight text-white text-5xl">Front-End Resources</h5>
           </div>
-          <p class="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
+          <p className="mb-3 mx-12 md:mx-72 font-normal flex flex-col items-center text-white">In technology development, full stack refers to an entire computer system or application from the front end to the back end and the code that connects the two.
             <span className="mt-5 font-bold">The front end is responsible for the visual look and feel of the website.</span><br />
             <span className="leading-7"><br /><Link to='/addcourse' className="py-2 px-3 text-sm font-medium text-center text-slate-800 rounded-lg hover:bg-slate-200 dark:bg-slate-200 dark:hover:bg-slate-400 dark:focus:ring-red-800">
               Add Course
@@ -90,7 +90,7 @@ export default function FrontEnd(props) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
-          console.log(course.user, props.loginUser.userName);
+          // console.log(course.user, props.loginUser.userName);
           if (course.types) {
             return <div key={i} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
               <div onClick={(e) => { HandleDetails(e, course._id) }}>
@@ -106,8 +106,8 @@ export default function FrontEnd(props) {
                   <h1 className="text-gray-700 text-base">Author: {course.user === undefined ? "Anonymous" : course.user}</h1>
                 </div>
               </div>
-              {(course.user === props.loginUser.userName) && course.user !== undefined && <button className="text-slate-900 p-4 hover:text-slate-400" onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>}
-              {(course.user === props.loginUser.userName) && course.user !== undefined && <button className="text-slate-900 p-4 hover:text-slate-400" onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
+              {(course.user === props?.loginUser?.userName) && course.user !== undefined && <button className="text-slate-900 p-4 hover:text-slate-400" onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>}
+              {(course.user === props?.loginUser?.userName) && course.user !== undefined && <button className="text-slate-900 p-4 hover:text-slate-400" onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
             </div>
           } else {
             return null

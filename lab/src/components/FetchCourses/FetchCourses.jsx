@@ -78,27 +78,13 @@ export default function FetchCourses(props) {
   }
 
 
-  let length = () => {
-
-    let i = 0;
-    let newLength
-
-
-    reviews.map((review) => {
-      if (newId[1] === review.course[0]) {
-        console.log(review.course[0])
-        i++
-        newLength = i
+  let length = 0;
+  reviews && reviews.map((review) => {
+      if (newId[1] === review.course) {
+        length++;
       }
-    })
+})
 
-    console.log(newLength)
-    return newLength
-
-  }
-  console.log(newId[1])
-  console.log(length)
-  console.log(reviews)
 
 
 
