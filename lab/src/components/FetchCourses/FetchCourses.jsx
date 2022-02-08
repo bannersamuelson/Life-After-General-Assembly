@@ -65,14 +65,18 @@ export default function FetchCourses(props) {
   }
   return <div>
     {details && details?.data.map((course, i) => {
-      return <div key={i} className="w-full  p-4">
-        <h1>Front-End: Course</h1>
-        <h1>Title:{course.title}</h1>
-        <h1>Rating:{course.rate}/10</h1>
-        <h1>Review:{course.review}</h1>
-        <h1>Type:{course.types}</h1>
-        <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
-        <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Review</button>
+
+      return <div key={i} className="w-full bg-slate-100 p-4">
+
+        <h1 className="grid grid-cols-1 text-3xl text-slate-800">{course.title}</h1>
+        <a className="hover:text-slate-200" href={`${course.link}`}>{course.link}</a>
+        <h1>{`${course.rate[0]}`} {star.repeat(`${course.rate[0]}`)}</h1>
+        <div className="bg-slate-200 grid grid-cols-1 justify-items-end">
+          <h1 className="text-6xl"> "{course.review}"</h1>
+          <h1 className="text-gray-500 font-nunito italic">- {course.user === undefined ? "Anonymous" : course.user}</h1>
+        </div>
+
+        <button onClick={(e) => { e.preventDefault(); setToggle((prevToggle) => !prevToggle); }}>Leave Review</button>
         {toggle && <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { handleSubmit(e, course._id) }}>
           <h2 className="flex items-center">New Review</h2>
           <div class="flex items-center justify-center shadow-lg mt-56 mx-8 mb-4 max-w-lg">
