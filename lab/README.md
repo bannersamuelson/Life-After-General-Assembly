@@ -2,32 +2,39 @@ Life After General Assembly
 
 ## Project Description
 
-Website for finding full-stuck materials
-after graduation
+L.A.G.A is a website for finding full-stuck materials. This web application will be a great ressource for bootcamp graduates and developers alikes who are looking to futher their knowledge. People who come to the webiste will be able to navigate thru a list of courses and see comments about specific courses from the existing users who have signed up. Evey course will be categorized accordingly. In order to leave comments or add a new course, one will need log in/sign up.
 
 ## API and Data Sample
 
+https://secret-mesa-13283.herokuapp.com/api
+
 ## Component Hierarchy
 
-See the [Wireframes](https://whimsical.com/react-architecture-exercise-RBBXMDbZMuGDvYotJJxSgk)
+![webimage](https://i.imgur.com/aGimmvr.png)
 
 ## Wireframes
 
-![webimage](https://imgur.com/a/foH4i4q.png)
-
-## MVP/PostMVP
+![webimage](https://i.imgur.com/OY2irVV.png)
 
 #### MVP
 
-Technologies like JS=> Courses and Reviews
-Likes count towards their placement on the screen
-C.R.U.D. for comments
+Tailwind styling
+Svg/ animated buttons
+Medi queries for desktop and mobile devices
+Hamburger Menu
+C.R.U.D. for reviews
+C.R.U.D. for courses
+Footer
+User Authorization
+sign up
 
 #### PostMVP
 
-Authorization for adding a course
-Deleting
-Update
+C.R.U.D. for comments
+Average rating for courses
+Add videos
+Auth for update/delete reviews
+Auth for update/delete courses
 
 ## Project Schedule
 
