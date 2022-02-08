@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../../services/apiconfig"
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import img from '../../images/code.png'
 import UpdateCourse from '../../components/AddCourse/UpdateCourse';
 import backend from '../../images/backend.png'
 
@@ -117,13 +116,13 @@ export default function BackEnd(props) {
                 <h1 className="text-gray-500 font-nunito">Author:{course.user === undefined ? "Anonymous" : course.user}</h1>
               </div>
               {(course.author === props.user) && course.author !== undefined && <button onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>
-               && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
+                && <button onClick={(e) => { HandleDelete(e, course._id) }}>Delete</button>}
             </div>
           } else {
             return null
           }
         })}
-        {!props.home && toggle &&  <>
+        {!props.home && toggle && <>
           <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
           </UpdateCourse>
           <button onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
