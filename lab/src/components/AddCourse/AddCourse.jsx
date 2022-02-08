@@ -1,27 +1,27 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addCourse } from "../../services/apiconfig"; 
+import { addCourse } from "../../services/apiconfig";
 
 export default function AddCourse(props) {
-  console.log(props,"stop");
+  console.log(props, "stop");
   const [newCourse, setNewCourse] = useState({
-    user: "",
+    user: `${props.userName}`,
     title: "",
     image: "",
     content: "",
     link: "",
-    types:"",
+    types: "",
     review: "",
     rate: 0,
   });
-  
-  
+
+
   const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(newCourse);
-    let res=await addCourse(newCourse);
+    let res = await addCourse(newCourse);
     console.log(res);
     navigation("/");
   };
@@ -35,117 +35,124 @@ export default function AddCourse(props) {
   };
 
   useEffect(() => {
-  if (props.firstName==undefined) {
-    console.log("first");
-    alert("login");
-    navigation("/");
-  }
-}, []);
+    if (props.firstName === undefined) {
+      console.log("first");
+      alert("login");
+      navigation("/");
+    }
+  }, []);
 
 
-return (
-  <div className="relative w-full flex items-center text-base bg-gradient-to-r from-blue-800 to-blue-900 h-screen w-full" style={{fontFamily:"Nunito"}}>
-    <form onSubmit={handleSubmit}
-  className="mr-auto ml-auto w-max max-w-lg bg-white shadow-md rounded text-sm px-3 pb-3 w-6/12"> 
-      {/* <h3 >{validationMessage}</h3> */}
-      <h2 className="text-center font-bold ">Add a Course</h2>
-      <label >User</label>
-      <br />
-      <input
-        type="text"
-        placeholder="your user name"
-        id="user"
-        value={newCourse.user}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      />
-      <br />
-      <label >Upload Title</label>
-      <br />
-      <input
-        type="text"
-       placeholder="course title"
-       id="title"
-       value={newCourse.title}
-       onChange={handleInput}
-       className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      />
-      <br />
-      <label >Image link</label>
-      <br />
-      <input
-        type="text"
-        placeholder="image link"
-        id="image"
-        value={newCourse.image}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      />
-      <br />
-      <label>Description</label>
-      <br />
-      <input
-        type="text"
-        placeholder="course description"
-        id="content"
-        value={newCourse.content}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-        />
-      <br />
-      <label>Type</label>
-      <br />
-      <select
-        type="text"
-        placeholder="course description"
-        id="types"
-        value={newCourse.types}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      >
-        <option>Front-End</option>
-        <option>Back-End</option>
-        <option>Dev-Ops</option>
-        </select>
-      <br />
-      <label>Link to source</label>
-      <br />
-      <input
-        type="text"
-        placeholder="link"
-        id="link"
-        value={newCourse.link}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      />
-      <br />
-      <label>Review</label>
-      <br />
-      <input
-        type="text"
-        placeholder="review"
-        id="review"
-        value={newCourse.review}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      />
-      <br />
-      <label>rate</label>
-      <br />
-      <input
-        type="number"
-        placeholder="rate"
-        id="rate"
-        value={newCourse.rate}
-        onChange={handleInput}
-        className="flex items-center border-b border-blue-900 py-2 text-blue-900 w-full"
-      />
-      <br />
-      <br />
-      <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 text-sm border-4 text-white py-1 px-2 rounded text-l">
-      Add Course
-      </button>
-    </form>
-  </div>
-);
+  return (
+    <div>
+      <div className="px-14 bg-slate-100 grid justify-items-center py-14">
+        <h1 className="text-2xl text-slate-800 font-bold mb-14">Create Course</h1>
+        <form onSubmit={handleSubmit} className="w-full max-w-lg">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3 mb-6">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Course Title
+              </label>
+              <input
+                type="text"
+                placeholder="Tailwindcss"
+                id="title"
+                value={newCourse.title}
+                onChange={handleInput}
+                required
+                className="flex items-center border p-2 py-2 text-slate-500 w-full"
+              />
+            </div>
+            <div className="w-full px-3 mb-6">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Course Description
+              </label>
+              <input
+                type="text"
+                placeholder="help assist with css styling"
+                id="content"
+                value={newCourse.content}
+                onChange={handleInput}
+                required
+                className="flex items-center border p-2 py-2 text-slate-500 w-full"
+              />
+            </div>
+
+
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Course Category
+              </label>
+              <select
+                type="text"
+                placeholder="types"
+                id="types"
+                value={newCourse.types}
+                onChange={handleInput}
+                className="flex items-center border p-2 py-2 text-slate-500 w-full"
+                required
+              >
+                <option> </option>
+                <option>Front-End</option>
+                <option>Back-End</option>
+                <option>Devops</option>
+                <option>Mobile</option>
+                <option>Database</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Link to Source
+              </label>
+              <input
+                type="text"
+                placeholder="tailwindcss.com"
+                id="link"
+                value={newCourse.link}
+                onChange={handleInput}
+                required
+                className="flex items-center border p-2 py-2 text-slate-500 w-full"
+              />
+            </div>
+
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Review
+              </label>
+              <input
+                type="text"
+                placeholder="Great to use once you get the hang of it. Able to style css in jsx file."
+                id="review"
+                value={newCourse.review}
+                onChange={handleInput}
+                required
+                className="flex items-center border p-2 py-8 text-slate-500 w-full"
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap -mx-3 mb-2">
+            <div className="w-full 3 px-3 mb-6">
+              <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Rating              </label>
+              <input
+                type="number"
+                placeholder="rate"
+                id="rate"
+                value={newCourse.rate}
+                onChange={handleInput}
+                required
+                className="flex items-center border p-2 py-2 text-slate-500 w-full"
+              />
+            </div>
+          </div>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
+            Create Course
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
