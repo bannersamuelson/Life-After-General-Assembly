@@ -9,7 +9,14 @@ import AddCourse from './components/AddCourse/AddCourse';
 import HomePage from './screen/HomePage/HomePage.jsx';
 import FetchCourses from './components/FetchCourses/FetchCourses.jsx';
 import UpdateReview from './components/ReviewsUpdate/UpdateReview.jsx';
-import Courses from './screen/Courses/Courses.jsx';
+import BackEnd from './screen/BackEnd/BackEnd';
+import FrontEnd from './screen/FrontEnd/FrontEnd'
+import Courses from './screen/Courses/Courses'
+import Database from './screen/Database/Database'
+import Mobile from './screen/Mobile/Mobile'
+import Devops from './screen/Devops/Devops'
+
+
 function App() {
   const [user, setUser] = useState();
   const [loginUser, setLoginUser] = useState();
@@ -26,38 +33,37 @@ function App() {
             <HomePage user={user} setUser={setUser} />
             <Test user={user} setUser={setUser} home={true} />
           </>} />
-          <Route path="/Courses" element={<>
-            <Courses user={user} setUser={setUser} />
+          <Route path="/courses" element={<>
 
+            <Courses user={user} setUser={setUser} home={true} />
           </>} />
           <Route path="/:id" element={
             <>
               <FetchCourses user={user} setUser={setUser} setLoginUser={setLoginUser} {...loginUser} review={review} setReview={setReview}></FetchCourses>
               {/* <Test user={user} setUser={setUser} home={true} /> */}
             </>} />
-          <Route path="/front" element={
+          <Route path="/Front-End" element={
             <>
-              <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
+              <FrontEnd user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Front-End"} />
             </>} />
-          <Route path="/back" element={<>
-            <h1>BackEnd</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
-            </Test>
+
+          <Route path="/Back-End" element={<>
+            <BackEnd user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
+            </BackEnd>
           </>} />
+
           <Route path="/database" element={<>
-            <h1>Database</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
-            </Test>
+            <Database user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
+            </Database>
           </>} />
           <Route path="/devops" element={<>
-            <h1>Dev-Ops</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
-            </Test>
+            <Devops user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Dev-Ops"}>
+            </Devops>
           </>} />
           <Route path="/mobile" element={<>
-            <h1>Mobile</h1>
-            <Test user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
-            </Test>
+
+            <Mobile user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Mobile"}>
+            </Mobile>
           </>} />
           <Route
             path="/signup"
@@ -83,4 +89,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

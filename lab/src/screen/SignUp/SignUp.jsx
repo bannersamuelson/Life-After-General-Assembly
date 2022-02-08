@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../services/apiconfig";
+import show from '../../images/show.png'
 
 // import Layout from "../../components/Layout/Layout"; 
 
 
 export default function SignUp(props) {
+  const [hidePassword, setHidePassword] = useState("password");
+  const [oldPassword, setOldPassword] = useState("text");
   const [newUser, setNewUser] = useState({
     userName: "",
     avatar: "",
@@ -34,8 +37,14 @@ export default function SignUp(props) {
     }));
   };
 
+  const Toggle = (e) => {
+    e.preventDefault();
+    let temp = hidePassword;
+    setHidePassword(oldPassword);
+    setOldPassword(temp);
+  }
   useEffect(() => {
-    console.log("validator");
+    // console.log("validator");
     // const res = signUp(newUser);
     // console.log(res);
     checkIfValid();
@@ -57,11 +66,11 @@ export default function SignUp(props) {
   };
   // console.log(props);
   return (
-    <div className="grid justify-items-center mt-10">
-      <form onSubmit={handleSubmit} class="w-full max-w-lg">
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3 mb-6">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+    <div className=" bg-white grid justify-items-center py-24">
+      <form onSubmit={handleSubmit} className="shadow-md bg-slate-100 rounded p-14 w-full mx-44 max-w-lg">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3 mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Username
             </label>
             <input
@@ -71,11 +80,10 @@ export default function SignUp(props) {
               name="username"
               id="userName"
               placeholder="coreygibson"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" />
           </div>
-          <div class="w-full mb-6 md:w-1/2 md:mb-0 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              First Name
+          <div className="w-full mb-6 md:w-1/2 md:mb-0 px-3">
+            <label className="block text-gray-700 text-sm font-bold mb-2">              First Name
             </label>
             <input
               value={newUser.firstName}
@@ -84,11 +92,10 @@ export default function SignUp(props) {
               name="floating_first_name"
               id="firstName"
               placeholder="john"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
           </div>
-          <div class="w-full md:w-1/2 md:mb-0 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              Last Name
+          <div className="w-full md:w-1/2 md:mb-0 px-3">
+            <label className="block text-gray-700 text-sm font-bold mb-2">              Last Name
             </label>
             <input value={newUser.lastName}
               onChange={handleInput}
@@ -96,24 +103,27 @@ export default function SignUp(props) {
               name="floating_last_name"
               id="lastName"
               placeholder="smith"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" />
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Password
             </label>
             <input
               value={newUser.password}
               onChange={handleInput}
-              type="password"
+              type={hidePassword}
               name="floating_password"
               id="password"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" placeholder="********" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200"
+              placeholder="********" />
           </div>
-          <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+          <div className="text-slate-500 mb-2 ml-4" onClick={(e) => { Toggle(e) }}><img className="w-8 hover:cursor-pointer" src={show} alt="show password eye" /></div>
+
+          <div className="w-full px-3">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Confirm Password
             </label>
             <input
@@ -122,13 +132,13 @@ export default function SignUp(props) {
               type="password"
               name="floating_password"
               id="confirmPassword"
-              className="focus:placeholder-transparent appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" placeholder="********" />
+              className="shadow appearance-none focus:placeholder-transparent appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-200" placeholder="********" />
             <p className="text-red-500 text-xs italic">{validationMessage}</p>
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full 3 px-3 mb-6">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full 3 px-3 mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Email Address
             </label>
             <input
@@ -137,189 +147,17 @@ export default function SignUp(props) {
               type="text"
               id="email"
               name="floating_email"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
+              className="shadow appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:placeholder-transparent focus:outline-none focus:bg-white focus:border-gray-500" placeholder="erickinder@gmail.com" />
           </div>
         </div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">
           Sign Up
         </button>
       </form>
+      <p className="mb-44 mt-4 text-center text-gray-500 text-xs">
+        &copy;2022 LAGA. All rights reserved.
+      </p>
     </div>
   )
+
 }
-
-//     {/* <div className="bg-slate-100 text-slate-600 py-20 h-screen">
-//       <form
-//         onSubmit={handleSubmit}
-//         className="px-10 py-12 mx-5 sm:px-10 sm:py-10 sm:mx-5 bg-slate-200 border-slate300 border rounded-xl md:px-10 md:py-5 md:mx-44 lg:px-20 lg:py-10 lg:mx-66 xl:px-20 xl:py-10 xl:mx-96 ">
-//         <h2 className="text-center font-bold pb-2">Sign up</h2>
-//         <div class="relative z-0 mb-6 w-full group">
-//           <input
-//             value={newUser.userName}
-//             onChange={handleInput}
-//             type="text"
-//             name="username"
-//             id="userName"
-//             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
-//           <label
-//             for="username"
-//             className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
-//         </div>
-//         <div className="grid xl:grid-cols-2 xl:gap-6">
-//           <div className="relative z-0 mb-6 w-full group">
-//             <input value={newUser.firstName}
-//               onChange={handleInput}
-//               type="text"
-//               name="floating_first_name"
-//               id="firstName"
-//               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
-//             <label
-//               for="floating_first_name"
-//               className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
-//           </div>
-//           <div className="relative z-0 mb-6 w-full group">
-//             <input value={newUser.lastName}
-//               onChange={handleInput}
-//               type="text"
-//               name="floating_last_name"
-//               id="lastName"
-//               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
-//             <label
-//               for="floating_last_name"
-//               className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
-//           </div>
-//         </div>
-//         <div className="relative z-0 mb-6 w-full group">
-//           <input
-//             value={newUser.email}
-//             onChange={handleInput}
-//             type="text"
-//             id="email"
-//             name="floating_email"
-//             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
-//           <label
-//             for="floating_email"
-//             className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
-//         </div>
-//         <div className="relative z-0 mb-6 w-full group">
-//           <input
-//             value={newUser.password}
-//             onChange={handleInput}
-//             type="text"
-//             name="floating_password"
-//             id="password"
-//             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer" placeholder=" " required />
-//           <label
-//             for="floating_password"
-//             className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
-//         </div>
-//         <div className="relative z-0 mb-6 w-full group">
-//           <input
-//             value={newUser.confirmPassword}
-//             onChange={handleInput}
-//             type="text"
-//             name="repeat_password"
-//             id="confirmPassword"
-//             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-slate-800  dark:border-gray-600 dark:focus:border-blue-800 focus:outline-none focus:ring-0 focus:border-blue-800 peer"
-//             placeholder=" " required />
-//           <label
-//             for="floating_repeat_password"
-//             className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-800 peer-focus:dark:text-blue-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
-//         </div>
-//         <h3>{validationMessage}</h3>
-
-//         <button
-//           disabled={!valid}
-//           className="text-white bg-blue-800 hover:bg-blue-600 mt-4 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-700 dark:hover:bg-blue-900 dark:hover:cursor-pointer dark:focus:ring-blue-800">
-//           Sign Up</button>
-//       </form>
-//     </div>
-
-//   );
-// } */}
-//   {/* <form className="" onSubmit={handleSubmit}>
-//         <h2 className="text-center font-bold ">Sign up</h2>
-//         <br />
-//         <label >User name</label>
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="create user name"
-//           id="userName"
-//           value={newUser.userName}
-//           onChange={handleInput}
-//           className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-//         />
-//         <br />
-//         <label>Upload avatar</label>
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="avatar link"
-//           id="avatar"
-//           value={newUser.avatar}
-//           onChange={handleInput}
-//           className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-//         />
-//         <br />
-//         <label>First Name</label>
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="first name"
-//           id="firstName"
-//           value={newUser.firstName}
-//           onChange={handleInput}
-//           className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-//         />
-//         <br />
-//         <label>Last Name</label>
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="last name"
-//           id="lastName"
-//           value={newUser.lastName}
-//           onChange={handleInput}
-//           className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-//         />
-//         <br />
-//         <label>Email</label>
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="email"
-//           id="email"
-//           value={newUser.email}
-//           onChange={handleInput}
-//           className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-//         />
-//         <br />
-//         <label>Password</label>
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="create password"
-//           id="password"
-//           value={newUser.password}
-//           onChange={handleInput}
-//           className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-//         />
-//         <br />
-//         <label>Confirm password</label>
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="confirm password"
-//           id="confirmPassword"
-//           value={newUser.confirmPassword}
-//           onChange={handleInput}
-//           className="flex items-center border-b border-blue-900 py-2 text-blue-900"
-//         />
-//         <br />
-//         <h3>{validationMessage}</h3>
-//         <br />
-//         <button className="flex-shrink-0 bg-blue-900 hover:bg-blue-900 border-blue-700 hover:border-blue-900 border-4 text-white py-1 px-2 rounded text-xl" disabled={!valid}>
-//           SIGN UP
-//         </button>
-//       </form> */}
