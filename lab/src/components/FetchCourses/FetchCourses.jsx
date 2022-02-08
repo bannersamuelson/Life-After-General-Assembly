@@ -24,8 +24,7 @@ export default function FetchCourses(props) {
   const handleSubmit = async (e, id) => {
     e.preventDefault();
     newReview.course = id;
-    let res = await createReview(newReview, id);
-    // console.log(res);
+    await createReview(newReview, id);
     GrabReviews();
     setToggle((prevToggle) => !prevToggle);
   };
@@ -37,6 +36,7 @@ export default function FetchCourses(props) {
       [id]: value,
     }));
   };
+
   const handleNumberInput = (e) => {
     const { id, value } = e.target;
     console.log(value);
@@ -44,6 +44,7 @@ export default function FetchCourses(props) {
       alert("rating can't be bigger than 5 or smaller than 0");
       return null;
     }
+
     setNewReview((prevState) => ({
       ...prevState,
       [id]: value,
@@ -64,6 +65,7 @@ export default function FetchCourses(props) {
     Details();
     GrabReviews();
   }, []);
+
   const HandleUpdate = async (e, review) => {
     e.preventDefault();
     // console.log(review, props._id);
@@ -126,7 +128,7 @@ export default function FetchCourses(props) {
             placeholder="0 - 5"
             id="rate"
             value={newReview.rate}
-            onChange={handleInput}
+            onChange={handleNumberInput}
             required
             className="focus:border-slate-300 text-slate-800 pl-2 flex items-center border-b border-slate-300 py-2 rounded focus:border-collapse bg-slate-100"
           />

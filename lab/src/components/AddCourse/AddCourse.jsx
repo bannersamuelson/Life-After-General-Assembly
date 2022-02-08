@@ -15,7 +15,6 @@ export default function AddCourse(props) {
     rate: 0,
   });
 
-
   const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -42,6 +41,18 @@ export default function AddCourse(props) {
     }
   }, []);
 
+  const handleNumberInput = (e) => {
+    const { id, value } = e.target;
+    console.log(value);
+    if (value > 5 || value < 0) {
+      alert("rating can't be bigger than 5 or smaller than 0");
+      return null;
+    }
+    setNewCourse((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
 
   return (
     <div>
@@ -136,13 +147,14 @@ export default function AddCourse(props) {
           <div className="flex flex-wrap -mx-3 mb-2">
             <div className="w-full 3 px-3 mb-6">
               <label className="focus:placeholder-transparent block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                Rating              </label>
+                Rating
+              </label>
               <input
                 type="number"
                 placeholder="rate"
                 id="rate"
                 value={newCourse.rate}
-                onChange={handleInput}
+                onChange={handleNumberInput}
                 required
                 className="flex items-center border p-2 py-2 text-slate-500 w-full"
               />
