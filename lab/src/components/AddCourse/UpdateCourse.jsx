@@ -38,14 +38,14 @@ export default function UpdateCourse(props) {
 
 
   return (
-    <div>
-      <div className="px-14 bg-slate-100 grid justify-items-center py-14">
+    <div className="grid-cols-1 px-14 bg-slate-100 grid justify-items-center py-14">
+      <div >
         <h1 className="text-2xl text-slate-800 font-bold mb-14">Update Course</h1>
         <form onSubmit={handleSubmit} className="w-full max-w-lg">
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3 mb-6">
               <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-                <h1 className="text-slate-400">Author: {props.update.user}</h1>
+
                 <br />
               </label>
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -98,6 +98,7 @@ export default function UpdateCourse(props) {
                 <option>Devops</option>
                 <option>Mobile</option>
                 <option>Database</option>
+                <option>Portfolio</option>
               </select>
             </div>
           </div>
@@ -144,6 +145,7 @@ export default function UpdateCourse(props) {
                 required
                 className="flex items-center border p-2 py-2 text-slate-500 w-full" />
               <br />
+              <h1 className="text-slate-400">Author: {props.update.user}</h1>
             </div>
           </div>
           <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">

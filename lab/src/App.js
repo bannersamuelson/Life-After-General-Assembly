@@ -39,7 +39,7 @@ function App() {
           <Route path="/courses" element={<>
 
             <Courses user={user} setUser={setUser} />
-            <Test user={user} setUser={setUser}
+            <Test user={user} setUser={setUser} />
           </>} />
           <Route path="/:id" element={
             <>
