@@ -75,7 +75,7 @@ const Nav = (props) => {
 
 
       {/* MOBILE NAV */}
-      <nav role="navigation" className="md:hidden bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
+      <nav role="navigation" className="overflow-hiden md:hidden bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
     h-16 border-b flex" onLoad={(e) => { changeStyle(e) }}>
         <NavLink to="/" className="flex active">
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
