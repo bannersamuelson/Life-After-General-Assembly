@@ -91,7 +91,7 @@ export default function FrontEnd(props) {
       </div>
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
+      <div className="mb-44 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
           if (course.types) {
