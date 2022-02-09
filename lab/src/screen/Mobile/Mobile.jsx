@@ -73,6 +73,9 @@ export default function Mobile(props) {
     console.log(res);
     GrabCourse();
   }
+
+  const star = (`${'\u2B50'}`)
+
   return (
     <div className="bg-gradient-to-r from-blue-400 to-blue-600">
       <div className="flex flex-col items-center mb-11">
@@ -93,18 +96,19 @@ export default function Mobile(props) {
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
           if (course.types) {
+
             return <div key={i} className="m-4 transition ease-in-out delay-150 hover:-translate-y-1 bg-slate-100 hover:scale-105 duration-300  hover:cursor-pointer max-w-sm rounded-2xl overflow-hidden shadow-lg">
               <div onClick={(e) => { HandleDetails(e, course._id) }}>
                 <div className="relative overflow-hidden">
                 </div>
                 <div className="px-6 py-4">
                   <h1 className="text-gray-900 text-4xl font-extrabold">{course.title}</h1>
-                  <p className="text-gray-700 text-base">
-                    Description:{course.content}
+                  <p className="py-4 text-gray-700 text-base">
+                    {course.review}
                   </p>
-                  <p className="italic text-gray-700 text-base"> Author course rating - {course.rate}
+                  <p className="text-sm text-gray-700"> {star.repeat(`${course.rate[0]}`)}
                   </p>
-                  <h1 className="text-gray-700 text-base">Author: {course.user === undefined ? "Anonymous" : course.user}</h1>
+                  <h1 className="text-gray-700 text-sm italic">- {course.user === undefined ? "Anonymous" : course.user}</h1>
                 </div>
               </div>
               {(course.user === props?.loginUser?.userName) && course.user !== undefined && <button className="text-slate-900 p-4 hover:text-slate-400" onClick={(e) => { HandleUpdate(e, course._id, course) }}>Update</button>}
