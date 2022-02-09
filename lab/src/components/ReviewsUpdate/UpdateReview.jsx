@@ -44,8 +44,8 @@ export default function UpdateReview(props) {
   const handleNumberInput = (e) => {
     const { id, value } = e.target;
     console.log(value);
-    if (value > 5 || value < 1) {
-      alert("rating must be between 1-5");
+    if (value > 5 || value < 0) {
+      alert("rating must be between 0-5");
       return null;
     }
     setNewReview((prevState) => ({
