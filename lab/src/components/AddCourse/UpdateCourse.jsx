@@ -38,7 +38,7 @@ export default function UpdateCourse(props) {
 
 
   return (
-    <div className="grid-cols-1 px-14 bg-slate-100 grid justify-items-center py-14">
+    <div className="mx-14 p-14 md:mx-14 lg:mx-72 rounded-2xl grid-cols-1 bg-slate-100 grid justify-items-center py-14">
       <div >
         <h1 className="text-2xl text-slate-800 font-bold mb-14">Update Course</h1>
         <form onSubmit={handleSubmit} className="w-full max-w-lg">

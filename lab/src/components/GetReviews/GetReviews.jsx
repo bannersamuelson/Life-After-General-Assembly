@@ -6,7 +6,6 @@ import UpdateCourse from '../../components/AddCourse/UpdateCourse';
 
 
 
-
 export default function GetReviews(props) {
 
   const { user, setUser } = props;
@@ -109,7 +108,7 @@ export default function GetReviews(props) {
       {!props.home && toggle && <>
         <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
         </UpdateCourse>
-        <button className="md:bg-transparent md:hover:p-1 bg-slate-800 hover:bg-slate-800 hover:opacity-100 opacity-75 font-bold text-xl p-3 m-5 rounded" onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
+        <button className="grid gid-cols-1 justify-items-center mx-auto md:bg-transparent md:hover:p-1 bg-slate-800 hover:bg-slate-800 hover:opacity-100 opacity-75 font-bold text-xl p-3 m-5 rounded" onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
       </>
       }
     </div >
