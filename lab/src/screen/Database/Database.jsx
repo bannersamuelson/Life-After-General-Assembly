@@ -74,7 +74,7 @@ export default function DataBase(props) {
     GrabCourse();
   }
   return (
-    <div className="bg-gradient-to-r from-yellow-200 to-yellow-400">
+    <div className="h-screen bg-gradient-to-r from-yellow-200 to-yellow-400">
       <div className="flex flex-col items-center mb-11">
         <div className="flex flex-col items-center">
           <div className="mx-10 flex col items-center md:mx-44 mt-10 md:mt-14">

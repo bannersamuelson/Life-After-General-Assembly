@@ -15,6 +15,7 @@ import Courses from './screen/Courses/Courses'
 import Database from './screen/Database/Database'
 import Mobile from './screen/Mobile/Mobile'
 import Devops from './screen/Devops/Devops'
+import Portfolio from './screen/Portfolio/Portfolio'
 
 
 function App() {
@@ -51,7 +52,10 @@ function App() {
             <BackEnd user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Back-End"}>
             </BackEnd>
           </>} />
-
+          <Route path="/portfolio" element={<>
+            <Portfolio user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Portfolio"}>
+            </Portfolio>
+          </>} />
           <Route path="/database" element={<>
             <Database user={user} setUser={setUser} loginUser={loginUser} setLoginUser={setLoginUser} types={"Database"}>
             </Database>

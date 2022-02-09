@@ -110,6 +110,7 @@ export default function AddCourse(props) {
                 <option>Devops</option>
                 <option>Mobile</option>
                 <option>Database</option>
+                <option>Portfolio</option>
               </select>
             </div>
           </div>

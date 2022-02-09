@@ -9,8 +9,8 @@ import port from '../../images/portfolio.png'
 
 
 export default function Courses() {
-  return <div>
-    <div className="pb-44 w-full bg-gradient-to-r from-blue-800 to-blue-900">
+  return <div className="h-screen">
+    <div className=" pb-44 w-full bg-gradient-to-r from-blue-800 to-blue-900">
 
       <h1 className="flex flex-col justify-center items-center pt-14 
       text-5xl md:text-8xl text-extrabold text-extrabold text-slate-200">Browse Courses</h1>
@@ -67,7 +67,7 @@ export default function Courses() {
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>
-          <Link to='/:6203d3d81559f111abbe277c' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
+          <Link to='/portfolio' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
            hover:bg-gradient-to-r from-yellow-400 to-yellow-600 bg-slate-100 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
             <div className="mb-8">
               <img className="object-center object-cover rounded-full h-36 w-36" src={port} alt="phone" />
