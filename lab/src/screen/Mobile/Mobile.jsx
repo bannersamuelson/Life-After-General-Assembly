@@ -92,7 +92,7 @@ export default function Mobile(props) {
         </div >
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">
+      <div className="pb-44 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 shadow hover:text-slate-100 lg:px-0 gap-4">
         {!courses && <h1>Loading Courses</h1>}
         {!props.home && !toggle && filtered && filtered.map((course, i) => {
           if (course.types) {

@@ -113,6 +113,5 @@ export default function GetReviews(props) {
       </>
       }
     </div >
-
   )
 }
