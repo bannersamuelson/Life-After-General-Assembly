@@ -101,7 +101,7 @@ export default function FrontEnd(props) {
                 <div className="relative overflow-hidden">
                 </div>
                 <div className="px-6 py-4">
-                  <h1 className="text-gray-900 text-4xl font-extrabold">{course.title}</h1>
+                  <h1 className="text-gray-900  text-4xl font-extrabold">{course.title}</h1>
                   <p className="py-4 text-gray-700 text-base">
                     {course.review}
                   </p>
@@ -119,11 +119,12 @@ export default function FrontEnd(props) {
         })}
       </div >
 
-      {!props.home && toggle && <>
-        <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
-        </UpdateCourse>
-        <button className="bg-transparent md:hover:p-1 hover text-slate-800 hover:opacity-100 opacity-75 font-bold text-xl p-3 m-5 rounded" onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
-      </>
+      {
+        !props.home && toggle && <>
+          <UpdateCourse {...props.loginUser} {...props} update={update} setUpdate={setUpdate} setToggle={setToggle} GrabCourse={GrabCourse}>
+          </UpdateCourse>
+          <button className="bg-transparent md:hover:p-1 hover text-slate-800 hover:opacity-100 opacity-75 font-bold text-xl p-3 m-5 rounded" onClick={(e) => { e.preventDefault(); setToggle(false); }}>Go back</button>
+        </>
       }
     </div >
   )
