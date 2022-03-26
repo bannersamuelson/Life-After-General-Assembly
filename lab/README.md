@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+Life After General Assembly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+L.A.G.A is a website for finding full-stuck materials. This web application will be a great ressource for bootcamp graduates and developers alikes who are looking to futher their knowledge. People who come to the webiste will be able to navigate thru a list of courses and see comments about specific courses from the existing users who have signed up. Evey course will be categorized accordingly. In order to leave comments or add a new course, one will need log in/sign up.
 
-In the project directory, you can run:
+## API and Data Sample
 
-### `npm start`
+https://secret-mesa-13283.herokuapp.com/api
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+data: [
+{
+_id: "61fbf4fe84cee72d5207e01e",
+user: "banner",
+title: "CodeWars.com",
+review: "Join a clan now! Best way to learn 9/10",
+rate: [
+"9"
+]
+},
+{
+_id: "6201389a6c70f603f59f044d",
+user: "TEST",
+title: "A title appears",
+types: "Back-End",
+review: "decent",
+rate: [
+"10"
+]
+},
+{
+_id: "620195a1f58574b05187ccf6",
+user: "Banner",
+title: "mongodb",
+types: "Front-End",
+review: "Good website for this shit",
+rate: [
+"10"
+]
+},
+{
+_id: "6201a47fd55a40ad416420db",
+user: "Leland",
+title: "A new title Appears",
+types: "",
+review: "not that good",
+rate: [
+"8"
+]
+},
+{
+_id: "6201b4b86706bf2d9436b2b5",
+user: "Leland",
+title: "rooting",
+types: "",
+review: "rooote",
+rate: [
+"5"
+]
+},
+{
+_id: "6201b5a36706bf2d9436b2da",
+user: "Leland",
+title: "jksldjh",
+types: "Front-End",
+review: "bij",
+rate: [
+"6"
+]
+},
+{
+_id: "62021333afd91398a4fa0e0b",
+user: "banner",
+title: "tailwindcss",
+types: "Front-End",
+review: "Great to use. user-friendly and allows the user to never have to leave the page.",
+rate: [
+"5"
+]
+},
+{
+_id: "62027b9d1543ded690dffecb",
+user: "GalinaKKK",
+title: "MongoDB",
+types: "Back-End",
+review: "very helpfull",
+rate: [
+"10"
+]
+},
+{
+_id: "620285e30320cf5aa36aa484",
+user: "banner",
+title: "Tailwind TEST",
+types: "Front-End",
+review: "fantastic.",
+rate: [
+"7"
+]
+}
+]
+}
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Component Hierarchy
 
-### `npm test`
+![webimage](https://i.imgur.com/aGimmvr.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Wireframes
 
-### `npm run build`
+![webimage](https://i.imgur.com/OY2irVV.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### MVP
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Tailwind styling
+Svg/ animated buttons
+Medi queries for desktop and mobile devices
+Hamburger Menu
+C.R.U.D. for reviews
+C.R.U.D. for courses
+Footer
+User Authorization
+sign up
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### PostMVP
 
-### `npm run eject`
+C.R.U.D. for comments
+Average rating for courses
+Add videos
+Auth for update/delete reviews
+Auth for update/delete courses
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Schedule
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Day     | Deliverable                                                           | Status    |
+| ------- | --------------------------------------------------------------------- | --------- |
+| Feb 1   | Prompt / Wireframes / Priority Matrix / Timeframes / Project Approval | Completed |
+| Feb 2   | Core Application Structure (React components, Backend set up and etc) | Completed |
+| Feb 3   | Api calling with axios to backend, Basic Styling done                 | Completed |
+| Feb 4   | Full C.R.U.D. with courses and Reviews,Initial Clickable Model        | Completed |
+| Feb 5-6 | MVP                                                                   | Completed |
+| Feb 7   | Post-MVP                                                              | Completed |
+| Feb 8   | Presentations                                                         |           |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Timeframes
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Component                               | Priority | Estimated Time | Time Invested |
+| --------------------------------------- | :------: | :------------: | :-----------: |
+| Back&Front-end Routes                   |    H     |     5 hrs      |     9hrs      |
+| MongoDB connection                      |    H     |     2 hrs      |     6hrs      |
+| MongoDB C.R.U.D.                        |    H     |     3 hrs      |     6hrs      |
+| Schema for Course and Reviews           |    M     |     1 hrs      |     2hrs      |
+| MongoDB consumption passed to Front-end |    H     |     4 hrs      |     8hrs      |
+| Review and liking system                |    M     |      6hrs      |     10hrs     |
+| Tailwinds                               |    L     |    3.5 hrs     |     8hrs      |
+| Deployment                              |    H     |      4hrs      |     4hrs      |
+| Debugging                               |    M     |      4hrs      |     7hrs      |
+| More Styling                            |    L     |     5 hrs      |     9hrs      |
+| Polishing and adjustment                |    M     |      4hrs      |     5hrs      |
+| Total                                   |    H     |    35.5 hrs    |     74hrs     |
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## SWOT Analysis
