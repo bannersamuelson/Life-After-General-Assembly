@@ -39,13 +39,14 @@ export default function AddCourse(props) {
       alert("login");
       navigation("/");
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleNumberInput = (e) => {
     const { id, value } = e.target;
     console.log(value);
     if (value > 5 || value < 0) {
-      alert("rating can't be bigger than 5 or smaller than 0");
+      alert("rating must be between 0-5");
       return null;
     }
     setNewCourse((prevState) => ({
@@ -109,6 +110,7 @@ export default function AddCourse(props) {
                 <option>Devops</option>
                 <option>Mobile</option>
                 <option>Database</option>
+                <option>Portfolio</option>
               </select>
             </div>
           </div>

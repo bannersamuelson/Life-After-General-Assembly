@@ -5,15 +5,10 @@ import './Nav.css'
 
 const Nav = (props) => {
 
-  const [navbarOpen, setNavbarOpen] = useState(false)
-  const [isActive, setActive] = useState(false);
   const [inputStyle, setInputStyle] = useState("");
-  console.log(navbarOpen)
 
-  const handleToggle = () => {
-    setNavbarOpen(prevToggle => !prevToggle)
-    setActive(!isActive);
-  }
+  console.log(inputStyle)
+
 
   const navigate = useNavigate();
   const handleLogout = (e) => {
@@ -65,7 +60,7 @@ const Nav = (props) => {
         <div className="flex justify-between">
           <NavLink to="/" className="flex active">
             <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />
-            <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">L.A.G.A</span>
+            <span className="self-center text-lg font-bold whitespace-nowrap dark:text-white">Life After General Assembly</span>
           </NavLink>
           <div className="hidden w-full md:flex md:justify-between items-center md:content-end md:w-auto md:order-1">
             <ul className="text-2xl flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium">
@@ -80,7 +75,7 @@ const Nav = (props) => {
 
 
       {/* MOBILE NAV */}
-      <nav role="navigation" className="md:hidden bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
+      <nav role="navigation" className="overflow-hiden md:hidden bg-gray-800  text-gray-50 border-gray-800 px-2 sm:px-4 py-2.5
     h-16 border-b flex" onLoad={(e) => { changeStyle(e) }}>
         <NavLink to="/" className="flex active">
           <img className="mr-3 h-10" viewBox="0 0 52 72" alt="logo" src={img} />

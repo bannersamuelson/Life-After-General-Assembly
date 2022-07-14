@@ -1,16 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse, updateCourse, addCourse } from "../services/apiconfig"
+import { getAllUsers, fetchAllCourses, getAllReviews, deleteCourse } from "../services/apiconfig"
 import { useParams, useNavigate } from 'react-router-dom';
 import img from '../images/code.png'
 import UpdateCourse from '../components/AddCourse/UpdateCourse';
 
 export default function Test(props) {
+  // eslint-disable-next-line
   const { user, setUser } = props;
   let slug = useParams();
   let nav = useNavigate();
   const [courses, setCourse] = useState([]);
   const [filtered, setFiltered] = useState();
+  // eslint-disable-next-line
   const [reviews, setReviews] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [update, setUpdate] = useState();
@@ -34,9 +36,10 @@ export default function Test(props) {
     GrabUsers();
     GrabReviews();
     setToggle(false);
-    console.log(user);
-    console.log(courses);
-    console.log(reviews);
+    // console.log(user);
+    // console.log(courses);
+    // console.log(reviews);
+    // eslint-disable-next-line
   }, []);
 
 
@@ -44,6 +47,7 @@ export default function Test(props) {
     if (courses) {
       setFiltered(courses.filter(course => course.types === props.types));
     }
+    // eslint-disable-next-line
   }, [courses, slug]);
 
   const HandleDetails = (e, id) => {
@@ -64,8 +68,8 @@ export default function Test(props) {
   const HandleDelete = async (e, id) => {
     e.preventDefault();
     console.log(id);
-    let res = await deleteCourse(id);
-    console.log(res);
+    await deleteCourse(id);
+    // console.log(res);
     GrabCourse();
   }
   return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center mx-5 drop-shadow-2xl m-2">

@@ -5,6 +5,7 @@ import phoneImg from '../../images/phone.png'
 import dataImg from '../../images/yellow.png'
 import devops from '../../images/devops.png'
 import backend from '../../images/backend.png'
+import port from '../../images/portfolio.png'
 
 
 export default function Courses() {
@@ -66,9 +67,20 @@ export default function Courses() {
               <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
             </div>
           </Link>
+          <Link to='/portfolio' className="group w-full transition ease-in-out delay-150 hover:cursor-pointer  hover:text-slate-100 hover:-translate-y-1 hover:scale-105 duration-300
+           hover:bg-gradient-to-r from-yellow-400 to-yellow-600 bg-slate-100 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+            <div className="mb-8">
+              <img className="object-center object-cover rounded-full h-36 w-36" src={port} alt="phone" />
+            </div>
+            <div className="text-center">
+              <h1 className="text-2xl text-slate-800 font-bold mb-2">PORTFOLIO LINKS</h1>
+              <p className="text-sm  text-sky-500 hover:text-extrabold group-hover:text-white group-hover:text-extrabold">Learn More</p>
+            </div>
+          </Link>
 
         </div>
       </section>
     </div>
   </div >
 }
+// https://silly-kowalevski-1591fc.netlify.app/:6203d3d81559f111abbe277c
